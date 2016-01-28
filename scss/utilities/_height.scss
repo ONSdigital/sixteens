@@ -5,6 +5,10 @@
             @include breakpoint(sm) {
                 &-sm--#{$i} {
                     height: ($baseline * $i) !important;
+
+                    &-ellipsis {
+                        @include multiline-ellipsis(($baseline * $i), $col);
+                    }
                 }
             }
         }
@@ -12,6 +16,10 @@
             @include breakpoint(md) {
                 &-md--#{$i} {
                     height: ($baseline * $i) !important;
+
+                    &-ellipsis {
+                        @include multiline-ellipsis(($baseline * $i), $col);
+                    }
                 }
             }
         }
@@ -19,12 +27,20 @@
             @include breakpoint(lg) {
                 &-lg--#{$i} {
                     height: ($baseline * $i) !important;
+
+                    &-ellipsis {
+                        @include multiline-ellipsis(($baseline * $i), $col);
+                    }
                 }
             }
         }
-        @for $i from 0 through 50 { //
+        @for $i from 0 through 50 {
             &--#{$i} {
                 height: ($baseline * $i) !important;
+
+                &-ellipsis {
+                    @include multiline-ellipsis(($baseline * $i), $col);
+                }
             }
         }
     }

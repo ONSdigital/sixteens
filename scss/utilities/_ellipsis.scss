@@ -1,7 +1,7 @@
 //_ellipsis.scss
 
 // Pure css multi line ellipsis: http://www.mobify.com/blog/multiline-ellipsis-in-pure-css/
-@mixin multiline-ellipsis($height, $ellipsistextindent, $ellipsiscolour) {
+@mixin multiline-ellipsis($height, $ellipsistextindent) {
 
 	$ellipsiswidth: 100% !default;
 
@@ -34,7 +34,7 @@
 		padding-bottom: 24px;
 		text-align: left;
 		text-indent: $ellipsistextindent;
-		background: $ellipsiscolour;
+		background: inherit;
 		line-height: 8px;
 	}
 

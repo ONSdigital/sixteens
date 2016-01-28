@@ -47,7 +47,8 @@ button {
         }
 
         &--disabled,
-        &--disabled:hover {
+        &--disabled:hover,
+        &--disabled:focus {
             color: $abbey;
             background-color: $iron;
             cursor: default;
@@ -155,7 +156,8 @@ button {
         background-color: transparent;
         text-align: left;
 
-        &:hover {
+        &:hover,
+        &:focus {
             text-decoration: underline;
         }
 
@@ -176,11 +178,21 @@ button {
 
     }
 
+    legend {
+        padding: 6px 0 10px 0;
+    }
+
     input {
         //display: none; //breaks keyboard tabbing/focus
         height: 0px;
         width: 0px;
         position: absolute;
         left: -100px;
+    }
+
+    &--active {
+        legend {
+            text-decoration: underline;
+        }
     }
 }

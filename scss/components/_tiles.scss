@@ -416,7 +416,7 @@
 		&--nav-type {}
 		&--nav-type-fixed {
 			padding: 0;
-			@include multiline-ellipsis(248px, $col, $mercury);
+			@include multiline-ellipsis(248px, $col);
 
 			&-hover {
 
@@ -846,19 +846,6 @@
 				height: 100%;
 			}
 
-			.sparkline-holder, .image-holder {
-				position: absolute;
-				top: 0;
-				left: 0;
-				overflow: hidden;
-
-				img {
-					width: 100%;
-					height: auto;
-				}
-
-			}
-
 			.sparkline-holder {
 				height: 192px;
 				width: 100%;
@@ -866,15 +853,52 @@
 
 			}
 
-			dd,
-			dt {
-				display: block;
-			}
+            .sparkline-holder, .image-holder {
+                position: absolute;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    max-height: 100%;
+                }
+
+            }
+
+            dd,
+            dt {
+                display: block;
+            }
 
 
-		}
+        }
+
 
 	}
+
+    &__timeseries {
+        border: 1px solid $iron-light;
+    }
+
+    &__image {
+        position: relative;
+
+        .image-holder {
+            border: 1px solid $iron-light;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
 
     &__clickable {
         position: absolute;

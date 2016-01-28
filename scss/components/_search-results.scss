@@ -26,6 +26,11 @@
 
     &-results {
 
+        &__headline {
+            overflow: auto;
+            margin-bottom: ($baseline * 2);
+        }
+
         &__item {
             margin: 0 0 ($baseline * 4) 0;
 

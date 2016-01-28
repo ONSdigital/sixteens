@@ -58,4 +58,25 @@ function showHide(remove) {
     }
 }
 
-showHide();
+// Checks if show/hide is open and sets to show if not doing so already
+function forceShow(showHideElem) {
+    showHideElem.find('.js-show-hide__title button').attr('aria-expanded', 'true');
+    showHideElem.find('.js-show-hide__content').attr('aria-hidden', 'false');
+}
+
+$(function() {
+    // Initalise show/hides on page
+    showHide();
+
+    // If page has hash in path open show/hide
+    var locationHash = location.hash;
+    if (locationHash) {
+        forceShow($(locationHash));
+    }
+
+    // If an anchor with a hash href attribute is clicked check show/hide needs to be opened
+    $('a[href^="#"]').click(function() {
+        var sectionId = $($(this).attr('href'));
+        forceShow(sectionId);
+    });
+});

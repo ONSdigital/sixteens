@@ -118,10 +118,12 @@
 			padding: 7px $baseline*2 8px $baseline*2;
 			border-left: 1px solid $thunder;
 			height: $baseline * 11;
+			font-size: 13px; // smaller font on medium for retina screens
 		}
 
 		@include breakpoint(lg) {
 			height: $baseline * 8;
+			font-size: 14px;
 		}
 
 

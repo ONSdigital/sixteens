@@ -762,3 +762,23 @@ $('.dlCustomData').submit(function(){
   return true;
 
 });
+
+function filterFocus(){
+	var $filters = $('.timeseries__filters input[type="radio"]'),
+		$radioGroup,
+		activeClass = 'btn-group--active';
+
+	$filters.on('keyup', function(e) {
+		$radioGroup = $(this).closest('fieldset');
+		$radioGroup.addClass(activeClass); // Bug - this should add activeClass repeatedly, but btns are currently removed and replaced in DOM on each change. If this bug gets fixed we might need to update this function.
+		$filters.on('keydown', function() {
+			if (e.keyCode == '9') {
+				$radioGroup.removeClass(activeClass);
+			}
+		});
+		$filters.on('focusout', function() {
+			$radioGroup.removeClass(activeClass);
+		});
+	});
+}
+filterFocus();
