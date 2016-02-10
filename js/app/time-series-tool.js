@@ -304,7 +304,8 @@ var timeseriesTool = (function() {
     function setCookie(name, value) {
         Cookies.set(name, value, {
             expires: (10 * 365),
-            path: ''
+            path: '',
+            secure: document.secureCookies != false
         });
     }
 

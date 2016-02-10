@@ -11,19 +11,24 @@
 
 
 $sprite: '../img/icon-sprite.png?#{$builddatetime}';
+$png: '../img/icon-sprite.png?#{$builddatetime}';
+$svg: '../img/icon-sprite.svg?#{$builddatetime}';
+
 
 // Don't show icons on print - stops conflicts with print :after for links too
 @media screen {
     .icon {
         display: inline-block;
-        background:url($sprite) no-repeat;
+        background:url($png) no-repeat;
+        background:url($svg) no-repeat;
+        background-size: 300px 1000px;
         height: 32px;
         width: 32px;
 
         &-arrow-up {
 
             &--dark {
-                background-position: -144px -10px;
+                background-position: -16px -10px;
 
                 &-small {
                     @include small-icon(-16px, -2px);
@@ -31,7 +36,7 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
             }
 
             &--light {
-                background-position: -208px -10px;
+                background-position: -80px -10px;
 
                 &-small {
                     @include small-icon(-80px, -2px);
@@ -43,7 +48,7 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
         &-arrow-down {
 
             &--dark {
-                background-position: -144px -44px;
+                background-position: -16px -44px;
 
                 &-small {
                     @include small-icon(-16px, -34px);
@@ -51,7 +56,7 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
             }
 
             &--light {
-                background-position: -208px -44px;
+                background-position: -80px -44px;
 
                 &-small {
                     @include small-icon(-80px, -34px);
@@ -206,13 +211,13 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
 
             &--dark {
                 background-position: -14px -609px;
-                height: 40px;
+                height: 33px;
                 width: 40px;
 
                 &-small {
-                    height: 40px;
+                    height: 33px;
                     width: 40px;
-                    @include small-icon(-14px, -610px);
+                    @include small-icon(-14px, -617px);
                 }
             }
 
@@ -228,6 +233,12 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
             background-position: -15px -679px;
             width: 35px;
             height: 35px;
+
+            &--info-box {
+                position: absolute;
+                left: $col;
+                top: 22px;
+            }
 
 
             // specific class to all previous versions text to appear along side on grid

@@ -7,7 +7,8 @@
     display: inline;
     position: absolute;
 
-    &:hover:before{
+    &:hover:before,
+    &:focus:before {
         border: solid;
         border-color: $abbey transparent;
         border-width: 6px 6px 0 6px;
@@ -18,7 +19,8 @@
         z-index: 99;
     }
 
-    &:hover:after{
+    &:hover:after,
+    &:focus:after{
         background: $abbey;
         bottom: 26px;
         color: $iron;

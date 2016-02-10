@@ -52,15 +52,15 @@ var renderLineChart = function(timeseries) {
 	}
 
 
-	function getLinechartConfig(){
+	function getLinechartConfig() {
 		var chartConfig;
-		 $.getJSON(timeseries.uri + 'linechartconfig', function(config) {
-            // console.log("Successfuly read timseries data");
-            chartConfig = config; //Global variable
-        }).fail(function(d, textStatus, error) {
-            // console.error("Failed reading timseries, status: " + textStatus + ", error: " + error)
-        });
-        return chartConfig;
+		$.getJSON(timeseries.uri + 'linechartconfig', function(config) {
+			// console.log("Successfuly read timseries data");
+			chartConfig = config; //Global variable
+		}).fail(function(d, textStatus, error) {
+			// console.error("Failed reading timseries, status: " + textStatus + ", error: " + error)
+		});
+		return chartConfig;
 	}
 
 
@@ -145,7 +145,10 @@ var renderLineChart = function(timeseries) {
 
 		for (i = 0; i < currentData.values.length; i++) {
 			current = currentData.values[i];
-			sortArray.push({'date' : current.name, 'value' : current.y});
+			sortArray.push({
+				'date': current.name,
+				'value': current.y
+			});
 			tr = $(document.createElement('tr')).addClass('table__row');
 			tbody.append(tr);
 			tr.append('<td class="table__data">' + current.name + '</td>');
@@ -160,7 +163,7 @@ var renderLineChart = function(timeseries) {
 		//console.log(currentData);
 		chart.series[0].data = currentData.values;
 		chart.xAxis.tickInterval = tickInterval(currentData.values.length);
-		if(!timeseries.description.isIndex) {
+		if (!timeseries.description.isIndex) {
 			var min = currentData.min;
 			if (min < 0) {
 				min = min - 1;
@@ -242,7 +245,11 @@ var renderLineChart = function(timeseries) {
 
 		timeseriesValue.y = isNotEmpty(timeseriesValue.value) ? (+timeseriesValue.value) : null; //Cast to number
 		timeseriesValue.value = +(year + (quarter ? quarterVal(quarter) : '') + (month ? monthVal(month) : ''));
-		timeseriesValue.name = timeseriesValue.date; //Appears on x axis
+		if (typeof timeseriesValue.label !== 'undefined' && timeseriesValue.label) {
+			timeseriesValue.name = timeseriesValue.label; //Appears on x axis
+		} else {
+			timeseriesValue.name = timeseriesValue.date; //Appears on x axis
+		}
 		delete timeseriesValue.date;
 
 		return timeseriesValue;
@@ -461,7 +468,7 @@ var renderLineChart = function(timeseries) {
 				// Changes the title above chart/table
 				// Capitalise the first character
 				displayTitle = currentDisplay[0].toUpperCase() + currentDisplay.slice(1);
-				$('#title-type').text(displayTitle );
+				$('#title-type').text(displayTitle);
 
 
 				//Bind click event handlebars to table headings
@@ -634,24 +641,24 @@ var renderLineChart = function(timeseries) {
 
 			// $('.chart-area__controls__custom').hasClass('chart-area__controls__custom--active')
 
-			selectedElement.each(function(index){
+			selectedElement.each(function(index) {
 				var selectedElementDataAttr = $(this).attr('data-chart-control-custom-trigger-for');
 
 
 
-				if ($(this).attr('data-chart-controls-range')){
+				if ($(this).attr('data-chart-controls-range')) {
 					devNote = "time period not custom";
-					if($('.chart-area__controls__custom').hasClass('chart-area__controls__custom--active')){
+					if ($('.chart-area__controls__custom').hasClass('chart-area__controls__custom--active')) {
 						toggleTheCollapsible = true;
 					}
 					// toggleTheCollapsible = true;
-				} else if ($(this).attr('data-chart-control-custom-trigger-for')){
+				} else if ($(this).attr('data-chart-control-custom-trigger-for')) {
 					devNote = "is custom";
 					toggleTheCollapsible = false;
-				}else{
+				} else {
 					devNote = "not time period, not custom";
 					// if($('.chart-area__controls__custom').hasClass('chart-area__controls__custom--active')){
-						toggleTheCollapsible = false;
+					toggleTheCollapsible = false;
 					// }
 				}
 
@@ -668,8 +675,8 @@ var renderLineChart = function(timeseries) {
 			});
 			// console.log(devNote);
 			if (toggleTheCollapsible) {
-					toggleCollapsible();
-				}
+				toggleCollapsible();
+			}
 
 
 			// if(!selectedElement.attr('data-chart-control-custom-trigger-for')){
@@ -681,7 +688,6 @@ var renderLineChart = function(timeseries) {
 			// }
 			// console.log(selectedElement.attr('data-chart-control-custom-trigger-for'));
 			// console.log(selectedElement);
-
 
 
 
@@ -708,62 +714,132 @@ var renderLineChart = function(timeseries) {
 };
 
 function removeHiddenInputs() {
-	$( "input[name='fromMonth']" ).remove();
-	$( "input[name='fromQuarter']" ).remove();
-	$( "input[name='fromYear']" ).remove();
-	$( "input[name='toMonth']" ).remove();
-	$( "input[name='toQuarter']" ).remove();
-	$( "input[name='toYear']" ).remove();
-	$( "input[name='frequency']" ).remove();
+	$("input[name='fromMonth']").remove();
+	$("input[name='fromQuarter']").remove();
+	$("input[name='fromYear']").remove();
+	$("input[name='toMonth']").remove();
+	$("input[name='toQuarter']").remove();
+	$("input[name='toYear']").remove();
+	$("input[name='frequency']").remove();
 }
 
-$('.dlCustomData').submit(function(){
 
-	selectedFrequency = $( ".btn--secondary--active.frequency-select .frequency").val();
-	selectedFrequency = selectedFrequency.trim();
+$(function() {
+	// Store default hrefs of download links
+	var currentHrefs = [],
+		$downloadLinks = $('.dlCustomData');
 
-	//Grab all the custom date values
-	fromYear = $('[data-chart-controls-from-year]').val();
-	fromQuarter = $('[data-chart-controls-from-quarter]').val();
-	fromMonth = $('[data-chart-controls-from-month]').val();
-	toYear = $('[data-chart-controls-to-year]').val();
-	toQuarter = $('[data-chart-controls-to-quarter]').val();
-	toMonth = $('[data-chart-controls-to-month]').val();
+	$downloadLinks.each(function() {
+		currentHrefs.push(String($(this).attr('href')));
+	});
 
-	
-	switch (selectedFrequency) {
-		case 'months':
-			// create a string to input hidden values to POST
-			str = '<input type="hidden" name="fromMonth" value="'+fromMonth+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toMonth" value="'+toMonth+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="months"/>';
-			// remove any previous custom date hidden inputs
-			removeHiddenInputs();
-			// append the inputs to end of form
-			$(this).append(str);
-			break;
 
-		case 'quarters':
-			// create a string to input hidden values to POST
-			str = '<input type="hidden" name="fromQuarter" value="Q'+fromQuarter+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toQuarter" value="Q'+toQuarter+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="quarters"/>';
-			// remove any previous custom date hidden inputs
-			removeHiddenInputs();
-			// append the inputs to end of form
-			$(this).append(str);
-			break;
+	$downloadLinks.on('keydown mousedown', function() {
 
-		case 'years':
-			// create a string to input hidden values to POST
-			str = '<input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="years"/>';
-			// remove any previous custom date hidden inputs
-			removeHiddenInputs();
-			// append the inputs to end of form
-			$(this).append(str);
-			break;
-	}
-  return true;
+		//Grab all the custom date values
+		var fromYear = $('[data-chart-controls-from-year]').val(),
+			fromQuarter = $('[data-chart-controls-from-quarter]').val(),
+			fromMonth = $('[data-chart-controls-from-month]').val(),
+			toYear = $('[data-chart-controls-to-year]').val(),
+			toQuarter = $('[data-chart-controls-to-quarter]').val(),
+			toMonth = $('[data-chart-controls-to-month]').val();
 
+		// Update each link with new href
+		$('.dlCustomData').each(function(i) {
+
+			selectedFrequency = $(".btn--secondary--active.frequency-select .frequency").val();
+			selectedFrequency = selectedFrequency.trim();
+
+			var $this = $(this),
+				currentHref = currentHrefs[i],
+				hrefHasParams = currentHref.indexOf('?') > -1,
+				updatedHref;
+
+			// Add '&' or '?' to end of current URL, depending on whether it already has parameters
+			if (hrefHasParams) {
+				currentHref = currentHref + '&';
+			} else {
+				currentHref = currentHref + '?';
+			}
+
+			switch (selectedFrequency) {
+				case 'months':
+					// Build up new href for clicked anchor
+					updatedHref = currentHref + 'series=' + '&fromMonth=' + fromMonth + '&fromYear=' + fromYear + '&toMonth=' + toMonth + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
+					// Replace anchor href with new URL
+					$this.attr('href', updatedHref);
+
+					break;
+
+				case 'quarters':
+					// Build up new href for clicked anchor
+					updatedHref = currentHref + 'series=' + '&fromQuarter=Q' + fromQuarter + '&fromYear=' + fromYear + '&toQuarter=Q' + toQuarter + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
+					// Replace anchor href with new URL
+					$this.attr('href', updatedHref);
+
+					break;
+
+				case 'years':
+					// Build up new href for clicked anchor
+					updatedHref = currentHref + 'series=' + '&fromYear=' + fromYear + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
+					// Replace anchor href with new URL
+					$this.attr('href', updatedHref);
+
+					break;
+			}
+			return true;
+		});
+	});
 });
 
-function filterFocus(){
+
+// $('.dlCustomData').submit(function(){
+
+// 	selectedFrequency = $( ".btn--secondary--active.frequency-select .frequency").val();
+// 	selectedFrequency = selectedFrequency.trim();
+
+// 	//Grab all the custom date values
+// 	fromYear = $('[data-chart-controls-from-year]').val();
+// 	fromQuarter = $('[data-chart-controls-from-quarter]').val();
+// 	fromMonth = $('[data-chart-controls-from-month]').val();
+// 	toYear = $('[data-chart-controls-to-year]').val();
+// 	toQuarter = $('[data-chart-controls-to-quarter]').val();
+// 	toMonth = $('[data-chart-controls-to-month]').val();
+
+
+// 	switch (selectedFrequency) {
+// 		case 'months':
+// 			// create a string to input hidden values to POST
+// 			str = '<input type="hidden" name="fromMonth" value="'+fromMonth+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toMonth" value="'+toMonth+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="months"/>';
+// 			// remove any previous custom date hidden inputs
+// 			removeHiddenInputs();
+// 			// append the inputs to end of form
+// 			$(this).append(str);
+// 			break;
+
+// 		case 'quarters':
+// 			// create a string to input hidden values to POST
+// 			str = '<input type="hidden" name="fromQuarter" value="Q'+fromQuarter+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toQuarter" value="Q'+toQuarter+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="quarters"/>';
+// 			// remove any previous custom date hidden inputs
+// 			removeHiddenInputs();
+// 			// append the inputs to end of form
+// 			$(this).append(str);
+// 			break;
+
+// 		case 'years':
+// 			// create a string to input hidden values to POST
+// 			str = '<input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="years"/>';
+// 			// remove any previous custom date hidden inputs
+// 			removeHiddenInputs();
+// 			// append the inputs to end of form
+// 			$(this).append(str);
+// 			break;
+// 	}
+//   return true;
+
+// });
+
+function filterFocus() {
 	var $filters = $('.timeseries__filters input[type="radio"]'),
 		$radioGroup,
 		activeClass = 'btn-group--active';

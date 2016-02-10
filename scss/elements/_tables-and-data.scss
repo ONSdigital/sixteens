@@ -2,6 +2,7 @@
 table {
 	min-width: 100%;
 	border-spacing: 0;
+	border-collapse: collapse;
 }
 
 dl {
@@ -15,8 +16,12 @@ dd {
 // Time series data table
 .table-advanced {
 
+	display: table;
 	border-collapse: collapse;
 	background-color: white;
+	border-bottom: 1px solid $iron;
+	border-left: 1px solid $iron;
+	border-right: 1px solid $iron;
 
 	th {
 		text-align: left;
@@ -44,7 +49,7 @@ dd {
 	tbody {
 
 		td {
-			padding: 6px 0 10px $col;
+			padding: 7px 0 9px $col;
 			vertical-align: baseline;
 		}
 
@@ -54,7 +59,7 @@ dd {
 
 		tr {
 
-			height: $baseline * 4;
+			//height: $baseline * 4;
 
 			&:hover,
 			&:focus {
