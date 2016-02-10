@@ -6,74 +6,74 @@
 			&-top--#{$colour} {
 				@include breakpoint(lg) {
 					&-lg {
-						border-top: 1px solid $colourcode;
-						margin-top: -1px;
+						border-top: 1px solid $colourcode !important;
+						margin-top: -1px !important;
 					}
 				}
 				@include breakpoint(md) {
 					&-md {
-						border-top: 1px solid $colourcode;
-						margin-top: -1px;
+						border-top: 1px solid $colourcode !important;
+						margin-top: -1px !important;
 					}
 				}
 				@include breakpoint(sm) {
 					&-sm {
-						border-top: 1px solid $colourcode;
-						margin-top: -1px;
+						border-top: 1px solid $colourcode !important;
+						margin-top: -1px !important;
 					}
 				}
 			}
 			&-bottom--#{$colour} {
 				@include breakpoint(lg) {
 					&-lg {
-						border-bottom: 1px solid $colourcode;
-						margin-top: -1px;
+						border-bottom: 1px solid $colourcode !important;
+						margin-bottom: -1px !important;
 					}
 				}
 				@include breakpoint(md) {
 					&-md {
-						border-bottom: 1px solid $colourcode;
-						margin-top: -1px;
+						border-bottom: 1px solid $colourcode !important;
+						margin-bottom: -1px !important;
 					}
 				}
 				@include breakpoint(sm) {
 					&-sm {
-						border-bottom: 1px solid $colourcode;
-						margin-top: -1px;
+						border-bottom: 1px solid $colourcode !important;
+						margin-bottom: -1px !important;
 					}
 				}
 			}
 			&-left--#{$colour} {
 				 @include breakpoint(lg) {
 					 &-lg {
-						 border-left: 1px solid $colourcode;
+						 border-left: 1px solid $colourcode !important;
 					 }
 				 }
 				 @include breakpoint(md) {
 					 &-md {
-						 border-left: 1px solid $colourcode;
+						 border-left: 1px solid $colourcode !important;
 					 }
 				 }
 				 @include breakpoint(sm) {
 					 &-sm {
-						 border-left: 1px solid $colourcode;
+						 border-left: 1px solid $colourcode !important;
 					 }
 				 }
 			}
 			&-right--#{$colour} {
 				@include breakpoint(lg) {
 					&-lg {
-						border-right: 1px solid $colourcode;
+						border-right: 1px solid $colourcode !important;
 					}
 				}
 				@include breakpoint(md) {
 					&-md {
-						border-right: 1px solid $colourcode;
+						border-right: 1px solid $colourcode !important;
 					}
 				}
 				@include breakpoint(sm) {
 					&-sm {
-						border-right: 1px solid $colourcode;
+						border-right: 1px solid $colourcode !important;
 					}
 				}
 			}

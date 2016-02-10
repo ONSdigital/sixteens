@@ -76,6 +76,11 @@
             position: absolute;
             right: $col;
             top: 8px;
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
         }
     }
 

@@ -11,7 +11,7 @@ function mobileFilters() {
     var $filters = $('.js-mobile-filters'),
         $filtersTitle = $('.js-mobile-filters__title'),
         $contents = $('.js-mobile-filters__contents'),
-        $clearFilters = $filters.find('a[value="Reset"]'),
+        $clearFilters = $filters.find('a#clear-search'),
         $sortBy = $('.js-mobile-filters__sort');
 
     $filters.addClass('js-show-hide show-hide show-hide--light').removeClass('tiles__item tiles__item--nav-type');

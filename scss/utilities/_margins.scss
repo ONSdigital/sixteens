@@ -59,65 +59,64 @@
                 }
             }
         }
-            //
-            &-left {
-                @for $i from 0 through 59 {
-                    @include breakpoint(sm) {
-                        &-sm--#{$i} {
-                            margin-left: ($col * $i) !important;
-                        }
-                    }
-                }
-                @for $i from 0 through 59 {
-                    @include breakpoint(md) {
-                        &-md--#{$i} {
-                            margin-left: ($col * $i) !important;
-                        }
-                    }
-                }
-                @for $i from 0 through 59 {
-                    @include breakpoint(lg) {
-                        &-lg--#{$i} {
-                            margin-left: ($col * $i) !important;
-                        }
-                    }
-                }
-                @for $i from 0 through 59 {
-                    &--#{$i} {
+        //
+        &-left {
+            @for $i from 0 through 59 {
+                @include breakpoint(sm) {
+                    &-sm--#{$i} {
                         margin-left: ($col * $i) !important;
                     }
                 }
-                &-right {
-                    @for $i from 0 through 59 {
-                        @include breakpoint(sm) {
-                            &-sm--#{$i} {
-                                margin-right: ($col * $i) !important;
-                            }
-                        }
-                    }
-                    @for $i from 0 through 59 {
-                        @include breakpoint(md) {
-                            &-md--#{$i} {
-                                margin-right: ($col * $i) !important;
-                            }
-                        }
-                    }
-                    @for $i from 0 through 59 {
-                        @include breakpoint(lg) {
-                            &-lg--#{$i} {
-                                margin-right: ($col * $i) !important;
-                            }
-                        }
-                    }
-                    @for $i from 0 through 59 {
-                        &--#{$i} {
-                            margin-right: ($col * $i) !important;
-                        }
+            }
+            @for $i from 0 through 59 {
+                @include breakpoint(md) {
+                    &-md--#{$i} {
+                        margin-left: ($col * $i) !important;
                     }
                 }
+            }
+            @for $i from 0 through 59 {
+                @include breakpoint(lg) {
+                    &-lg--#{$i} {
+                        margin-left: ($col * $i) !important;
+                    }
+                }
+            }
+            @for $i from 0 through 59 {
+                &--#{$i} {
+                    margin-left: ($col * $i) !important;
+                }
+            }
+        }
+        &-right {
+            @for $i from 0 through 59 {
+                @include breakpoint(sm) {
+                    &-sm--#{$i} {
+                        margin-right: ($col * $i) !important;
+                    }
+                }
+            }
+            @for $i from 0 through 59 {
+                @include breakpoint(md) {
+                    &-md--#{$i} {
+                        margin-right: ($col * $i) !important;
+                    }
+                }
+            }
+            @for $i from 0 through 59 {
+                @include breakpoint(lg) {
+                    &-lg--#{$i} {
+                        margin-right: ($col * $i) !important;
+                    }
+                }
+            }
+            @for $i from 0 through 59 {
+                &--#{$i} {
+                    margin-right: ($col * $i) !important;
+                }
+            }
         }
     }
-
 }
 
 @include margins-util;

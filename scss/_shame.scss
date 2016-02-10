@@ -45,11 +45,49 @@
         border-color: $thunder;
     }
 
+    .background--gallery {
+        background-color: $nevada;
+    }
+
+    .background--mercury {
+        background-color: $ship-gray;
+    }
+
+    .border-top--iron-sm,
+    .border-top--iron-md {
+        border-color: #323132 !important;
+    }
+
+    .box__timeseries {
+        background-color: $mercury;
+        border-color: $thunder;
+    }
+
+    .image-holder {
+        border-color: $thunder;
+
+        &:after {
+            content: '';
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            z-index: 999;
+            position: absolute;
+            background: $silver-light;
+        }
+    }
+
+    // Invert after color, such as ellipsis
+    :after {
+        color: white;
+    }
+
     h2, h3, h4 {
         color: $white;
     }
 
-    p, a, dd {
+    p, a, dd, dt {
         color: $white;
     }
 

@@ -22,7 +22,8 @@
 			width: 100%;
 			height: 100%;
 
-			&:hover {
+			&:hover,
+			&:focus {
 				text-decoration: underline;
 			}
 		}

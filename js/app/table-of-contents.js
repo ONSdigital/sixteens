@@ -54,10 +54,11 @@ $(function() {
         $('.table-of-contents--sticky__select').change(function() {
             var location = $(this).find('option:selected').val();
             if (location) {
-                // expands section if accordion
-                if ($(location).hasClass('is-collapsed')) {
-                    $(location).removeClass('is-collapsed').addClass('is-expanded');
-                }
+                // expands section if show/hide
+                forceShow($(location));
+                //if ($(location).hasClass('is-collapsed')) {
+                //    $(location).removeClass('is-collapsed').addClass('is-expanded');
+                //}
 
                 var functionTrigger = true;
 
