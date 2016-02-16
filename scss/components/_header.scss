@@ -27,7 +27,7 @@
 		overflow: hidden;
 
 		@include breakpoint(sm) {
-			padding: $baseline 0 0 0;
+			padding: $baseline 0;
 		}
 
 		padding: 0; // fix for IE8
@@ -55,11 +55,9 @@
 			height: ($baseline * 8);
 		}
 
-		//children show on hover / tab
+		//children show on hover
 		&:hover > ul,
-        &:focus > ul,
-        .menu-focus {
-
+		&--focus > ul {
 			@include breakpoint(md) {
 				background-color: $thunder;
 				color: $white;
@@ -75,7 +73,8 @@
 
         //set hover styling - done on link so it works on keyboard tab
         &:hover > a,
-        &:focus > a {
+        &:focus > a,
+		&--focus > a {
             @include breakpoint(md) {
                 border-left: 1px solid $thunder;
                 background-color: $thunder;
@@ -126,16 +125,33 @@
 			font-size: 14px;
 		}
 
-
         //set focus styling - has to be on link to work (hover styling on li)
         &:focus {
             @include breakpoint(md) {
                 border-left: 1px solid $thunder;
                 background-color: $thunder;
-                color: $iron-light;
+                color: $white;
                 text-decoration: none;
             }
         }
+
+		//show sub-menu on keyboard focus of link
+		&:focus + ul {
+			@include breakpoint(md) {
+				background-color: $thunder;
+				text-decoration: none;
+				left: auto; //resets child-items to appear on-screen
+				top: 88px; //1px less to cover same colour border on parent <li>
+			}
+
+			@include breakpoint(lg) {
+				top: 64px;
+			}
+		}
+
+		&:focus.hide-children + ul {
+			left: -99999px // override class to hide menu even when expandable item has focus
+		}
 
 	}
 
@@ -199,41 +215,41 @@
 
 	// SECONDARY NAV CONTENT - ONLY SHOW ON MOBILE
 
-	&--secondary {
-
-
-		&__list {
-
-			@include breakpoint(sm) {
-				padding: 0 0 $baseline 0;
-				margin: 0;
-			}
-
-			@include breakpoint(md) {
-				display: none;
-			}
-		}
-
-		&__item {
-
-			@include breakpoint(sm) {
-				display: block;
-				padding: 0;
-				margin: 0;
-				height: $baseline * 6;
-				cursor: pointer;
-			}
-		}
-
-		&__link {
-			@include breakpoint(sm) {
-				display: block;
-				height: $baseline * 6;
-				padding: 14px 0 10px $col;
-				color: $iron-light;
-			}
-		}
-	}
+	//&--secondary {
+    //
+    //
+	//	&__list {
+    //
+	//		@include breakpoint(sm) {
+	//			padding: 0 0 $baseline 0;
+	//			margin: 0;
+	//		}
+    //
+	//		@include breakpoint(md) {
+	//			display: none;
+	//		}
+	//	}
+    //
+	//	&__item {
+    //
+	//		@include breakpoint(sm) {
+	//			display: block;
+	//			padding: 0;
+	//			margin: 0;
+	//			height: $baseline * 6;
+	//			cursor: pointer;
+	//		}
+	//	}
+    //
+	//	&__link {
+	//		@include breakpoint(sm) {
+	//			display: block;
+	//			height: $baseline * 6;
+	//			padding: 14px 0 10px $col;
+	//			color: $iron-light;
+	//		}
+	//	}
+	//}
 }
 
 
@@ -445,23 +461,33 @@
 	&__link {
 		padding: 0 8px 0 8px;
 		border-right: 1px solid $iron-light;
+
+		&--active {
+			@include breakpoint(sm) {
+				background-color: $active;
+			}
+		}
 	}
 
 }
 
 
-// Beta banner
+// 'Skip to main content' keyboard tabbable link
 .skiplink {
+	position: absolute;
+	left: -99999px;
 
 	&:focus {
-		position: relative !important;
+		background: $ship-gray;
+		color: $white;
 		top: 0;
 		right: 0;
 		left: 0;
-		z-index: 700;
-		display: block;
-		border: 0;
+		margin: 0 auto;
+		z-index: 10;
+		width: ($col * 10);
 		padding: 6px 0 10px 0;
 		font-size: 14px;
+		text-align: center;
 	}
 }

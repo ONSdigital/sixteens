@@ -76,7 +76,9 @@
                 background: $active;
             }
 
-            &--disabled {
+            &--disabled,
+            &--disabled:hover,
+            &--disabled:focus {
                 cursor: not-allowed;
                 background: $iron;
                 color: $nevada;

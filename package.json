@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"description": "Pattern library for ONS website",
 	"main": "",
-	"config": {"js" : "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/thirdparty/highcharts.js js/thirdparty/highcharts-more.js js/thirdparty/moment.js js/thirdparty/bootstrap-affix.js js/thirdparty/jquery.minical.js js/thirdparty/js.cookie-2.0.4.min.js js/thirdparty/pym.min.js js/app/viewport-size.js js/app/linechart.js js/app/nav.js js/app/sparkline.js js/app/accordion.js js/app/table.js js/app/show-and-hide.js js/app/sticky-scroll.js js/app/date-picker.js js/app/load-results.js js/app/auto-submit-form.js js/app/time-series-tool.js js/app/table-of-contents.js js/app/pym-interactive.js js/app/language-toggle.js js/app/pagination.js js/app/mobile-filters.js js/app/js-enhance.js"},
+	"config": {"js" : "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/thirdparty/highcharts.js js/thirdparty/highcharts-more.js js/thirdparty/moment.js js/thirdparty/bootstrap-affix.js js/thirdparty/jquery.minical.js js/thirdparty/js.cookie-2.0.4.min.js js/thirdparty/pym.min.js js/app/viewport-size.js js/app/linechart.js js/app/nav.js js/app/sparkline.js js/app/accordion.js js/app/table.js js/app/show-and-hide.js js/app/sticky-scroll.js js/app/date-picker.js js/app/load-results.js js/app/auto-submit-form.js js/app/time-series-tool.js js/app/table-of-contents.js js/app/pym-interactive.js js/app/language-toggle.js js/app/pagination.js js/app/mobile-filters.js js/app/js-enhance.js js/app/rss-feed-url-generator.js js/app/accessibility-enhance.js"},
 	"scripts": {
 		"clean": "",
 		"css-build-datetime": "NOW=$(date +%y%m%d%H%M%S) && replace '[$builddatetime](.*?)[;]' '$builddatetime: \"'$NOW'\";' scss/_builddatetime.scss",

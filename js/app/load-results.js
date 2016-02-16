@@ -55,6 +55,7 @@ function loadNewResults(url, focus, clear) {
                 var focusId = '#' + focus.attr('id');
                 $(focusId).focus();
             }
+            insertRssLink();
         }
     });
 

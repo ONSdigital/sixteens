@@ -13,7 +13,7 @@ button {
     padding: 7px $col 9px $col;
     border: 0 none;
     text-align: center;
-    text-decoration: none;
+    text-decoration: none !important;
 
     &--primary {
         background-color: $primary;

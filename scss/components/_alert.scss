@@ -37,26 +37,26 @@
 
 		padding: $baseline 0;
 
-		&__icon {
-			position: absolute;
-			height: ($baseline * 6);
-			width: ($col * 3);
-			border-radius: $col * 2;
-			display: inline-block;
-			border: 2px solid $white;
-			color: $white;
-			font-size: 26px;
-			padding: 10px 20px;
-			margin: 0 $col;
-
-			&:after {
-                content: "i";
-            }
-		}
+		//&__icon {
+		//	position: absolute;
+		//	height: ($baseline * 6);
+		//	width: ($col * 3);
+		//	border-radius: $col * 2;
+		//	display: inline-block;
+		//	border: 2px solid $white;
+		//	color: $white;
+		//	font-size: 26px;
+		//	padding: 10px 20px;
+		//	margin: 0 $col;
+        //
+		//	&:after {
+         //       content: "i";
+         //   }
+		//}
 
 		&__title {
 			//display: inline-block;
-			padding-left: ($col * 5);
+			padding-left: ($col * 4);
 			margin: $baseline 0;
 			text-align: left; //IE9 fix, puts text centre aligned
 		}
@@ -68,7 +68,7 @@
             }
 
             @include breakpoint(md) {
-                margin: 0 $col * 5;
+                margin: 0 $col * 4;
             }
 		}
 	}
