@@ -296,7 +296,7 @@ function jsEnhanceMarkdownCharts(path) {
         return;
     }
 
-    chartContainer.each(function() {
+    chartContainer.each(function(i) {
         var $this = $(this);
         var id = $this.attr('id');
         var chartId = $this.data('filename');
@@ -312,11 +312,42 @@ function jsEnhanceMarkdownCharts(path) {
             function() {
                 var chartConfig = window["chart-" + chartId];
                 if (chartConfig) {
+                    // Build chart from config endpoint
                     chartConfig.chart.renderTo = id;
                     new Highcharts.Chart(chartConfig);
                     delete window["chart-" + chartId]; //clear data from window object after rendering
+
+
+                //    // Insert hidden table after chart for screen reader alternative
+                //    var series = chartConfig.series,
+                //        dataLength = series[0].data.length,
+                //        table = '<table id="chart-table-' + id + '" class="markdown-chart__table"><caption>Table representing data in figure ' + (i+1) + '</caption><thead><tr><tbody>',
+                //        headers,
+                //        th,
+                //        td;
+                //
+                //    console.log(chartConfig);
+                //
+                //    // Insert table markup after chart
+                //    $(table).insertAfter($this);
+                //
+                //    // Add table row for each td in series
+                //    for (i = 0; i < dataLength; i++) {
+                //        $('#chart-table-' + id + ' tbody').append('<tr>');
+                //    }
+                //
+                //    // Loop through each series add insert th and td into empty table
+                //    $(series).each(function() {
+                //        th = '<th>' + $(this)[0].name + '</th scope="col">';
+                //        headers = $('#chart-table-' + id + ' thead tr').append(th);
+                //
+                //        $($(this)[0].data).each(function(index) {
+                //            $('#chart-table-' + id + ' tbody tr:nth-child(' + (index+1) + ')').append('<td>' + String($(this)[0]) + '</td>');
+                //        });
+                //    });
                 }
             }, "script");
+
     });
 }
 

@@ -1,49 +1,74 @@
 //_charrt-area.scss
 
+
+// create styling for the up arrow on top of the download time series box
+@mixin triangle($size, $colour, $animation) {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-bottom: $size solid $colour;
+  position: absolute;
+  top: -15px;
+
+  @if $animation {
+    -webkit-animation-name: fade-in;
+    -webkit-animation-duration: 0.5s;
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    @-webkit-keyframes fade-in {
+      0% {border-bottom: 15px solid rgba(0, 0, 0, 0);}
+      100% {border-bottom: 15px solid $colour;}
+    }
+    @keyframes fade-in {
+      0% {border-bottom: 15px solid rgba(0, 0, 0, 0);}
+      100% {border-bottom: 15px solid $colour;}
+    }
+
+  }
+}
+
 .chart-area {
 
     &__controls__custom--active {
-        margin-top: ($baseline * 5);
-        background-color: $abbey;
-        // overflow: hidden;
+      margin-top: ($baseline * 2);
+      background-color: $abbey;
+      // overflow: hidden;
+      position: relative;
 
-        &:before {
-            content: "";
-            width: 0;
-	        height: 0;
-	        border-left: 15px solid transparent;
-	        border-right: 15px solid transparent;
-	        border-bottom: 15px solid $abbey;
-            position: relative;
-            top: -35px;
-            right: -225px;
+      &:before {
+        @include triangle(15px, $abbey, false);
+        top: -15px;
 
-            @include breakpoint(lg) {
-                right: -305px;
-            }
-
-
+        @include breakpoint(sm) {
+          left: 225px;
         }
 
-        // p {
-        //     margin: 0;
-        //     padding: 6px 0 2px 0;
-        //     color: $iron-light;
-        // }
-
-        fieldset {
-            width: ($col * 10);
-            display: block;
-            float: left;
-            border: 0;
-            padding: 0;
-            margin: 0 0 ($baseline * 2) 0;
+        @include breakpoint(md) {
+          right: 15px;
         }
 
-        legend {
-            color: $iron-light;
-            padding: 6px 0 2px 0;
+        @include breakpoint(lg) {
+            right: 30px;
         }
+
+
+      }
+
+      fieldset {
+          width: ($col * 10);
+          display: block;
+          float: left;
+          border: 0;
+          padding: 0;
+          margin: 0 0 ($baseline * 2) 0;
+      }
+
+      legend {
+          color: $iron-light;
+          padding: 6px 0 2px 0;
+      }
 
     }
 
@@ -72,7 +97,34 @@
             font-family: $base-font-family;
         }
     }
+
+    &__controls__download {
+      background-color: $abbey;
+      margin-top: ($baseline * 2);
+      position: relative;
+
+
+
+      &--unfiltered {
+
+        &:before {
+          @include triangle(15px, $abbey, true);
+          left: 75px;
+
+        }
+      }
+
+      &--filtered {
+
+        &:before {
+          //@extend .controls__download__arrow;
+          @include triangle(15px, $abbey, true);
+          right: 75px;
+        }
+      }
+    }
 }
+
 
 #custom-tooltip {
   display:block;

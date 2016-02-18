@@ -23,13 +23,14 @@
     }
 
     dl, dt, dt {
-        color: white;
+        color: $white;
     }
 
 }
 
 .grey-hover {
     background-color: $ship-gray;
+    color: $white;
 
     &:hover {
         cursor: pointer;
@@ -65,6 +66,7 @@
 
     .image-holder {
         border-color: $thunder;
+        line-height: 0; // Fix for div being pushed off of grid when inside an element with a line-height
 
         &:after {
             content: '';
@@ -75,6 +77,11 @@
             z-index: 999;
             position: absolute;
             background: $silver-light;
+        }
+
+        svg {
+            position: absolute;
+            width: 90%;
         }
     }
 

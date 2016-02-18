@@ -25,10 +25,13 @@ dd {
 
 	th {
 		text-align: left;
-		padding: 6px 0 10px $col;
+        position: relative; //Relative container for absolutely positioned arrow
+		padding: 0;
 		background-color: $iron;
 
         button {
+            line-height: $base-line-height;
+            padding: 6px 0 10px $col;
             border: none;
             border-radius: 0;
             background: transparent;
@@ -36,13 +39,35 @@ dd {
             font-family: inherit;
             font-weight: inherit;
             text-align: left;
-            padding: 0;
+            display: block;
             margin: 0;
+            width: 100%;
+            height: 100%;
 
             &:hover,
             &:focus {
                 text-decoration: underline;
             }
+        }
+
+        &[aria-sort='descending']:after {
+            @extend .icon;
+            @extend .icon-arrow-up--dark-small;
+            position: absolute;
+            left: ($col * 8);
+            top: ($baseline * 2);
+            content: "";
+            margin-left: $col;
+        }
+
+        &[aria-sort='ascending']:after {
+            @extend .icon;
+            @extend .icon-arrow-down--dark-small;
+            position: absolute;
+            left: ($col * 8);
+            top: ($baseline * 2);
+            content: "";
+            margin-left: $col;
         }
 	}
 
@@ -92,22 +117,22 @@ dd {
 		margin-bottom: -1px;
 	}
 
-	.sorted {
-
-		&-asc:after {
-			@extend .icon;
-			@extend .icon-arrow-up--dark-small;
-			position: absolute;
-			content: "";
-			margin-left: $col;
-		}
-
-		&-desc:after {
-			@extend .icon;
-			@extend .icon-arrow-down--dark-small;
-			position: absolute;
-			content: "";
-			margin-left: $col;
-		}
-	}
+    //.sorted {
+    //
+	//	&-asc:after {
+	//		@extend .icon;
+	//		@extend .icon-arrow-up--dark-small;
+	//		position: absolute;
+	//		content: "";
+	//		margin-left: $col;
+	//	}
+     //
+	//	&-desc:after {
+	//		@extend .icon;
+	//		@extend .icon-arrow-down--dark-small;
+	//		position: absolute;
+	//		content: "";
+	//		margin-left: $col;
+	//	}
+	//}
 }

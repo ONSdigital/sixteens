@@ -144,6 +144,10 @@ button {
             width: ($col * 5);
         }
 
+        &--download {
+            width: ($col * 11)
+        }
+
     }
 
     &--block {
