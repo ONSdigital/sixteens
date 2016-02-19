@@ -127,12 +127,14 @@ var renderLineChart = function(timeseries) {
 		if (currentDisplay === 'chart') {
 			hide(table);
 			renderChart();
+			timeseriesAccessibiliyAttrs();
 		} else {
 			hide(chartContainer);
 			sortArray = []; //Remove any previously selected data from array when new frequency/time period selected
 			renderTable();
+			timeseriesAccessibiliyAttrs(true);
 
-			sortStyling('reset'); //Reset sort styling so arrows on default sorting order
+			sortMarkup('reset'); //Reset sort styling so arrows on default sorting order
 			inverse = true; //Used to default table sort function to correct order
 		}
 	}
@@ -454,7 +456,7 @@ var renderLineChart = function(timeseries) {
 						changeFrequency(frequency);
 					});
 				}
-			})
+			});
 
 			toggleSelectedButton();
 		}
@@ -471,21 +473,18 @@ var renderLineChart = function(timeseries) {
 				$('#title-type').text(displayTitle);
 
 
-				//Bind click event handlebars to table headings
-				var tableHeaders = $('.js-table-sort thead').find('.js-table-sort__header');
+				// Find sortable table
+				var tableHeaders = $('.js-table-sort thead').find('.js-table-sort__header'),
+					tableBtn = tableHeaders.find('button');
 
-				//Add cursor on hover of to sortable headers
-				$(tableHeaders).css('cursor', 'pointer');
-
-				//Get header click and assign which column to sort by
-				$(tableHeaders).off().click(function() {
+				//Bind header click and assign which column to sort by
+				tableBtn.off().click(function() {
 
 					//Store 'this' to pass to sort styling function
 					var $this = $(this);
 
 					//Change styling of headers, so arrow displays correctly
-					sortStyling($this);
-
+					sortMarkup($this.closest(tableHeaders));
 
 					//Find which column has been clicked
 					var column = $this.text();
@@ -605,6 +604,7 @@ var renderLineChart = function(timeseries) {
 			if (dropdown.hasClass('chart-area__controls__custom--active')) {
 				// console.log('closing custom dd');
 				dropdown.removeClass('chart-area__controls__custom--active');
+				dropdown.attr('aria-hidden', 'true');
 				dropdown.stop(true, true).slideUp();
 			} else {
 				// console.log('opening custom dd');
@@ -613,6 +613,7 @@ var renderLineChart = function(timeseries) {
 				dropdown.hide();
 				dropdown.addClass('chart-area__controls__custom--active');
 				dropdown.stop(true, true).slideDown();
+				dropdown.attr('aria-hidden', 'false');
 
 			}
 		}
@@ -838,6 +839,41 @@ $(function() {
 //   return true;
 
 // });
+
+$(function() {
+
+	$('.btn--chart-control--download').on( "keyup mouseup", function() {
+		var $activeButton = $(this), // button clicked
+			$activeControl = $('#' + $activeButton.find('input').attr('id') + '-controls'), //control (button) block related to clicked button
+			$activeInput = $activeButton.find('input'),
+			$buttons = $('.btn--chart-control--download'),
+			$controls = $('.chart-area__controls__download');
+
+		// remove active class from all buttons
+		$buttons.each(function() {
+			var $input = $(this).find('input');
+			if ($input.attr('aria-expanded') == 'true') {
+				$input.attr('aria-expanded', 'false');
+				$input.prop('checked', false);
+			}
+		});
+		$buttons.removeClass('btn--secondary--active');
+
+		// set all controls to hidden
+		$controls.each(function() {
+			if ($(this).attr('aria-hidden') == 'false') {
+				$(this).attr('aria-hidden', 'true');
+			}
+		});
+
+		// set active class on clicked button and unhide correct controls (button) block
+		$activeButton.addClass('btn--secondary--active');
+		$activeInput.attr('aria-expanded', 'true');
+		$activeInput.prop('checked', true);
+		$activeControl.attr('aria-hidden', 'false');
+	});
+
+});
 
 function filterFocus() {
 	var $filters = $('.timeseries__filters input[type="radio"]'),

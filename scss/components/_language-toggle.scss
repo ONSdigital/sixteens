@@ -2,7 +2,7 @@
 .language {
     background: $iron-light;
     font-size: 12px;
-    padding: 0 0 0 4px;
+    padding: 0 8px;
 
     @include breakpoint(md) {
         float: right;
@@ -32,6 +32,7 @@
             font-size: 12px;
             height: 24px;
             color: $matisse;
+            font-weight: $base-font-weight;
             -webkit-appearance: none;  /*Removes default chrome and safari style*/
             -moz-appearance: none; /* Removes Default Firefox style*/
             text-indent: 0.01px; /* Removes default arrow from firefox*/

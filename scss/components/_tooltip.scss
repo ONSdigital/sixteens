@@ -3,7 +3,7 @@
 
 // -npl (new pattern library) added to stop conflict with old pattern library that fires javascript for tooltip class
 
-.tooltip-npl {
+.tooltip {
     display: inline;
     position: absolute;
 
@@ -12,7 +12,7 @@
         border: solid;
         border-color: $abbey transparent;
         border-width: 6px 6px 0 6px;
-        bottom: 20px;
+        bottom: 25px;
         content: "";
         left: 50%;
         position: absolute;
@@ -22,21 +22,28 @@
     &:hover:after,
     &:focus:after{
         background: $abbey;
-        bottom: 26px;
+        bottom: 31px;
         color: $iron;
         content: attr(title);
         padding: $baseline $col;
         position: absolute;
         z-index: 98;
         width: 220px;
-        left: -80px;
+        left: -190px;
+        box-sizing: border-box;
+
+        @include breakpoint(sm) {
+             left: -80px;
+        }
 
         @include breakpoint(md) {
-             left: -160px;
+            width: ($col * 12) + 1px; // 1px makes up for border on meta item
+            left: -118px;
         }
 
         @include breakpoint(lg) {
-            left: -80px;
+            width: ($col * 15) + 1px; // 1px makes up for border on meta item
+            left: -119px;
         }
 
     }

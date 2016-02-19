@@ -297,18 +297,22 @@
 
 
 // Set anything with aria-hidden attributes to correct display state
+ @media only screen {
+     [aria-hidden*=true] {
+         display: none;
+         visibility: hidden;
+     }
 
-[aria-hidden*=true] {
-	display: none;
-}
+     svg[aria-hidden*=true] { // Allow SVGs to still show even with aria:hidden. Only want them hidden from screen readers.
+         display: block;
+         visibility: visible;
+     }
 
-svg[aria-hidden*=true] { // Allow SVGs to still show even with aria:hidden. Only want them hidden from screen readers.
-    display: block;
-}
-
-[aria-hidden*=false] {
-	display: block;
-}
+     [aria-hidden*=false] {
+         display: block;
+         visibility: visible;
+     }
+ }
 
 #viewport {
 
@@ -349,15 +353,15 @@ svg[aria-hidden*=true] { // Allow SVGs to still show even with aria:hidden. Only
 //Text transform
 
 .lowercase {
-    text-transform: lowercase !important;
+    text-transform: lowercase;
 }
 
 .uppercase {
-    text-transform: uppercase !important;
+    text-transform: uppercase;
 }
 
 .capitalise:first-letter {
-    text-transform: capitalize !important;
+    text-transform: capitalize;
 }
 
 .text-center {

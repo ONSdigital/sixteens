@@ -23,7 +23,6 @@
 	}
 
 	//Don't show links for images, javascript, internal links or email addresses
-	img,
 	a[href^="javascript:"]:after,
 	a[href^="#"]:after,
 	a[href^="mailto:"]:after {
