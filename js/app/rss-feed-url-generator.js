@@ -10,6 +10,10 @@ function insertRssLink() {
 	if (isRssPage()) {
 		$("#rss-link").attr("href", buildUrl().get());
 	}
+
+	if ( $("#rss-calendar-link").length > 0) {
+		$("#rss-calendar-link").attr("href", releaseCalRssUrl());
+	}
 }
 
 function buildUrl() {
@@ -41,4 +45,29 @@ function buildUrl() {
 		} 
 	}
 	return rssUrl;
+}
+
+/* Get the RSS URL for the release calendar. */
+function releaseCalRssUrl() {
+	var fullUrl = $(location).attr("href");
+	var query = $(location).attr("search");
+
+	var qs = "?rss";
+
+	if (query.length > 0) {
+		var parameters = query.replace("?", "").split("&");
+
+		if (parameters.length > 0) {
+
+			parameters.forEach( function(item) {
+				var nameValue = item.split("=");
+
+				if (("query" == nameValue[0] || "view" == nameValue[0])  && nameValue[1]) {
+					qs += "&" + nameValue[0] + "=" + nameValue[1];
+				}
+			});
+		}
+	}
+
+	return "feed://" + $(location).attr("host") + $(location).attr("pathname") + qs;
 }
