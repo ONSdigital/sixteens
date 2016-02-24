@@ -185,6 +185,10 @@
   .prototype-modal {
     margin: 20px auto 20px auto;
   }
+
+  .markdown-chart-overlay {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 420px) {
