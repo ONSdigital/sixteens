@@ -470,28 +470,36 @@ function jsEnhanceMobileTables() {
 }
 
 function jsEnhanceMobileCharts() {
-    //<span class=" icon-table" role="presentation"></span>
-    // $('markdown-table-container').addClass('table-holder-mobile');
 
-    $('<div class="markdown-chart-overlay"></div>').insertAfter($('.markdown-chart'));
-    $('<button class="btn btn--mobile-chart-show">View chart</button>').insertAfter($('.markdown-chart'));
-    //$('<button class="btn btn--mobile-chart-hide">Close chart</button>').insertAfter($('.markdown-chart div'));
+    // if on mobile inject overlay and button elements
+    if ($("body").hasClass("viewport-sm")) {
+        $('<div class="markdown-chart-overlay"></div>').insertAfter($('.markdown-chart'));
+        $('<button class="btn btn--mobile-chart-show">View chart</button>').insertAfter($('.markdown-chart'));
+        $('<button class="btn btn--mobile-chart-hide">Close chart</button>').appendTo($('.markdown-chart-overlay'));
 
-    $('.btn--mobile-chart-show').click(function(e) {
-        // console.log($(this).closest('.markdown-table-container').find('.markdown-table-wrap'));
-        var $img = $(this).closest('.markdown-chart-container').find('.download-chart-image');
-        $img = "<img src='"+$img.attr('href')+"&width=800' />"
-        var $content = '<button class="btn btn--mobile-chart-hide">Close chart</button>' + $img;
+        $('.btn--mobile-chart-show').click(function() {
+            // the variables
+            var $this = $(this),
+                $title = $('<span class="font-size--h4">' + $this.closest('.markdown-chart-container').find('h4').text() + '</span>'),
+                $imgSrc = $this.closest('.markdown-chart-container').find('.js-chart-image-src').attr('href'),
+                width = 700,
+                $img = '<img src="' + $imgSrc + '&width=' + width +'" />',
+                $overlay = $this.closest('.markdown-chart-container').find('.markdown-chart-overlay');
 
-        $(this).closest('.markdown-chart-container').find('.markdown-chart-overlay').html($content);
-        $(this).closest('.markdown-chart-container').find('.markdown-chart-overlay').show();
-    });
+            // check if image has been injected already
+            if (!$overlay.find('img').length) {
+                $overlay.append($title);
+                $overlay.append($img);
+            }
 
-    $('.markdown-chart-overlay, .btn--mobile-chart-hide').on('click', function(e) {
-        // console.log($(this).closest('.markdown-table-container').find('.markdown-table-wrap'));
-        //$(this).hide();
-        $(this).css('display', '');
-    });
+            // show the overlay
+            $overlay.show();
+        });
+
+        $('.btn--mobile-chart-hide').click(function() {
+            $(this).closest('.markdown-chart-overlay').css('display', '');
+        });
+    }
 }
 
 // Trigger Google Analytic pageview event
@@ -577,6 +585,8 @@ function jsEnhanceExternalLinks() {
     }
     eachAnchor('a[href^="http://"]:not([href*="loop11.com"]):not([href*="ons.gov.uk"])');
     eachAnchor('a[href^="https://"]:not([href*="loop11.com"]):not([href*="ons.gov.uk"])');
+    eachAnchor('a[href*="nationalarchives.gov.uk"]');
+
 }
 
 

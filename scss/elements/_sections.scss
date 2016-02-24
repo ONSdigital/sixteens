@@ -70,7 +70,8 @@ section {
 
 			img {
 				//width: 100%;
-				width: auto;
+				//width: auto;
+				max-width: ($col * 38);
 			}
 
 			li {

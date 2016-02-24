@@ -2,56 +2,24 @@ $(document).ready(function() {
 	insertRssLink();
 });
 
-function isRssPage() {
-	return ($("#rss-link").length > 0);
-}
+var expectedListPageParams = ["query", "filter"];
+var expectedReleaseCalPageParams = ["query", "view"];
 
+/* Insert the RSS url into the page if the expected element id exists. */
 function insertRssLink() {
-	if (isRssPage()) {
-		$("#rss-link").attr("href", buildUrl().get());
+	if ( $("#rss-list-link").length > 0 ) {
+		$("#rss-list-link").attr("href", rssUrl(expectedListPageParams));
 	}
 
 	if ( $("#rss-calendar-link").length > 0) {
-		$("#rss-calendar-link").attr("href", releaseCalRssUrl());
+		$("#rss-calendar-link").attr("href", rssUrl(expectedReleaseCalPageParams));
 	}
 }
 
-function buildUrl() {
-	var rssUrl = { values: [],
-		get : function() {
-			var queryStr = "";
-			this.values.forEach(function(item) {
-				queryStr += item;
-			});
-			return "feed://" + $(location).attr("host") + "/rss" + queryStr;
-		}
-	};
-
-	rssUrl.values.push("?uri=" + $(location).attr("pathname"));
-	var fullUrl = $(location).attr("href");
-
-	if (fullUrl.indexOf("?") > -1) {
-		var parameters = fullUrl.substring(fullUrl.indexOf("?"), fullUrl.length).replace("?", "").split("&");
-
-		if (parameters.length > 0) {
-
-			parameters.forEach( function(item) {
-				var nameValue = item.split("=");
-
-				if (("query" == nameValue[0] || "filter" == nameValue[0])  && nameValue[1]) {
-					rssUrl.values.push("&" + nameValue[0] + "=" + nameValue[1]);
-				}
-			});
-		} 
-	}
-	return rssUrl;
-}
-
-/* Get the RSS URL for the release calendar. */
-function releaseCalRssUrl() {
+/* Generate the RSS url based on the expected params required by the current page. */
+function rssUrl(expectedParameters) {
 	var fullUrl = $(location).attr("href");
 	var query = $(location).attr("search");
-
 	var qs = "?rss";
 
 	if (query.length > 0) {
@@ -62,12 +30,15 @@ function releaseCalRssUrl() {
 			parameters.forEach( function(item) {
 				var nameValue = item.split("=");
 
-				if (("query" == nameValue[0] || "view" == nameValue[0])  && nameValue[1]) {
+				if (contains(nameValue, expectedParameters)) {
 					qs += "&" + nameValue[0] + "=" + nameValue[1];
 				}
 			});
 		}
 	}
-
 	return "feed://" + $(location).attr("host") + $(location).attr("pathname") + qs;
+}
+
+function contains(valuePair, expectedParameters) {
+	return ($.inArray(valuePair[0], expectedParameters) > -1) && valuePair[1];
 }

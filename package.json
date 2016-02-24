@@ -27,7 +27,7 @@
 		"replace": "latest",
 		"node-sass": "latest",
 		"uglify-js": "latest",
-        "bless" : "latest"
+        "bless" : "3.0.3"
 	},
 	"devDependencies": {
 		"catw": "latest",
