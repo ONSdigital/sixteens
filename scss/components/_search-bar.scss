@@ -27,11 +27,13 @@
             margin: ($baseline * 2) 0 $baseline 0;
         }
 
-        @include breakpoint(sm) {
-            height: auto;
-            h1 {
-                font-size: 21px;
-                line-height: ($baseline * 4);
+        @if $old-ie == false {
+            @include breakpoint(sm) {
+                height: auto;
+                h1 {
+                    font-size: 21px;
+                    line-height: ($baseline * 4);
+                }
             }
         }
     }
@@ -43,8 +45,10 @@
         color: $iron-light;
         padding: ($baseline * 2) 0 ($baseline * 2) ($baseline * 2);
 
-        @include breakpoint(sm) {
-            padding: ($baseline * 3) 0;
+        @if $old-ie == false {
+            @include breakpoint(sm) {
+                padding: ($baseline * 3) 0;
+            }
         }
     }
 
@@ -57,8 +61,10 @@
         padding: 12px $col 12px $col;
         background-color: $abbey;
 
-        @include breakpoint(sm) {
-            display: none;
+        @if $old-ie == false {
+            @include breakpoint(sm) {
+                display: none;
+            }
         }
     }
 
@@ -75,11 +81,13 @@
         background: lighten($primary, 65%);
         -webkit-appearance: none; //fix for safari not displaying input with correct height
 
-        @include breakpoint(sm) {
-            width: 80%;
-            font-size: 14px;
-            padding: 12px $col/2 8px $col/2;
+        @if $old-ie == false {
+            @include breakpoint(sm) {
+                width: 80%;
+                font-size: 14px;
+                padding: 12px $col/2 8px $col/2;
 
+            }
         }
 
         &--results-page {
@@ -105,11 +113,13 @@
             background-color: darken($primary, 8%);
         }
 
-        @include breakpoint(sm) {
-            width: 20%;
-            font-size: 14px;
-            padding-left: $col/2;
-            padding-right: $col/2;
+        @if $old-ie == false {
+            @include breakpoint(sm) {
+                width: 20%;
+                font-size: 14px;
+                padding-left: $col/2;
+                padding-right: $col/2;
+            }
         }
 
         &--results-page {
