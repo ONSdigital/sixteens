@@ -434,8 +434,11 @@
 // Secondary navigation list
 .secondary-nav {
 
-	@include breakpoint(sm) {
-		display: none;
+	// Fix for old-ie hiding mobile--hide class
+	@if $old-ie == false {
+		@include breakpoint(sm) {
+			display: none;
+		}
 	}
 
 	&__list {

@@ -107,8 +107,11 @@
 
 	.print {
 
-		&--hide {
-			display: none !important;
+		// Fix for old-ie hiding mobile--hide class
+		@if $old-ie == false {
+			&--hide {
+				display: none !important;
+			}
 		}
 
 		&--break-before {
