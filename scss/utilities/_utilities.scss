@@ -213,11 +213,14 @@
 .hide {
 	display: none !important;
 
-	&--mobile {
-		@include breakpoint(sm) {
-			display: none !important;
-		}
-	}
+    // Fix for old-ie hiding mobile--hide class
+    @if $old-ie == false {
+        &--mobile {
+            @include breakpoint(sm) {
+                display: none !important;
+            }
+        }
+    }
 
     &--md {
         @include breakpoint(md) {
