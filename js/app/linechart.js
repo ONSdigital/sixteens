@@ -588,8 +588,6 @@ var renderLineChart = function(timeseries) {
 			// var target;
 
 			$('[data-chart-control-custom-trigger-for]', element).on('click', function(e) {
-
-				// console.log('hello');
 				e.preventDefault();
 				toggleSelectedButton();
 				toggleCollapsible();
