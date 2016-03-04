@@ -16,9 +16,9 @@
         word-wrap: break-word;
     }
 
-	//Append 'http://www.beta.ons.gov.uk/' to internal links using a relative path
+	//Append 'https://www.ons.gov.uk/' to internal links using a relative path
 	a[href^="/"]:after {
-		content: " (http://www.beta.ons.gov.uk" attr(href) ")";
+		content: " (https://www.ons.gov.uk" attr(href) ")";
 		word-wrap: break-word;
 	}
 
