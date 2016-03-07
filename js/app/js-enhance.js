@@ -764,6 +764,7 @@ function jsEnhanceHover() {
     });
 }
 
+// Not used?
 function jsEnhanceSelectedHighlight() {
 
     $('.js-timeseriestool-select').on("click", function() {

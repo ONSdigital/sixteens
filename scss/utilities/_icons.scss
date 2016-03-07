@@ -269,8 +269,8 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
 
 
     //Add external link icon (:not excludes domains)
-    a[href^="http://"]:not([href*="ons.gov.uk"]):not([href^="http://localhost"]):not([href^="http://127.0.0.1"]):not([href^="mailto:"]):after,
-    a[href^="https://"]:not([href*="ons.gov.uk"]):not([href*="web.ons.digital"]):not([href^="mailto:"]):after {
+    a[href^="http://"]:not([href*="ons.gov.uk"]):not([href^="http://localhost"]):not([href^="http://127.0.0.1"]):not([href^="mailto:"]):not([href^="/"]):after,
+    a[href^="https://"]:not([href*="ons.gov.uk"]):not([href*="onsdigital.co.uk"]):not([href*="web.ons.digital"]):not([href^="mailto:"]):after {
         @extend .icon;
         @extend .icon-external--dark-small;
         content: "";
