@@ -89,7 +89,7 @@
 			font-size: 14px;
 			color: $ship-gray;
 			border: none;
-			padding: 6px $col 4px $col;
+			padding: 6px ($col * 3) 4px $col;
 			height: ($baseline * 5);
 			border-radius: 0;
 			-webkit-appearance: none;
