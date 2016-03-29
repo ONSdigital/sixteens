@@ -31,12 +31,8 @@
 	&--sticky {
 
 		&__wrap {
-			//display: none;
-			//height: 7.2rem;
 			overflow: hidden;
 			background: $ship-gray;
-			//color: $iron-light;
-			//border-bottom: 2px solid $iron;
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -46,7 +42,7 @@
 			z-index: 100;
 
 			& > .wrapper {
-				padding: ($baseline * 2) 0 ($baseline * 2) ($col * 3);
+				padding: ($baseline * 2) 0;
 			}
 
 			a {

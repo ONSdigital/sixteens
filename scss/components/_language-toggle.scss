@@ -19,6 +19,7 @@
 
     // Styles for js enhanced <select> form
     &--js {
+        display: none; // Hide until enhanced and shown on page
         min-width: ($col * 10);
 
         &__label {

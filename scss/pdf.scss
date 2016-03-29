@@ -9,18 +9,9 @@ $old-ie: false;
         font-family: Tahoma, Verdana, Arial, sans-serif !important;
     }
 
-    //h2 {
-    //    font-size: 18px !important;
-    //}
-
     h2, h3, h4, h5 {
         page-break-after: avoid !important;
     }
-
-    //a:not([href^='mailto']) {
-    //    color: $blue !important;
-    //    text-decoration: underline !important;
-    //}
 
     li {
         font-size: 11px !important;
@@ -54,7 +45,6 @@ $old-ie: false;
     .page-intro {
         background-color: $gallery !important;
         border-top: 1px solid $iron;
-        //padding: 0 16px !important;
 
         &__title {
             margin: 0 16px !important;
@@ -105,6 +95,11 @@ $old-ie: false;
 
     a.btn {
         display: none;
+    }
+
+    // Remove links printing out href attribute - inherited from print styling
+    a:after {
+        content: "" !important;
     }
 
     .print--hide {

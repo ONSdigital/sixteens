@@ -2,10 +2,17 @@
 
 @mixin background-util {
     .background {
-        @each $colour, $colourcode, $fontcolourcode in $colours {
+        @each $colour, $colourcode, $fontcolourcode, $anchorcolourcode in $colours {
             &--#{$colour} {
                 background-color: $colourcode;
                 color: $fontcolourcode;
+
+                @if $anchorcolourcode {
+                    .js-hover-click & a,
+                    &.js-hover-click a {
+                        color: $anchorcolourcode;
+                    }
+                }
             }
         }
     }

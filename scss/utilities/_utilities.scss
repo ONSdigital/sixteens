@@ -215,7 +215,7 @@
 
     // Fix for old-ie hiding mobile--hide class
     @if $old-ie == false {
-        &--mobile {
+        &--sm {
             @include breakpoint(sm) {
                 display: none !important;
             }
@@ -260,7 +260,7 @@
 
 // javascript
 
-.no-js .nojs-hidden, .nojs-hidden {
+.no-js .nojs--hide, .nojs--hide {
   display: none !important;
 }
 
@@ -268,9 +268,13 @@
   display: none !important;
 }
 
-.js-enhance--show {
+.js--show {
     display: none;
 }
+
+//.js-enhance--show {
+//    display: none;
+//}
 
 
 // clear
@@ -399,10 +403,26 @@
     }
 }
 
+.text-left {
+    text-align: left;
+
+    &--md {
+        @include breakpoint(md) {
+            text-align: left;
+        }
+    }
+
+    &--lg {
+        @include breakpoint(lg) {
+            text-align: left;
+        }
+    }
+}
+
 .underline-link {
     text-decoration: underline !important;
 }
 
 .img-sparkline {
-  max-height: 100%;
+    max-height: 100%;
 }

@@ -1,33 +1,56 @@
 //_tables-and-data.scss
 table {
-	min-width: 100%;
-	border-spacing: 0;
-	border-collapse: collapse;
+    min-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    // Not needed on ons.gov.uk because table builder carries through borders - uncomment if other users of this library need it
+    //border-bottom: 1px solid $thunder;
+    //margin-top: -1px;
+
+    caption {
+        text-align: left;
+        @extend h5; // Give caption heading 4 styling
+    }
+
+    th {
+        padding: 7px 0 1px 0;
+
+        // Not needed on ons.gov.uk because table builder carries through borders - uncomment if other users of this library need it
+        //&[scope="col"] {
+        //    border-bottom: 1px solid $thunder;
+        //}
+    }
+
+    td {
+        padding: 6px 0 2px 0;
+    }
+
 }
 
 dl {
-	margin: 0;
+    margin: 0;
 }
 
 dd {
-	margin: 0;
+    margin: 0;
 }
 
 // Time series data table
 .table-advanced {
 
-	display: table;
-	border-collapse: collapse;
-	background-color: white;
-	border-bottom: 1px solid $iron;
-	border-left: 1px solid $iron;
-	border-right: 1px solid $iron;
+    display: table;
+    border-collapse: collapse;
+    background-color: white;
+    border-bottom: 1px solid $iron;
+    border-left: 1px solid $iron;
+    border-right: 1px solid $iron;
 
-	th {
-		text-align: left;
+    th {
+        text-align: left;
         position: relative; //Relative container for absolutely positioned arrow
-		padding: 0;
-		background-color: $iron;
+        padding: 0;
+        background-color: $iron;
 
         button {
             line-height: $base-line-height;
@@ -54,7 +77,7 @@ dd {
             @extend .icon;
             @extend .icon-arrow-up--dark-small;
             position: absolute;
-            left: ($col * 8);
+            left: ($col * 4);
             top: ($baseline * 2);
             content: "";
             margin-left: $col;
@@ -64,75 +87,73 @@ dd {
             @extend .icon;
             @extend .icon-arrow-down--dark-small;
             position: absolute;
-            left: ($col * 8);
+            left: ($col * 4);
             top: ($baseline * 2);
             content: "";
             margin-left: $col;
         }
-	}
+    }
 
-	tbody {
+    tbody {
 
-		td {
-			padding: 7px 0 9px $col;
-			vertical-align: baseline;
-		}
+        td {
+            padding: 7px 0 9px $col;
+            vertical-align: baseline;
+        }
 
-		tr:not(:last-of-type) {
-			border-bottom: solid 1px $iron;
-		}
+        tr:not(:last-of-type) {
+            border-bottom: solid 1px $iron;
+        }
 
-		tr {
+        tr {
 
-			//height: $baseline * 4;
+            //height: $baseline * 4;
 
-			&:hover,
-			&:focus {
-				background-color: $abbey;
-				color: white;
+            &:hover,
+            &:focus {
+                background-color: $abbey;
+                color: white;
 
+                // Change the colour of arrow buttons for show/hide sections within highlighted table rows
 
-				// Change the colour of arrow buttons for show/hide sections within highlighted table rows
+                // down arrow when not expanded
+                button[aria-expanded=false]:after {
+                    @extend .icon-arrow-down--light;
+                }
 
-				// down arrow when not expanded
-				button[aria-expanded=false]:after {
-					@extend .icon-arrow-down--light;
-				}
+                // up arrow when not expanded
+                button[aria-expanded=true]:after {
+                    @extend .icon-arrow-up--light;
+                }
 
-				// up arrow when not expanded
-				button[aria-expanded=true]:after {
-					@extend .icon-arrow-up--light;
-				}
+            }
 
+        }
 
-			}
+    }
 
-		}
-
-	}
-
-	&__header {
-		padding: 4px 0 4px 0;
-		border-bottom: 1px solid $silver;
-		margin-bottom: -1px;
-	}
+    &__header {
+        padding: 4px 0 4px 0;
+        border-bottom: 1px solid $silver;
+        margin-bottom: -1px;
+    }
 
     //.sorted {
     //
-	//	&-asc:after {
-	//		@extend .icon;
-	//		@extend .icon-arrow-up--dark-small;
-	//		position: absolute;
-	//		content: "";
-	//		margin-left: $col;
-	//	}
-     //
-	//	&-desc:after {
-	//		@extend .icon;
-	//		@extend .icon-arrow-down--dark-small;
-	//		position: absolute;
-	//		content: "";
-	//		margin-left: $col;
-	//	}
-	//}
+    //	&-asc:after {
+    //		@extend .icon;
+    //		@extend .icon-arrow-up--dark-small;
+    //		position: absolute;
+    //		content: "";
+    //		margin-left: $col;
+    //	}
+    //
+    //	&-desc:after {
+    //		@extend .icon;
+    //		@extend .icon-arrow-down--dark-small;
+    //		position: absolute;
+    //		content: "";
+    //		margin-left: $col;
+    //	}
+    //}
 }

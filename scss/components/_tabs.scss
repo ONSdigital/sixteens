@@ -23,13 +23,11 @@
     &__link {
 
         font-size: 21px;
-        //padding: 21px 0 0 0;
         height: ($baseline * 6);
         background: $aluminium;
         color: $ship-gray;
-        padding: 13px $col 11px $col;
+        padding: 12px $col;
         margin: 0;
-        //margin-right: $col;
         display: block;
 
         @include breakpoint(sm) {
@@ -47,15 +45,11 @@
         }
 
         &--active {
-
-            //border-bottom: 8px solid $active;
-            //color: $abbey;
-            padding-top: 21px;
-            padding-bottom: 11px;
+            padding-top: 20px;
+            padding-bottom: 12px;
             background: $white;
             color: $ship-gray;
             height: ($baseline * 7);
-            //padding: 21px 0 0 0;
 
             @include breakpoint(sm) {
                 padding-top: 17px;
@@ -66,8 +60,6 @@
             &:focus {
                 cursor: default;
                 background-color: $white;
-                //background-color: $white;
-                //border-bottom: 8px solid $active;
             }
 
 

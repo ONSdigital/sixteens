@@ -20,7 +20,8 @@
     }
 
     &__sub-title {
-        margin: ($baseline * 3) 0 0 0;
+        //margin: ($baseline * 3) 0 0 0;
+        margin: 0;
         font-weight: 400;
         font-size: 16px;
     }
@@ -31,7 +32,7 @@
     }
 
     &__field {
-        padding: 7px 0 1px 0;
+        padding: 6px 0 2px 0;
         margin-bottom: $baseline;
     }
 
@@ -45,6 +46,7 @@
         overflow: hidden;
 
         &-input {
+            left: -99999px;
             position: absolute;
             z-index: -1;
         }
@@ -72,27 +74,27 @@
                 cursor: pointer;
             }
 
-            &--active {
-                background: $active;
+            @if $old-ie == true {
+                &--active {
+                    background: $active;
+                }
             }
 
             &--disabled,
             &--disabled:hover,
             &--disabled:focus {
                 cursor: not-allowed;
-                background: $iron;
+                background: $disabled;
                 color: $nevada;
             }
         }
 
-        //Select links
-
-        //input:checked+label {
-        //    background: $active;
-        //}
+        //Selected radio button
+        input:checked+label {
+            background: $active;
+        }
 
         //Disabled links
-
         //input:disabled+label {
         //    cursor: not-allowed;
         //    background: $iron;

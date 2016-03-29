@@ -2,32 +2,32 @@
 
 .js-show-hide {
 
-	&__title {
+    &__title {
 
-		// show and hide js injects a button - styled to be consistent with ordinary heading
-		button {
-			font-size: inherit;
-			font-family: inherit;
-			font-weight: inherit;
-			color: inherit;
-			text-transform: inherit;
-			text-align: inherit;
-			background-color: transparent;
-			border: none;
-			padding: ($baseline * 2) $col ($baseline * 2) 0;
-			//padding: 3px 0 5px 0; //This should keep the text for the button on grid
-			line-height: inherit;
+        // show and hide js injects a button - styled to be consistent with ordinary heading
+        button {
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            color: inherit;
+            text-transform: inherit;
+            text-align: left;
+            background-color: transparent;
+            border: none;
+            padding: ($baseline * 2) $col ($baseline * 2) 0;
+            //padding: 3px 0 5px 0; //This should keep the text for the button on grid
+            line-height: inherit;
 
-			// expands to containing element
-			width: 100%;
-			height: 100%;
+            // expands to containing element
+            width: 100%;
+            height: 100%;
 
-			&:hover,
-			&:focus {
-				text-decoration: underline;
-			}
-		}
-	}
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .show-hide {
@@ -36,88 +36,90 @@
         border: 2px solid $thunder;
     }
 
-	button {
-		position: relative;
-	}
+    button {
+        position: relative;
+    }
 
-	// down arrow when not expanded
-	button[aria-expanded=false]:after {
-		position: absolute;
-		right: 16px;
-		//top: 27px;
-		top: 32%;
-		content: "";
-		@extend .icon;
-	}
+    // down arrow when not expanded
+    button[aria-expanded=false]:after {
+        position: absolute;
+        right: 16px;
+        //top: 27px;
+        top: 32%;
+        content: "";
+        @extend .icon;
+    }
 
-	// up arrow when not expanded
-	button[aria-expanded=true]:after {
-		position: absolute;
-		right: 16px;
-		//top: 27px;
-		top: 32%;
-		content: "";
-		@extend .icon;
-	}
+    // up arrow when not expanded
+    button[aria-expanded=true]:after {
+        position: absolute;
+        right: 16px;
+        //top: 27px;
+        top: 32%;
+        content: "";
+        @extend .icon;
+    }
 
-	button:focus {
-		outline: none;
-	}
+    button:focus {
+        outline: none;
+    }
 
-	&--dark {
+    &--dark {
 
-		//border: 1px solid $thunder;
-		//margin: (($baseline * 3) - 1) 0 ($baseline - 1px) 0;
-		////padding: ($baseline * 2) $col;
-		//background-color: $ship-gray;
+        //border: 1px solid $thunder;
+        //margin: (($baseline * 3) - 1) 0 ($baseline - 1px) 0;
+        ////padding: ($baseline * 2) $col;
+        //background-color: $ship-gray;
 
+        button[aria-expanded=false]:after {
+            @extend .icon-arrow-down--light;
+        }
 
-		button[aria-expanded=false]:after {
-			@extend .icon-arrow-down--light;
-		}
+        // up arrow when not expanded
+        button[aria-expanded=true]:after {
+            @extend .icon-arrow-up--light;
+        }
 
-		// up arrow when not expanded
-		button[aria-expanded=true]:after {
-			@extend .icon-arrow-up--light;
-		}
+    }
 
-	}
+    &--light {
 
-	&--light {
+        // down arrow when not expanded
+        button[aria-expanded=false]:after {
+            @extend .icon-arrow-down--dark;
+        }
 
-		// down arrow when not expanded
-		button[aria-expanded=false]:after {
-			@extend .icon-arrow-down--dark;
-		}
+        // up arrow when not expanded
+        button[aria-expanded=true]:after {
+            @extend .icon-arrow-up--dark;
+        }
 
-		// up arrow when not expanded
-		button[aria-expanded=true]:after {
-			@extend .icon-arrow-up--dark;
-		}
+    }
 
-	}
+    &__title {
+        margin: $baseline 0;
+        height: 100%;
+        width: 100%; //expands title to full width so arrow is located at end correctly
 
-	&__title {
-		margin: $baseline 0;
-		height: 100%;
-		width: 100%; //expands title to full width so arrow is located at end correctly
-	}
+        @include breakpoint(md) {
+            padding-right: ($col * 2);
+        }
+    }
 
-	&__content {
+    &__content {
 
-		//padding: 0 0 ($baseline * 2) 0;
+        //padding: 0 0 ($baseline * 2) 0;
         padding-left: 0;
-		border-bottom: 1px solid $aluminium;
+        border-bottom: 1px solid $aluminium;
 
         //@include breakpoint(md) {
         //    margin-right: ($col * 5);
         //}
 
-		&:last-of-type {
-			//padding: 0;
-			border: none;
-		}
-	}
-
+        &:last-of-type {
+            //padding: 0;
+            border: none;
+        }
+    }
 
 }

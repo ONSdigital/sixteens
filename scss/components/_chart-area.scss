@@ -33,12 +33,12 @@
 
     &__controls__custom--active {
       margin-top: ($baseline * 2);
-      background-color: $abbey;
+      background-color: $nevada;
       // overflow: hidden;
       position: relative;
 
       &:before {
-        @include triangle(15px, $abbey, false);
+        @include triangle(15px, $nevada, false);
         top: -15px;
 
         @include breakpoint(sm) {
@@ -99,7 +99,7 @@
     }
 
     &__controls__download {
-      background-color: $abbey;
+      background-color: $nevada;
       margin-top: ($baseline * 2);
       position: relative;
 
@@ -108,7 +108,7 @@
       &--unfiltered {
 
         &:before {
-          @include triangle(15px, $abbey, true);
+          @include triangle(15px, $nevada, true);
           left: 75px;
 
         }
@@ -118,7 +118,7 @@
 
         &:before {
           //@extend .controls__download__arrow;
-          @include triangle(15px, $abbey, true);
+          @include triangle(15px, $nevada, true);
           right: 75px;
         }
       }
