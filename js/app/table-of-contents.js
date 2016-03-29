@@ -22,13 +22,13 @@ $(function() {
 
 
         //insert sticky wrapper
-        var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper"><div class="col-wrap"><div id="stickySelectArea" class="col col--md-30 col--lg-40 margin-left-md--1"><div class="table-of-contents--sticky__select-wrap">');
+        var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper"><div class="col-wrap"><div id="stickySelectArea" class="col col--md-30 col--lg-40 margin-left-sm--1 margin-left-md--1"><div class="table-of-contents--sticky__select-wrap">');
         $(tocStickyWrap).insertAfter($toc);
         $('.table-of-contents--sticky__wrap #stickySelectArea').prepend('<label for="sticky-toc" class="table-of-contents--sticky__heading font-size--h2">Table of contents</label>');
 
         //add in print options
         if ($('.js-print-pdf').length > 0) {
-            var printStickyWrap = $('<div class="col col--md-17 col--lg-19 hide--mobile"><p class="text-right padding-top-md--0 padding-bottom-md--0 margin-bottom-md--1 print--hide"><a href="" id="" class="link-complex nojs-hidden js-enhance--show jsEnhancePrint">Print this page&nbsp;</a><span class="icon icon-print--light-small"></span></p><p class="text-right padding-top-md--0 padding-bottom-md--1 margin-top-md--0 margin-bottom-md--0 print--hide js-enhance--show"><a href="' + pdfDownloadLink + ' " class="link-complex">Download as PDF&nbsp;</a><span class="icon icon-download--light-small"></span></p></div>');
+            var printStickyWrap = $('<div class="col col--md-17 col--lg-19 hide--sm"><p class="text-right padding-top-md--0 padding-bottom-md--0 margin-bottom-md--1 print--hide"><a href="" id="" class="link-complex nojs-hidden js-enhance--show jsEnhancePrint">Print this page&nbsp;</a><span class="icon icon-print--light-small"></span></p><p class="text-right padding-top-md--0 padding-bottom-md--1 margin-top-md--0 margin-bottom-md--0 print--hide js-enhance--show"><a href="' + pdfDownloadLink + ' " class="link-complex">Download as PDF&nbsp;</a><span class="icon icon-download--light-small"></span></p></div>');
             $(printStickyWrap).insertAfter($('.table-of-contents--sticky__wrap .col'));
         }
 
