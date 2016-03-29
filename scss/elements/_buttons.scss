@@ -13,7 +13,9 @@ button {
     padding: 6px $col 10px $col;
     border: 0 none;
     text-align: center;
-    text-decoration: none !important;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease-out;
+    text-decoration: none;
 
     &--primary {
         background-color: $primary;
@@ -27,7 +29,7 @@ button {
     }
 
     &--secondary {
-        background-color: $abbey;
+        background-color: $secondary;
         color: $white;
 
         &:hover,
@@ -49,9 +51,9 @@ button {
         &--disabled,
         &--disabled:hover,
         &--disabled:focus {
-            color: $abbey;
-            background-color: $iron;
-            cursor: default;
+            color: $nevada;
+            background: $disabled;
+            cursor: not-allowed;
         }
 
     }
@@ -120,7 +122,8 @@ button {
     }
 
     &--wide {
-        width: $col * 16;
+        padding-left: ($col * 2);
+        padding-right: ($col * 2);
     }
 
     &--full-width {

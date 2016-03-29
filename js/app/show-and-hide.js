@@ -18,7 +18,7 @@ function showHide(remove) {
 
             if (!remove) {
 
-                // create unique id for a11y relationship
+                // create unique id for aria relationship
                 var id = 'collapsible-' + $this.index();
 
                 if ($this.hasClass('is-shown')) {
@@ -41,9 +41,15 @@ function showHide(remove) {
 
                 // Toggle the state properties on click
                 button.on('click', function () {
-                    var state = $(this).attr('aria-expanded') === 'false' ? true : false;
-                    $(this).attr('aria-expanded', state);
+                    var $this = $(this);
+                    var state = $this.attr('aria-expanded') === 'false' ? true : false;
+                    $this.attr('aria-expanded', state);
                     panel.attr('aria-hidden', !state);
+
+                    // Fix for IE8/9 bug where ordered lists lose numbering on show/hide (see: http://stackoverflow.com/questions/5584500/ordered-list-showing-all-zeros-in-ie9)
+                    setTimeout(function(){
+                        $('ol').css('counter-reset', 'item');
+                    }, 1);
                 });
             } else {
                 // Set filters to show

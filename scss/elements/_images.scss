@@ -8,6 +8,11 @@ a img {
   width: 100%;
 }
 
+.image-background {
+    &--mercury {
+        background-color: $mercury;
+    }
+}
 
 // Accessibility fixes
 //a:focus > img {

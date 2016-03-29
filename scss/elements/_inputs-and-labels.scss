@@ -4,7 +4,7 @@
 // RESET FIELDSET AND LEGEND - credit to http://thatemil.com/blog/2015/01/03/reset-your-fieldset/
 legend {
 	padding: 0;
-	display: table;
+	//display: table;
 }
 
 fieldset {
@@ -14,9 +14,9 @@ fieldset {
 	min-width: 0;
 }
 
-body:not(:-moz-handler-blocked) fieldset {
-	display: table-cell;
-}
+//body:not(:-moz-handler-blocked) fieldset {
+//	display: table-cell;
+//}
 
 
 label {
@@ -46,6 +46,7 @@ label {
     height: 32px;
     border: 1px solid $iron;
     padding: ($baseline) ($col / 2);
+	-webkit-appearance: textfield; // Fix for Safari not accepting element height
 
 	&--focus {
 		//outline: 1px dashed $nevada;
