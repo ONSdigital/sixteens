@@ -26,10 +26,10 @@ function hoverState() {
 
     // Mapping for utility classes and their opposites
     var classMap = [];
-    classMap.push({class1: 'background--white', class2: 'background--ship-gray'});
+    classMap.push({class1: 'background--white', class2: 'background--ship-grey'});
     classMap.push({class1: 'background--gallery', class2: 'background--nevada'});
-    classMap.push({class1: 'background--mercury', class2: 'background--ship-gray'});
-    classMap.push({class1: 'background--iron-light', class2: 'background--ship-gray'});
+    classMap.push({class1: 'background--mercury', class2: 'background--ship-grey'});
+    classMap.push({class1: 'background--iron-light', class2: 'background--ship-grey'});
     classMap.push({class1: 'border-top--iron-sm', class2: 'border-top--thunder-sm'});
     classMap.push({class1: 'border-top--iron-md', class2: 'border-top--thunder-md'});
     classMap.push({class1: 'border-top--iron-light-sm', class2: 'border-top--thunder-sm'});

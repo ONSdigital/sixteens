@@ -3,7 +3,7 @@
 ul.minical {
     position: absolute;
     display: none;
-    color: $ship-gray;
+    color: $ship-grey;
     background: $iron-light;
     margin: 0;
     padding: 0;
@@ -35,7 +35,7 @@ ul.minical {
             width: 100%;
             header {
                 background: transparentize($aluminium, 0.5);
-                color: $ship-gray;
+                color: $ship-grey;
                 border: 1px solid $aluminium;
                 position: relative;
                 h5 {
@@ -113,7 +113,7 @@ ul.minical {
                                 padding: 5px 0 0 0;
                                 font-size: 0.7em;
                                 font-weight: bold;
-                                color: $ship-gray;
+                                color: $ship-grey;
                                 text-align: center;
                                 border-bottom: 1px solid transparentize($aluminium, 0.5);
                             }
@@ -134,7 +134,7 @@ ul.minical {
                                     display: block;
                                     border-right: 1px solid transparentize($aluminium, 0.5);
                                     border-bottom: 1px solid transparentize($aluminium, 0.5);
-                                    color: $ship-gray;
+                                    color: $ship-grey;
                                     padding: 4px 4px 4px 4px;
                                     text-decoration: none;
                                     position: relative;
@@ -142,7 +142,7 @@ ul.minical {
                                 }
                                 &.minical_highlighted a {
                                     background-color: transparentize($active, 0.5);
-                                    color: $ship-gray;
+                                    color: $ship-grey;
                                 }
                                 &.minical_selected a {
                                     background: $active;
@@ -150,7 +150,7 @@ ul.minical {
                                 }
                                 &.minical_past_month a,
                                 &.minical_future_month a {
-                                    color: transparentize($ship-gray, 0.5);
+                                    color: transparentize($ship-grey, 0.5);
                                 }
                                 &.minical_today a:after {
                                     content: '';
@@ -161,7 +161,7 @@ ul.minical {
                                     right: -1px;
                                 }
                                 &.minical_disabled a {
-                                    color: transparentize($ship-gray, 0.5);
+                                    color: transparentize($ship-grey, 0.5);
                                     background: transparentize($aluminium, 0.8);
                                     border-color: transparentize($aluminium, 0.8);
                                 }

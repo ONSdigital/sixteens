@@ -31,7 +31,7 @@
             border-bottom: 1px solid $astral;
 
             a {
-                background: $ship-gray;
+                background: $ship-grey;
                 display: block;
                 width: 100%;
                 height: 100%;
@@ -44,7 +44,7 @@
                 &:hover,
                 &:focus {
                     background: $iron;
-                    color: $ship-gray;
+                    color: $ship-grey;
                 }
             }
         }

@@ -16,7 +16,7 @@
         width: ($col * 7);
         font-size: 14px;
         position: absolute;
-        border: 1px solid $ship-gray;
+        border: 1px solid $ship-grey;
         top: ($baseline * 2);
         right: 0;
 
@@ -29,7 +29,7 @@
         &:hover,
         &:focus,
         &--focus {
-            background-color: $ship-gray;
+            background-color: $ship-grey;
             outline: none;
         }
     }
@@ -52,7 +52,7 @@
             //padding: ($baseline * 4) $col ($baseline * 3) $col;
             padding: $baseline 0 ($baseline * 3) 0;
             color: $iron-light;
-            background: $ship-gray;
+            background: $ship-grey;
 
             @include breakpoint(sm) {
                 width: ($col * 18);
@@ -64,7 +64,7 @@
                 height: 0;
                 border-left: 16px solid transparent;
                 border-right: 16px solid transparent;
-                border-bottom: 16px solid $ship-gray;
+                border-bottom: 16px solid $ship-grey;
                 position: absolute;
                 top: -16px;
                 right: ($col * 2.5);
