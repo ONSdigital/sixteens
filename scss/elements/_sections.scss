@@ -49,49 +49,9 @@ section {
 				margin-right: ($col * 4);
 			}
 
+			@include markdown;
+
 			position: relative;
-
-			h4 {
-				font-weight: 600;
-			}
-
-			a {
-				text-decoration: underline;
-			}
-
-
-			p {
-				margin-top: 0;
-			}
-
-			ul {
-				margin-top: 0;
-			}
-
-			img {
-				//width: 100%;
-				//width: auto;
-				max-width: ($col * 38);
-			}
-
-			li {
-				margin: 0;
-				// padding: $baseline 0 $baseline $col;
-
-
-				// li with only one p shouldn't have padding (spacing looks excessive)
-				p:first-of-type {
-					margin: 0;
-					padding: 0;
-				}
-
-				// to offset above styling second p in an li should have extra margin on the top (giving it the same styling as an ordinary p)
-				p:nth-of-type(2) {
-					@extend p;
-					margin-top: ($baseline * 2);
-				}
-
-			}
 
 			.markdown-chart-container, .markdown-table-container {
 				border-left: solid $col $mercury;
@@ -125,13 +85,11 @@ section {
 					}
 				}
 			}
-
-
 		}
 
 		&--static-markdown {
-			@extend .section__content--markdown;
-			padding-left: 0;
+			@include markdown;
+
 			margin-top: ($baseline * 3);
 
 			ol {

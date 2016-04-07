@@ -9,7 +9,7 @@
     @include breakpoint(md) {
         //border-top: 1px solid $thunder;
         //margin-top: -1px;	//compensate for border-top
-        background-color: $ship-gray;
+        background-color: $ship-grey;
         font-size: 17px;
         height: 80px;
         // height: 97px;
@@ -74,7 +74,7 @@
         line-height: $base-line-height;
         //font-style: italic;
         font-size: 17px;
-        color: $ship-gray;
+        color: $ship-grey;
         border: none;
         padding: 6px $col 4px $col;
         height: ($baseline * 6);

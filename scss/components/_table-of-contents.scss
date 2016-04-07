@@ -32,7 +32,7 @@
 
 		&__wrap {
 			overflow: hidden;
-			background: $ship-gray;
+			background: $ship-grey;
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -83,7 +83,7 @@
 		&__select {
 			width: 100%;
 			font-size: 14px;
-			color: $ship-gray;
+			color: $ship-grey;
 			border: none;
 			padding: 6px ($col * 3) 4px $col;
 			height: ($baseline * 5);
