@@ -23,10 +23,14 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
 // Don't show icons on print - stops conflicts with print :after for links too
 @media screen {
     .icon {
+
+        @if($old-ie == true) {
+            background:url($png);
+        } @else {
+            background-image:url($svg);
+            background-repeat: no-repeat;
+        }
         display: inline-block;
-        background-image:url($png);
-        background-image:url($svg);
-        background-repeat: no-repeat;
         background-size: 300px 1000px;
         height: 36px;
         width: 40px;
