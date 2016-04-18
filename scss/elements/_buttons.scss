@@ -81,8 +81,8 @@ button {
         color: $matisse;
         text-decoration: underline;
 
-        &:not(span):hover,
-        &:not(span):focus {
+        &:hover,
+        &:focus {
             background: $gallery;
             text-decoration: underline;
         }
@@ -92,6 +92,14 @@ button {
         background: $ship-grey;
         color: $iron-light;
         text-decoration: none;
+
+        &:hover,
+        &:focus {
+            background: $ship-grey;
+            color: $iron-light;
+            text-decoration: none;
+            cursor: default;
+        }
     }
 
     &--small {

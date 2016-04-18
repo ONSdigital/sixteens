@@ -39,7 +39,6 @@
 
 // margins
 
-
 .margin {
 
     &-top {
@@ -425,4 +424,12 @@
 
 .img-sparkline {
     max-height: 100%;
+}
+
+
+// Baseline
+
+// Used on inline elements that aren't on grid because they're not in a baselined element (eg an anchor not in a <p>)
+.baseline {
+    padding: 3px 0 5px 0;
 }

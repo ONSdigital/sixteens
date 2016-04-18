@@ -67,7 +67,11 @@ label {
     height: 32px;
     border: 1px solid $iron;
     padding: ($baseline) ($col / 2);
-	-webkit-appearance: textfield; // Fix for Safari not accepting element height
+
+
+    &[type=search] {
+        -webkit-appearance: none; // Fix for Safari not accepting element height
+    }
 
 	&--focus {
 		//outline: 1px dashed $nevada;
@@ -89,12 +93,6 @@ label {
 .select {
     background-color: white;
     border: 1px solid $iron;
-
-    // &--thin {
-    //     height: 24px;
-    // }
-
-
 }
 
 .width-auto {

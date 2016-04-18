@@ -23,10 +23,14 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
 // Don't show icons on print - stops conflicts with print :after for links too
 @media screen {
     .icon {
+
+        @if($old-ie == true) {
+            background:url($png);
+        } @else {
+            background-image:url($svg);
+            background-repeat: no-repeat;
+        }
         display: inline-block;
-        background-image:url($png);
-        background-image:url($svg);
-        background-repeat: no-repeat;
         background-size: 300px 1000px;
         height: 36px;
         width: 40px;
@@ -34,7 +38,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
         &-arrow-up {
 
             &--dark {
-                background-position: -16px -14px;
+                background-position: -15px -14px;
                 height: ($baseline * 4);
             }
 
@@ -45,7 +49,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light {
-                background-position: -80px -14px;
+                background-position: -79px -14px;
                 height: ($baseline * 4);
             }
 
@@ -60,7 +64,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
         &-arrow-down {
 
             &--dark {
-                background-position: -16px -44px;
+                background-position: -15px -44px;
             }
 
             &--dark-small {
@@ -70,7 +74,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light {
-                background-position: -80px -44px;
+                background-position: -79px -44px;
             }
 
             &--light-small {

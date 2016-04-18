@@ -2,7 +2,7 @@
 
 @mixin breakpoint($class) {
 
-	@if $old-ie == true {
+	@if $old-ie == true and $class != sm {
 		@content;
 
 	}
