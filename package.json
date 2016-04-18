@@ -4,7 +4,7 @@
     "description": "Pattern library for ONS website",
     "main": "",
     "config": {
-        "js": "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/app/display.js js/thirdparty/jquery.minical.js js/app/viewport-size.js js/app/nav.js js/app/table.js js/app/show-and-hide.js js/app/sticky-scroll.js js/app/date-picker.js js/app/table-of-contents.js js/app/language-toggle.js js/app/mobile-filters.js js/app/equal-height.js js/app/print-page.js js/app/hover-state.js js/app/scroll.js"
+        "js": "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/app/display.js js/thirdparty/jquery.minical.js js/app/viewport-size.js js/app/nav.js js/app/table.js js/app/show-and-hide.js js/app/sticky-scroll.js js/app/date-picker.js js/app/table-of-contents.js js/app/language-toggle.js js/app/mobile-filters.js js/app/equal-height.js js/app/print-page.js js/app/hover-state.js js/app/scroll.js js/app/loading-screen.js"
     },
     "scripts": {
         "clean": "",
