@@ -164,7 +164,7 @@ strong {
 
 @mixin font-heading-util {
     .font-size {
-        @for $i from 0 through 6 {
+        @for $i from 1 through 6 {
             //
             &--h#{$i} {
                 @extend h#{$i};
