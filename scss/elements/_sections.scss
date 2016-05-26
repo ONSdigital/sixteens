@@ -77,7 +77,7 @@ section {
 
 				.markdown-chart, .markdown-table-wrap {
 					//Charts take up extra space when available (ie on desktop/tablet)
-					width: 600px;
+					width: 700px;
 
 					//On mobile then go 100% width
 					@include breakpoint(sm) {
