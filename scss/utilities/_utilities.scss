@@ -371,49 +371,49 @@
 }
 
 .text-center {
-    text-align: center;
+    text-align: center !important;
 
     &--md {
         @include breakpoint(md) {
-            text-align: center;
+            text-align: center !important;
         }
     }
 
     &--lg {
         @include breakpoint(lg) {
-            text-align: center;
+            text-align: center !important;
         }
     }
 }
 
 .text-right {
-    text-align: right;
+    text-align: right !important;
 
     &--md {
         @include breakpoint(md) {
-            text-align: right;
+            text-align: right !important;
         }
     }
 
     &--lg {
         @include breakpoint(lg) {
-            text-align: right;
+            text-align: right !important;
         }
     }
 }
 
 .text-left {
-    text-align: left;
+    text-align: left !important;
 
     &--md {
         @include breakpoint(md) {
-            text-align: left;
+            text-align: left !important;
         }
     }
 
     &--lg {
         @include breakpoint(lg) {
-            text-align: left;
+            text-align: left !important;
         }
     }
 }

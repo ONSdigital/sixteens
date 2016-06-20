@@ -150,6 +150,29 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
         }
 
+        &-email {
+
+            &--dark {
+                background-position: -11px -776px;
+                width: 40px; //icon needs more width or else it cuts off one side
+            }
+
+            &--dark-small {
+                background-position: -138px -398px;
+                @include small-icon;
+            }
+
+            &--light {
+                background-position: -79px -776px;
+                width: 40px;
+            }
+
+            &--light-small {
+                background-position: -170px -398px;
+                @include small-icon;
+            }
+        }
+
 
         &-external {
 
