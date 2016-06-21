@@ -58,23 +58,6 @@ section {
 				padding-left: $col;
 				margin-bottom: ($baseline * 4);
 
-				ol {
-					margin: 0;
-					counter-reset: toc;
-				}
-
-				li {
-					list-style: none;
-					position: relative;
-
-					&:before {
-						content: counter(toc) ". ";
-						counter-increment: toc;
-						position: absolute;
-						left: -$col;
-					}
-				}
-
 				.markdown-chart, .markdown-table-wrap {
 					//Charts take up extra space when available (ie on desktop/tablet)
 					width: 700px;
