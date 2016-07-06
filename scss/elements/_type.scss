@@ -1,11 +1,11 @@
 //_type.scss
 
 //--[vars]--
-//$base-font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-$base-font-family: Helvetica, sans-serif;
+$base-font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+//$base-font-family: Helvetica, sans-serif;
 $base-font-size: 14px;
 $base-line-height: $baseline * 3;
-$base-font-weight: 300;
+$base-font-weight: 400;
 $base-text-colour: $ship-grey;
 
 //--[vars end]--
@@ -16,8 +16,8 @@ body {
     font-weight: $base-font-weight;
     line-height: $base-line-height;
     color: $base-text-colour;
-    //-webkit-font-smoothing: antialiased;
-    //-moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
@@ -30,7 +30,13 @@ h1 {
     // Alternative H1 for census landing page
     &--census {
         color: $census;
-        font-weight: 600;
+        font-weight: 700;
+    }
+
+    @include breakpoint(sm) {
+        font-size: 29px;
+        line-height: 40px;
+        padding: 0;
     }
 
 }
@@ -41,6 +47,10 @@ h2 {
     line-height: 24px;
     margin: ($baseline * 5) 0 0 0;
     padding: 3px 0 5px 0;
+
+    @include breakpoint(sm) {
+        font-size: 22px;
+    }
 }
 
 h3 {
@@ -49,6 +59,11 @@ h3 {
     line-height: 24px;
     margin: ($baseline * 2) 0 0 0;
     padding: 3px 0 5px 0;
+
+    @include breakpoint(sm) {
+        font-size: 20px;
+        padding: 4px 0px;
+    }
 }
 
 h4 {
@@ -61,13 +76,13 @@ h4 {
 
 h5 {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     margin: ($baseline * 2) 0;
 }
 
 h6 {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     margin: ($baseline * 2) 0 0 0;
 }
 
@@ -112,7 +127,7 @@ address {
 }
 
 strong {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 // Mixin for silent styling to bunch up spacing between elements in big blocks of text (ie markdown)
@@ -120,7 +135,7 @@ strong {
     overflow: visible;
 
     h4 {
-        font-weight: 600;
+        font-weight: 700;
     }
 
     a {
