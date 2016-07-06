@@ -22,7 +22,7 @@ fieldset {
 label {
     //Attempt to fix inputs not taking font size and family
     font-family: "Open Sans", sans-serif;
-    font-weight: 300;
+    font-weight: $base-font-weight;
     font-size: 14px;
     line-height: 24px;
 }

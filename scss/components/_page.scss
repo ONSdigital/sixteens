@@ -8,21 +8,32 @@
 		&__type {
 			display: block;
 			font-size: 21px;
-			font-weight: 300;
+			font-weight: $base-font-weight;
 			color: $salem;
+			padding: 5px 0 3px 0;
 		}
 
 		&__title {
 			margin-top: ($baseline * 2);
-			margin-bottom: ($baseline * 0);
+			margin-bottom: ($baseline * 1);
 
 			&--home {
 				font-size: 36px;
+
+				@include breakpoint(sm) {
+					font-size: 22px;
+				}
 
 				&-big {
 					font-size: 60px;
 					line-height: 64px;
 					display: block;
+					margin-bottom: 0;
+
+					@include breakpoint(sm) {
+						font-size: 36px;
+						line-height: 40px;
+					}
 				}
 			}
 		}
@@ -33,10 +44,23 @@
 			padding: 7px 0 9px 0;
 			line-height: 32px;
 
+			@include breakpoint(sm) {
+				font-size: 17px;
+				padding: 9px 0 7px 0;
+				margin-bottom: ($baseline * 4);
+			}
+
 			&--home-big {
 				font-size: 24px;
 				margin-top: 16px;
 				margin-bottom: ($baseline * 6);
+
+				@include breakpoint(sm) {
+					font-size: 17px;
+					margin-top: 0;
+					margin-bottom: ($baseline * 2);
+				}
+
 			}
 		}
 	}

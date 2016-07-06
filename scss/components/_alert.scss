@@ -21,6 +21,8 @@
         color: $iron;
         font-size: 16px;
         text-decoration: underline;
+        padding: 5px 0 3px 0;
+        display: inline-block;
         
         &:hover {
             color: $white;
