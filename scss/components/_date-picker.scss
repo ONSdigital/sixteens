@@ -1,3 +1,159 @@
+.datepicker {
+    background-color: $ship-grey;
+    color: $iron-light;
+    padding: ($baseline * 3) $col;
+    margin-top: ($baseline * 2);
+    position: absolute;
+    width: ($col * 16);
+    z-index: 10; // Otherwise elements on mobile go over the top
+
+    &:before {
+        width: 0;
+        height: 0;
+        content: "";
+        position: absolute;
+        top: -15px;
+        right: $col;
+        border-right: 15px solid transparent;
+        border-left: 15px solid transparent;
+        border-bottom: 15px solid $ship-grey;
+    }
+
+    &--left-arrow:before {
+        left: $col;
+    }
+
+    &__icon {
+        width: ($col * 2);
+        padding: 0;
+        background: transparent;
+
+        &:focus {
+            background: $iron;
+        }
+
+        @include breakpoint(md) {
+            margin: $baseline 0 0 0;
+        }
+        @include breakpoint(lg) {
+            margin: ($baseline * 3) 0 0 ($col);
+        }
+    }
+
+    &__month {
+        font-size: 18px;
+        margin: 0 0 ($baseline *2) 0;
+        float: left;
+        width: ($col * 11);
+        text-align: center;
+        padding: 4px 0;
+    }
+
+    &__btn {
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        float: left;
+        padding: 0;
+        width: ($col * 1.5);
+        position: relative;
+
+        &:focus {
+            outline: 1px solid $iron;
+        }
+
+        // Get arrow as far right in button as possible
+        &--next span {
+            background-position: -76px -478px;
+        }
+    }
+
+    &__grid {
+        position: relative;
+        table-layout: fixed;
+        margin-bottom: -1px; // Stops default table border putting off date picker by 1px
+        border-collapse: separate;
+
+        // Remove chrome outline
+        &:focus {
+            outline: 0;
+        }
+
+        // Put opaque element over the top of calendar when not in focus
+        &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            background: $thunder;
+            opacity: 0.4;
+            z-index: 2;
+        }
+
+        // Remove opaque element on focus
+        &:focus:before {
+            background: transparent;
+            opacity: 1;
+            z-index: 0;
+        }
+    }
+
+    &__grid-data {
+        height: ($baseline * 4);
+        width: ($col * 2);
+        text-align: center;
+        vertical-align: middle;
+        background: $nevada;
+        //border: 1px solid $ship-grey;
+        border-right: 1px solid $ship-grey;
+        border-bottom: 1px solid $ship-grey;
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+
+        &.empty {
+            background: $abbey;
+        }
+
+        &.focus {
+            background: $thunder;
+        }
+
+        &.active {
+            background: $iron-light;
+            color: $thunder;
+        }
+
+        &.today:after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: 8px solid $iron-light;
+            border-left: 8px solid transparent;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    &__grid-header {
+        height: ($baseline * 4);
+        width: ($col * 2);
+        font-weight: 300;
+        font-size: 12px;
+    }
+
+    &__clear {
+        display: block;
+        margin: ($baseline * 3) auto 0 auto;
+    }
+}
+
+
+
+
+
 /* Styling for jquery.minical.js plugin */
 
 ul.minical {

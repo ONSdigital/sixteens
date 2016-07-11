@@ -48,6 +48,11 @@ label {
 //    line-height: 16px;
 //}
 
+input, select {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+}
+
 .label {
 
 	&--inline {
@@ -98,3 +103,5 @@ label {
 .width-auto {
     width: auto !important;
 }
+
+
