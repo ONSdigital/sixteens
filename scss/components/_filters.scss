@@ -2,32 +2,21 @@
 
 .filters {
 
-    //&__title:not(:first-child) {
-    //    margin-top: $baseline * 2;
-    //}
-
-    //&__title:first-child {
-    //    margin-top: 0;
-    //}
-
     &__title {
         display: block;
         font-size: 17px;
         font-weight: 400;
-        line-height: 24px;
-        //margin-top: 16px;
+        line-height: $base-line-height;
         padding: 5px 0 3px 0;
     }
 
     &__sub-title {
-        //margin: ($baseline * 3) 0 0 0;
         margin: 0;
         font-weight: 400;
         font-size: 16px;
     }
 
     &__item {
-        //padding: 0 !important;
         margin: 0;
     }
 
@@ -38,6 +27,94 @@
 
     &__fieldset:not(:first-child) {
         margin-top: ($baseline * 3);
+    }
+
+    &__error {
+        font-size: 13px;
+        background: $poppy;
+        color: $white;
+        padding-left: $col;
+        padding-right: $col;
+        margin: 0 0 $baseline (-$col);
+        width: ($col * 18);
+
+        &.enhanced {
+            overflow: hidden;
+            animation: hideError 0.15s ease-out forwards;
+        }
+
+        &.active {
+            animation: showError 0.25s ease-in forwards;
+        }
+    }
+
+    // Error message animations
+    @keyframes showError {
+        from {
+            max-height: 0;
+        }
+        to {
+            max-height: ($baseline * 30); // Random high number chosen, so we should not hit this limit, needed for animation
+        }
+    }
+    @keyframes hideError {
+        from {
+            max-height: ($baseline * 30);
+        }
+        to {
+            max-height: 0;
+        }
+    }
+
+    // For date inputs
+    &__date {
+        float: left;
+
+        &:not(:first-of-type) {
+            @include breakpoint(sm) {
+                margin-left: ($col / 2);
+            }
+            @include breakpoint(md) {
+                margin-left: ($col / 2);
+            }
+            @include breakpoint(lg) {
+                margin-left: $col;
+            }
+        }
+
+        input {
+            width: 100%;
+            line-height: $base-line-height;
+            padding-left: ($col/2);
+            height: ($baseline * 4);
+            border: 1px solid $iron;
+        }
+
+        &--day {
+            @include breakpoint(md) {
+                width: ($col * 2.5);
+            }
+            @include breakpoint(lg) {
+                width: ($col * 3);
+            }
+        }
+        &--month {
+            @include breakpoint(md) {
+                width: ($col * 2.5);
+            }
+            @include breakpoint(lg) {
+                width: ($col * 3);
+            }
+        }
+        &--year {
+            @include breakpoint(md) {
+                width: ($col * 4);
+            }
+            @include breakpoint(lg) {
+                width: ($col * 5);
+            }
+        }
+
     }
 
 
