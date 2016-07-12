@@ -68,11 +68,14 @@
 
     // For date inputs
     &__date {
-        float: left;
+
+        @include breakpoint(md) {
+            float: left;
+        }
 
         &:not(:first-of-type) {
             @include breakpoint(sm) {
-                margin-left: ($col / 2);
+                margin-top: $baseline;
             }
             @include breakpoint(md) {
                 margin-left: ($col / 2);
