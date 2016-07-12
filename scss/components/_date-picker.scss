@@ -32,6 +32,11 @@
             background: $iron;
         }
 
+        @include breakpoint(sm) {
+            clear: left;
+            display: block;
+            margin-top: $baseline;
+        }
         @include breakpoint(md) {
             margin: $baseline 0 0 0;
         }
