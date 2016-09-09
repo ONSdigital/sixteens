@@ -712,7 +712,7 @@
 	&__figure, &__unit, &__preunit {
 		display: inline-block;
 		font-size: 36px;
-		font-weight: 600;
+		font-weight: 700;
 		padding: 17px 0 7px 0;
 
 		&--list {
@@ -722,7 +722,7 @@
 
 		&--home {
 			font-size: 24px;
-			font-weight: 600;
+			font-weight: 700;
 			padding: 3px 0 5px 0;
 		}
 	}
@@ -825,8 +825,9 @@
 
 		.stand-out {
 			font-size: 36px;
-			font-weight: 600;
-			padding: 7px 0 1px 0;
+			font-weight: 700;
+			padding: 11px 0 5px 0;
+			line-height: ($baseline * 4);
 
 			&--list {
 				padding: 5px 0 3px 0;

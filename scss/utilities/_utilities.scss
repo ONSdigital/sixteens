@@ -39,7 +39,6 @@
 
 // margins
 
-
 .margin {
 
     &-top {
@@ -372,49 +371,49 @@
 }
 
 .text-center {
-    text-align: center;
+    text-align: center !important;
 
     &--md {
         @include breakpoint(md) {
-            text-align: center;
+            text-align: center !important;
         }
     }
 
     &--lg {
         @include breakpoint(lg) {
-            text-align: center;
+            text-align: center !important;
         }
     }
 }
 
 .text-right {
-    text-align: right;
+    text-align: right !important;
 
     &--md {
         @include breakpoint(md) {
-            text-align: right;
+            text-align: right !important;
         }
     }
 
     &--lg {
         @include breakpoint(lg) {
-            text-align: right;
+            text-align: right !important;
         }
     }
 }
 
 .text-left {
-    text-align: left;
+    text-align: left !important;
 
     &--md {
         @include breakpoint(md) {
-            text-align: left;
+            text-align: left !important;
         }
     }
 
     &--lg {
         @include breakpoint(lg) {
-            text-align: left;
+            text-align: left !important;
         }
     }
 }
@@ -425,4 +424,12 @@
 
 .img-sparkline {
     max-height: 100%;
+}
+
+
+// Baseline
+
+// Used on inline elements that aren't on grid because they're not in a baselined element (eg an anchor not in a <p>)
+.baseline {
+    padding: 3px 0 5px 0;
 }

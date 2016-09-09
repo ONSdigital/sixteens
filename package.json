@@ -4,21 +4,21 @@
     "description": "Pattern library for ONS website",
     "main": "",
     "config": {
-        "js": "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/app/display.js js/thirdparty/jquery.minical.js js/app/viewport-size.js js/app/nav.js js/app/table.js js/app/show-and-hide.js js/app/sticky-scroll.js js/app/date-picker.js js/app/table-of-contents.js js/app/language-toggle.js js/app/mobile-filters.js js/app/equal-height.js js/app/print-page.js js/app/hover-state.js js/app/scroll.js"
+        "js": "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/app/display.js js/app/viewport-size.js js/app/nav.js js/app/show-and-hide.js js/app/sticky-scroll.js js/app/date-picker.js js/app/table-of-contents.js js/app/language-toggle.js js/app/mobile-filters.js js/app/equal-height.js js/app/print-page.js js/app/hover-state.js js/app/scroll.js js/app/loading-screen.js"
     },
     "scripts": {
         "clean": "",
-        "css-build-datetime": "NOW=$(date +%y%m%d%H%M%S) && replace '[$builddatetime](.*?)[;]' '$builddatetime: \"'$NOW'\";' scss/_builddatetime.scss",
-        "minify-imgs": "imagemin dist/img/ dist/img",
-        "build-css": "mkdir -pv dist/css  && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/main.scss dist/css/main.css && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/pdf.scss dist/css/pdf.css",
-        "build-ie-9-css": "mkdir -pv dist/css && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/main.scss dist/css/ie-9.css && blessc dist/css/ie-9.css -f",
-        "build-old-ie-css": "mkdir -pv dist/css  && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/old-ie.scss dist/css/old-ie.css && blessc dist/css/old-ie.css -f",
+        "css-build-datetime": "NOW=$(date +%y%m%d%H%M%S) && ./node_modules/replace/bin/replace.js '[$builddatetime](.*?)[;]' '$builddatetime: \"'$NOW'\";' scss/_builddatetime.scss",
+        "minify-imgs": "./node_modules/imagemin-cli/cli.js dist/img/ dist/img",
+        "build-css": "mkdir -pv dist/css && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/main.scss dist/css/main.css && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/pdf.scss dist/css/pdf.css",
+        "build-ie-9-css": "mkdir -pv dist/css && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/main.scss dist/css/ie-9.css && ./node_modules/bless/bin/blessc dist/css/ie-9.css -f",
+        "build-old-ie-css": "mkdir -pv dist/css && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/old-ie.scss dist/css/old-ie.css && ./node_modules/bless/bin/blessc dist/css/old-ie.css -f",
         "build-js": "mkdir -pv dist/js && ./node_modules/uglify-js/bin/uglifyjs $npm_package_config_js --compress --mangle -o dist/js/main.js",
         "build": "npm run css-build-datetime && npm run build-css && npm run build-old-ie-css && npm run build-ie-9-css && npm run build-js",
         "postinstall": "npm run build",
-        "watch-css": "onchange 'scss' -- npm run build-css",
-        "watch-js": "catw -v $npm_package_config_js -o dist/js/main.js",
-        "server": "python -m SimpleHTTPServer 9000",
+        "watch-css": "./node_modules/onchange/cli.js 'scss' -- npm run build-css",
+        "watch-js": "./node_modules/catw/bin/cmd.js -v $npm_package_config_js -o dist/js/main.js",
+        "server": "http-server -p 9000 --cors",
         "dev": "npm run watch-css & npm run watch-js & npm run server"
     },
     "repository": {
@@ -35,6 +35,7 @@
     "devDependencies": {
         "catw": "latest",
         "onchange": "latest",
-        "imagemin-cli": "latest"
+        "imagemin-cli": "latest",
+        "http-server": "latest"
     }
 }

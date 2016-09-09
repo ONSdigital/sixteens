@@ -46,15 +46,15 @@ dd {
     border-left: 1px solid $iron;
     border-right: 1px solid $iron;
 
-    th {
+    &__header {
         text-align: left;
         position: relative; //Relative container for absolutely positioned arrow
-        padding: 0;
+        padding: 6px $col*2 10px $col*2;
         background-color: $iron;
 
         button {
             line-height: $base-line-height;
-            padding: 6px 0 10px $col;
+            padding: 0;
             border: none;
             border-radius: 0;
             background: transparent;
@@ -73,32 +73,38 @@ dd {
             }
         }
 
+        &[aria-sort='descending']:after,
+        &[aria-sort='ascending']:after {
+            position: absolute;
+            left: ($col * 4.5);
+            top: 14px;
+            content: "";
+            margin-left: $col;
+        }
+
         &[aria-sort='descending']:after {
             @extend .icon;
             @extend .icon-arrow-up--dark-small;
-            position: absolute;
-            left: ($col * 4);
-            top: ($baseline * 2);
-            content: "";
-            margin-left: $col;
         }
 
         &[aria-sort='ascending']:after {
             @extend .icon;
             @extend .icon-arrow-down--dark-small;
-            position: absolute;
-            left: ($col * 4);
-            top: ($baseline * 2);
-            content: "";
-            margin-left: $col;
+        }
+
+        // Modify for when the text is aligned right
+        &.text-right:after {
+            left: auto;
+            right: ($col * 5);
         }
     }
 
     tbody {
 
-        td {
-            padding: 7px 0 9px $col;
+        td, th {
+            padding: 7px $col*2 9px $col*2;
             vertical-align: baseline;
+            font-weight: $base-font-weight;
         }
 
         tr:not(:last-of-type) {
@@ -132,11 +138,11 @@ dd {
 
     }
 
-    &__header {
-        padding: 4px 0 4px 0;
-        border-bottom: 1px solid $silver;
-        margin-bottom: -1px;
-    }
+    //&__header {
+    //    padding: 4px 0 4px 0;
+    //    border-bottom: 1px solid $silver;
+    //    margin-bottom: -1px;
+    //}
 
     //.sorted {
     //

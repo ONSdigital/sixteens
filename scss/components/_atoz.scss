@@ -1,6 +1,10 @@
 .a-z {
     margin-bottom: ($baseline * 6);
 
+    @include breakpoint(sm) {
+        margin-bottom: ($baseline * 3);
+    }
+
     h2 {
 
         a {

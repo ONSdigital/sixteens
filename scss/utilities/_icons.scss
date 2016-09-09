@@ -26,6 +26,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
 
         @if($old-ie == true) {
             background:url($png);
+            background-size: 300px 1000px !important; // Horrible fix for the horrible fix on SVGs to stop small icons being blurry (TODO - a better solution!)
         } @else {
             background-image:url($svg);
             background-repeat: no-repeat;
@@ -38,7 +39,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
         &-arrow-up {
 
             &--dark {
-                background-position: -16px -14px;
+                background-position: -15px -14px;
                 height: ($baseline * 4);
             }
 
@@ -46,10 +47,11 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
                 background-position: -138px -14px;
                 @include small-icon;
                 height: ($baseline * 2);
+                background-size: 301px 1000px; // Horrible fix to small icons being blurry, possibly problem with SVG creation/export?
             }
 
             &--light {
-                background-position: -80px -14px;
+                background-position: -79px -14px;
                 height: ($baseline * 4);
             }
 
@@ -57,6 +59,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
                 background-position: -170px -14px;
                 @include small-icon;
                 height: ($baseline * 2);
+                background-size: 301px 1000px;
             }
         }
 
@@ -64,23 +67,25 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
         &-arrow-down {
 
             &--dark {
-                background-position: -16px -44px;
+                background-position: -15px -44px;
             }
 
             &--dark-small {
                 background-position: -138px -30px;
                 @include small-icon;
                 height: ($baseline * 2);
+                background-size: 301px 1000px;
             }
 
             &--light {
-                background-position: -80px -44px;
+                background-position: -79px -44px;
             }
 
             &--light-small {
                 background-position: -170px -30px;
                 @include small-icon;
                 height: ($baseline * 2);
+                background-size: 301px 1000px;
             }
         }
 
@@ -93,6 +98,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--dark-small {
                 background-position: -138px -246px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
 
             &--light {
@@ -102,6 +108,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--light-small {
                 background-position: -170px -246px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
         }
 
@@ -114,6 +121,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--dark-small {
                 background-position: -138px -278px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
 
             &--light {
@@ -123,6 +131,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--light-small {
                 background-position: -170px -278px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
         }
 
@@ -137,6 +146,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--dark-small {
                 background-position: -138px -46px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
 
             &--light {
@@ -147,6 +157,32 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--light-small {
                 background-position: -170px -46px;
                 @include small-icon;
+                background-size: 301px 1000px;
+            }
+        }
+
+        &-email {
+
+            &--dark {
+                background-position: -11px -776px;
+                width: 40px; //icon needs more width or else it cuts off one side
+            }
+
+            &--dark-small {
+                background-position: -138px -398px;
+                @include small-icon;
+                background-size: 301px 1000px;
+            }
+
+            &--light {
+                background-position: -79px -776px;
+                width: 40px;
+            }
+
+            &--light-small {
+                background-position: -170px -398px;
+                @include small-icon;
+                background-size: 301px 1000px;
             }
         }
 
@@ -161,6 +197,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
                 background-position: -138px -71px;
                 @include small-icon;
                 width: 16px;
+                background-size: 301px 1000px;
             }
 
             &--light {
@@ -171,6 +208,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
                 background-position: -170px -71px;
                 @include small-icon;
                 width: 16px;
+                background-size: 301px 1000px;
             }
         }
 
@@ -184,6 +222,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--dark-small {
                 background-position: -138px -95px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
 
             &--light {
@@ -193,6 +232,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--light-small {
                 background-position: -170px -95px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
         }
 
@@ -205,6 +245,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--dark-small {
                 background-position: -138px -119px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
 
             &--light {
@@ -214,6 +255,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--light-small {
                 background-position: -170px -119px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
         }
 
@@ -227,6 +269,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--dark-small {
                 background-position: -138px -143px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
 
             &--light {
@@ -236,6 +279,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--light-small {
                 background-position: -170px -143px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
         }
 
@@ -249,6 +293,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--dark-small {
                 background-position: -138px -171px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
 
             &--light {
@@ -258,6 +303,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--light-small {
                 background-position: -170px -171px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
 
         }
@@ -274,6 +320,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--dark-small {
                 background-position: -138px -196px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
 
             &--light {
@@ -285,6 +332,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             &--light-small {
                 background-position: -170px -196px;
                 @include small-icon;
+                background-size: 301px 1000px;
             }
 
         }
@@ -299,6 +347,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
                 background-position: -138px -313px;
                 @include small-icon;
                 height: 18px;
+                background-size: 301px 1000px;
             }
 
             &--light {
@@ -309,6 +358,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
                 background-position: -170px -313px;
                 @include small-icon;
                 height: 18px;
+                background-size: 301px 1000px;
             }
         }
 
