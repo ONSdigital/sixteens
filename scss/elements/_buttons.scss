@@ -17,6 +17,7 @@ button {
     -webkit-appearance: none;
     transition: background-color 0.25s ease-out;
     text-decoration: none;
+    line-height: $base-line-height;
 
     &--primary {
         background-color: $primary;
