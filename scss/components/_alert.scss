@@ -15,6 +15,16 @@
         margin-top: 0;
         margin-bottom: ($baseline * 1);
         padding: 3px 0 5px 0;
+
+        a {
+            color: $iron;
+
+            &:hover {
+                color: $white;
+            }
+
+        }
+
     }
 
     &__link {
