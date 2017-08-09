@@ -20,6 +20,8 @@
             }
 
             + label {
+                width: 400px;
+
                 &:before {
                     content: "";
                     border: 2px solid $ship-grey;
