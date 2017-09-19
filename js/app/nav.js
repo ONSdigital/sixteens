@@ -225,51 +225,9 @@ $(document).ready(function () {
     });
 
     // Close menu on click of the page
-    $('body').not('js-expandable .js-expandable__child').click(function(e) {
-        e.stopPropagation();
+    $('body').not('js-expandable .js-expandable__child').click(function() {
         $('.primary-nav__item--focus').removeClass('primary-nav__item--focus');
     });
-
-
-    //$('.js-expandable > a').on('keydown', function (event) {
-    //    // Enter || spacebar
-    //    if (event.keyCode === 13 || event.keyCode === 32) {
-    //        if ($(window).width() < 767) {
-    //            event.preventDefault();
-    //            toggleSubnav($(this));
-    //        }
-    //    }
-    //
-    //    // Right arrow
-    //    if (event.keyCode === 39) {
-    //        if ($(window).width() < 767) {
-    //            event.preventDefault();
-    //            expandSubnav($(this));
-    //        }
-    //        else {
-    //            // TODO: Make sure the large viewport breakpoint is exact
-    //            // This should move the focus to the next nav item and expand its subnav
-    //            //event.preventDefault();
-    //            //var nextNode = $(this).closest('.js-expandable').next();
-    //            //$(nextNode).focus();
-    //        }
-    //    }
-    //
-    //    // Left arrow
-    //    if (event.keyCode === 37) {
-    //        if ($(window).width() < 767) {
-    //            event.preventDefault();
-    //            collapseSubnav($(this));
-    //        }
-    //        else {
-    //            // TODO: Make sure the large viewport breakpoint is exact
-    //            // This should move the focus to the previous item and expand its subnav
-    //            //event.preventDefault();
-    //            //var previousNode = $(this).closest('.js-expandable').prev();
-    //            //$(previousNode).focus();
-    //        }
-    //    }
-    //});
 
     // stop parent element from taking over enter/space events
     $('.js-expandable > .nav--primary__sub').on('keydown', function (event) {
@@ -306,57 +264,5 @@ $(document).ready(function () {
             hideSearch($searchToggle, $searchBar);
         }
     });
-
-
-    // The following function to enable focus-tabbing through menu graciously
-    // taken from Simply Accessible — thank you kindly.
-    // http://simplyaccessible.com/article/better-for-accessibility
-
-    //$(function () {
-    //    //$('.primary-nav__list').setup_navigation();
-    //});
-    //
-    //$.fn.setup_navigation = function (settings) {
-    //    settings = jQuery.extend({
-    //        focusClass: 'menu-focus',
-    //    }, settings);
-    //
-    //
-    //    // Set tabIndex to -1 so that links can't receive focus until menu is open
-    //    $(this).find('> li > a').next('ul').find('a').attr('tabIndex', -1);
-    //
-    //    $(this).find('> li > a').hover(function () {
-    //        $(this).closest('ul')
-    //            .find('.' + settings.focusClass).removeClass(settings.focusClass)
-    //            .find('a').attr('tabIndex', -1);
-    //    });
-    //    $(this).find('> li > a').focus(function () {
-    //        $(this).closest('ul')
-    //            .find('.' + settings.focusClass).removeClass(settings.focusClass)
-    //            .find('a').attr('tabIndex', -1);
-    //        $(this).next('ul')
-    //            .addClass(settings.focusClass)
-    //            .find('a').attr('tabIndex', 0);
-    //    });
-    //
-    //    // Hide menu if click or focus occurs outside of navigation
-    //    $(this).find('a').last().keydown(function (e) {
-    //        if (e.keyCode === 9) {
-    //            // If the user tabs out of the navigation hide all menus
-    //            $('.' + settings.focusClass)
-    //                .removeClass(settings.focusClass)
-    //                .find('a').attr('tabIndex', -1);
-    //        }
-    //    });
-    //    $(document).click(function () {
-    //        $('.' + settings.focusClass)
-    //            .removeClass(settings.focusClass)
-    //            .find('a').attr('tabIndex', -1);
-    //    });
-    //
-    //    $(this).click(function (e) {
-    //        e.stopPropagation();
-    //    });
-    //};
 
 });

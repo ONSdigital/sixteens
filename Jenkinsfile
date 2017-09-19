@@ -13,7 +13,8 @@ node {
     }
 
     stage('Bundle') {
-        sh "aws s3 cp --acl public-read --recursive dist s3://${env.S3_CDN_BUCKET}/${revisionFrom(readFile('git-tag').trim(), readFile('git-commit').trim())}"
+        def revision = revisionFrom(readFile('git-tag').trim(), readFile('git-commit').trim())
+        sh "aws s3 cp --acl public-read --cache-control max-age=1209600 --recursive dist s3://${env.S3_CDN_BUCKET}/sixteens/${revision}/"
     }
 }
 

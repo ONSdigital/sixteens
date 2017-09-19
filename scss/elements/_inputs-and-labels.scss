@@ -78,6 +78,10 @@ input, select {
         -webkit-appearance: none; // Fix for Safari not accepting element height
     }
 
+    &:focus {
+        outline: 3px solid $carrot;
+    }
+
 	&--focus {
 		//outline: 1px dashed $nevada;
 		//outline-offset: -1px;

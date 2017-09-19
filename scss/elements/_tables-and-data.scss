@@ -4,6 +4,7 @@ table {
     border-spacing: 0;
     border-collapse: collapse;
 
+
     // Not needed on ons.gov.uk because table builder carries through borders - uncomment if other users of this library need it
     //border-bottom: 1px solid $thunder;
     //margin-top: -1px;
@@ -26,6 +27,8 @@ table {
         padding: 6px 0 2px 0;
     }
 
+
+
 }
 
 dl {
@@ -34,6 +37,12 @@ dl {
 
 dd {
     margin: 0;
+}
+
+.table-chart{
+    width:700px;
+    font-feature-settings: "tnum" 1;
+    text-align:right;
 }
 
 // Time series data table

@@ -908,3 +908,28 @@
         z-index: 9;
     }
 }
+
+.tile-neutral {
+	background-color: $mercury;
+	padding: ($baseline * 2) $col;
+
+	&__heading {
+		font-weight: 700;
+	}
+
+	&-content {
+		&__title {
+			font-size: 17px;
+			font-weight: 400;
+			line-height: 24px;
+			margin: 16px 0;
+			padding: 5px 0 3px 0;
+		}
+		&__meta {
+			margin: 0;
+			padding: 6px 0 2px 0;
+		}
+
+	}
+
+}

@@ -1,0 +1,13 @@
+// mixin for generating font colour classes
+
+@mixin text-colour-util {
+    .text {
+        @each $colour, $colourcode, $fontcolourcode, $anchorcolourcode in $colours {
+            &--#{$colour} {
+                color: $colourcode;
+            }
+        }
+    }
+}
+
+@include text-colour-util;

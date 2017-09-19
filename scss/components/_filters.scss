@@ -91,6 +91,11 @@
             padding-left: ($col/2);
             height: ($baseline * 4);
             border: 1px solid $iron;
+
+            &:focus {
+                outline: 3px solid $carrot;
+                outline-offset: 0;
+            }
         }
 
         &--day {

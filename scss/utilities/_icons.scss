@@ -1,13 +1,5 @@
 //_icons.scss
 
-////Mixing to create a small version of each icon. Add parameter for background-position to get 2px version of icon
-//@mixin small-icon($horizontal, $vertical) {
-//	background-position: $horizontal $vertical;
-//	zoom:0.5;
-//	-moz-transform:scale(0.5);
-//	-moz-transform-origin: 0 0;
-//}
-
 @mixin small-icon {
     height: 16px;
     width: 20px;
@@ -15,9 +7,9 @@
 
 
 
-$sprite: '../img/icon-sprite.png?#{$builddatetime}';
-$png: '../img/icon-sprite.png?#{$builddatetime}';
-$svg: '../img/icon-sprite.svg?#{$builddatetime}';
+$sprite: 'https://cdn.ons.gov.uk/assets/images/icon-sprite.png';
+$png: 'https://cdn.ons.gov.uk/assets/images/icon-sprite.png';
+$svg: 'https://cdn.ons.gov.uk/assets/images/icon-sprite.svg';
 
 
 // Don't show icons on print - stops conflicts with print :after for links too
@@ -389,23 +381,6 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
         &-drop-down {
             background-position: -16px -738px;
         }
-
-
-
-        &--hide:after {
-            //For use in situations where icons are automatically added but not wanted and a global solution isn't viable
-            display: none !important;
-        }
-
-    }
-
-
-    //Add external link icon (:not excludes domains)
-    a[target=_blank]:after {
-        @extend .icon;
-        @extend .icon-external--dark-small;
-        content: "";
-        margin-left: 8px;
     }
 }
 

@@ -7,17 +7,10 @@
     }
 
     @include breakpoint(md) {
-        //border-top: 1px solid $thunder;
-        //margin-top: -1px;	//compensate for border-top
         background-color: $ship-grey;
         font-size: 17px;
         height: 80px;
-        // height: 97px;
     }
-
-    //@include breakpoint(lg) {
-    //    height: 81px;
-    //}
 
     &--results-page {
         height: ($baseline * 24);
@@ -44,6 +37,7 @@
         line-height: $base-line-height;
         color: $iron-light;
         padding: ($baseline * 2) 0 ($baseline * 2) ($baseline * 2);
+        overflow: initial;
 
         @if $old-ie == false {
             @include breakpoint(sm) {
@@ -60,6 +54,7 @@
         color: $iron-light;
         padding: 12px $col 12px $col;
         background-color: $abbey;
+        position: relative;
 
         @if $old-ie == false {
             @include breakpoint(sm) {
@@ -72,15 +67,20 @@
         font-family: $base-font-family;
         font-weight: $base-font-weight;
         line-height: $base-line-height;
-        //font-style: italic;
         font-size: 17px;
         color: $ship-grey;
         border: none;
         padding: 6px $col 4px $col;
         height: ($baseline * 6);
         background: lighten($primary, 65%);
-        //-webkit-appearance: none; //fix for safari not displaying input with correct height
         -webkit-appearance: textfield; // Fix for safari hiding 'x' behind padding
+
+        &:focus {
+            outline: 3px solid $carrot;
+            outline-offset: 0;
+            z-index: 1;
+            position: relative;
+        }
 
         @if $old-ie == false {
             @include breakpoint(sm) {
@@ -104,9 +104,9 @@
         color: $white;
         border: none;
         padding: 0;
-        //padding: 4px ($col / 2) 1px ($col / 2);
         background-color: $primary;
         height: ($baseline * 6);
+        position: relative;
 
         &:hover,
         &:focus {

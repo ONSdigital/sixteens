@@ -104,6 +104,18 @@ button {
         }
     }
 
+    &--link {
+        background: transparent;
+        color: $matisse;
+        padding: 6px 0 2px 0;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+            outline: 0;
+        }
+    }
+
     &--small {
         font-size: 12px;
         height: 32px;

@@ -7,6 +7,10 @@
     width: ($col * 16);
     z-index: 10; // Otherwise elements on mobile go over the top
 
+    @if $old-ie == true {
+        display: none;
+    }
+
     &:before {
         width: 0;
         height: 0;

@@ -19,7 +19,7 @@ function showHide(remove) {
             if (!remove) {
 
                 // create unique id for aria relationship
-                var id = 'collapsible-' + $this.index();
+                var id = 'collapsible-' + i;
 
                 if ($this.hasClass('is-shown')) {
                     var bool = false;

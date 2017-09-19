@@ -1,15 +1,13 @@
 //_page.scss
 
 .page {
-	&-header {}
 	&-intro {
-		//background: $gallery;
 
 		&__type {
 			display: block;
 			font-size: 21px;
 			font-weight: $base-font-weight;
-			color: $salem;
+			color: $ship-grey;
 			padding: 5px 0 3px 0;
 		}
 
@@ -65,8 +63,6 @@
 		}
 	}
 	&-content {
-		//border-top: 1px solid $iron;
-		//margin-top: -1px;
         min-height: ($baseline * 24); //Stop page balance looking wrong if page has very little content
 
 		&__main-content {
@@ -74,6 +70,44 @@
 		}
 	}
 	&-footer {}
+}
+
+.page-neutral {
+	&-intro {
+		&__type {
+			font-size: 19px;
+			font-weight: $base-font-weight;
+			color: $ship-grey;
+			padding: 6px 0 10px 0;
+			margin-top: $baseline;
+		}
+
+		&__title {
+			margin-top: 0;
+			margin-bottom: ($baseline * 1);
+			font-weight: bold;
+		}
+		&__content {
+			font-size: 21px;
+			margin-top: ($baseline * 0);
+			margin-bottom: 0;
+			padding: 2px 0 14px 0;
+			line-height: 32px;
+
+			@include breakpoint(sm) {
+				font-size: 17px;
+				padding: 9px 0 7px 0;
+				margin-bottom: ($baseline * 4);
+			}
+		}
+	}
+	&-content {
+		min-height: ($baseline * 24); //Stop page balance looking wrong if page has very little content
+
+		&__main-content {
+			overflow: visible;
+		}
+	}
 }
 
 .highlighted {
