@@ -100,7 +100,7 @@ $medium-cols-three-quarters: (($medium-complex-grid-cols - 1) * $col) - $medium-
 //--[classes]--
 .wrapper {
 	// overflow: hidden;
-	@extend %clearfix;
+	@extend .clearfix;
 	width: 100%;
 	margin:0 auto;
 	padding: 0 16px;
