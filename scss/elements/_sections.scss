@@ -46,7 +46,7 @@
 
 			position: relative;
 
-			.markdown-chart-container, .markdown-table-container {
+			.markdown-chart-container, .markdown-table-container, .markdown-map-container {
 				margin-bottom: ($baseline * 4);
 
 
@@ -98,6 +98,15 @@
 					//On mobile 
 					@include breakpoint(sm) {
 						width: 360px;
+					}
+				}
+				.markdown-map-wrap {
+					//Charts take up extra space when available (ie on desktop/tablet)
+					width: 700px;
+
+					//On mobile then go 100% width
+					@include breakpoint(sm) {
+						width: 100%;
 					}
 				}
 				.sm-multiple-holder {
