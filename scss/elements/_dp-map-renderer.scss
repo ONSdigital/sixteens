@@ -19,7 +19,12 @@ div.map_key__vertical, div.map {
 }
 div.map_key__horizontal {
     clear: both;
+    width:100%;
 }
+div.map_container {
+    width:100%;    
+}
+
 .mapRegion {
     stroke: #323132;
     stroke-width: 0.5;
