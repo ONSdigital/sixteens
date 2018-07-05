@@ -1,11 +1,11 @@
 .pym-interactive {
 
     @include breakpoint(md) {
-        width: 670px;
+        width: $col * 42;// 672px
     }
 
     @include breakpoint(lg) {
-        width: 700px;
+        width: $col * 44;// 704px
     }
 
     &--full-width {
@@ -24,38 +24,32 @@
         }
 
         @include breakpoint(md) {
-            width: 335px;
+            width: $col * 21;// 336px
             
         }
     
         @include breakpoint(lg) {
-            width: 350px;
+            width: $col * 22;// 352px
             
             
         }
     }
+    //-half-width is 50% of standard 
+    //-half-width--full is 50% of --full-width
+    //please rename
     &-half-width--full{
         @include breakpoint(sm) {
             width: 100%;
         }
         @include breakpoint(md) {
-            width: 335px;
+            width: $col * 21;// 336px
         }
         @include breakpoint(lg) {
             width: $col * 32; // 512px
             margin-left: $col * -3; // -48px
         }
     }
-    &--sm-hide{
-        @include breakpoint(sm) {
-            display: none;
-        }
-    }
-    &--md-hide{
-        @include breakpoint(md) {
-            display: none;
-        }
-    }
+    
     &--display-inline-flex{
         @include breakpoint(md) {
             display: inline-flex;
