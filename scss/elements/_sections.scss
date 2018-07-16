@@ -139,12 +139,20 @@
 				}
 			}
 
+			//styling for interactive flush to wrapper on full width
+			.markdown-full-width-container {
+				@include breakpoint(lg) {
+					width: $col * 59; // 944px
+					margin-left: $col * -3; // -48px
+				}
+			}
+
             // Neutral article specific styling
             &--neutral-article {
                 padding-left: 0;
                 margin-right: 0;
 
-                .pym-interactive--full-width {
+                .markdown-full-width-container {
                     margin-left: 0;
                 }
 
