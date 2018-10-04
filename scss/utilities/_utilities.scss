@@ -1,5 +1,7 @@
 //_utilities.scss
 
+
+
 //hiding
 
 // Hide from both screenreaders and browsers: h5bp.com/u
@@ -63,10 +65,14 @@
   }
 }
 
+
+
 // margins
 
 .margin {
+
   &-top {
+
     &--negative-one-fix {
       margin-top: -1px !important;
     }
@@ -132,7 +138,10 @@
       margin-left: ($col * 2) !important;
     }
   }
+
 }
+
+
 
 .flush {
   margin: 0 !important;
@@ -157,9 +166,12 @@
   margin-top: 0 !important;
 }
 
+
+
 // padding
 
 .padding {
+
   &-top {
     padding-top: ($baseline * 2) !important;
 
@@ -187,6 +199,7 @@
     &--half {
       padding-bottom: ($baseline) !important;
     }
+
   }
 
   &-left {
@@ -201,7 +214,9 @@
       padding-right: 0 !important;
     }
   }
+
 }
+
 
 // display
 
@@ -259,11 +274,15 @@
 }
 
 @if $old-ie == true {
+
   .old-ie {
+
     &--display-block {
       display: block !important;
     }
+
   }
+
 }
 
 // float
@@ -274,7 +293,7 @@
 
 //  New float rule that includes breakpoints
 .float-el {
-  &--right {
+	&--right{
     &-sm {
       @include breakpoint(sm) {
         float: right !important;
@@ -291,7 +310,7 @@
       }
     }
   }
-  &--left {
+	&--left{
     &-sm {
       @include breakpoint(sm) {
         float: left !important;
@@ -311,18 +330,17 @@
 }
 
 .float-left {
-  float: left !important;
+	float: left !important
 }
+
 
 // javascript
 
-.no-js .nojs--hide,
-.nojs--hide {
+.no-js .nojs--hide, .nojs--hide {
   display: none !important;
 }
 
-.js .js-hidden,
-.js-hidden {
+.js .js-hidden, .js-hidden  {
   display: none !important;
 }
 
@@ -333,6 +351,7 @@
 //.js-enhance--show {
 //    display: none;
 //}
+
 
 // clear
 
@@ -346,14 +365,15 @@
 
 // Make an element full width
 .full-width {
-  width: 100% !important;
+	width:100%!important;
 }
 
 // hiding polyfill placeholder - temporary fix for IE8/9
 
 .placeholder {
-  display: none;
+	display:none;
 }
+
 
 // overflow
 
@@ -372,43 +392,45 @@
 }
 
 .vertical-align-middle {
+
   position: relative;
   &__contents {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%)
   }
   &__contents--md {
     @include breakpoint(md) {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      -webkit-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%)
     }
   }
 }
 
+
 // Set anything with aria-hidden attributes to correct display state
 @media only screen {
-  [aria-hidden*="true"] {
+     [aria-hidden*=true] {
     display: none;
     visibility: hidden;
   }
 
-  svg[aria-hidden*="true"] {
-    // Allow SVGs to still show even with aria:hidden. Only want them hidden from screen readers.
+     svg[aria-hidden*=true] { // Allow SVGs to still show even with aria:hidden. Only want them hidden from screen readers.
     display: block;
     visibility: visible;
   }
 
-  [aria-hidden*="false"] {
+     [aria-hidden*=false] {
     display: block;
     visibility: visible;
   }
 }
 
 #viewport {
+
   &-sm {
     height: 0;
     max-height: 0;
@@ -437,8 +459,11 @@
     @include breakpoint(lg) {
       display: block;
     }
+
   }
+
 }
+
 
 //Text transform
 
@@ -517,7 +542,7 @@
 // Opacity value with fallback
 @mixin opacity($trans) {
   zoom: 1;
-  filter: unquote("alpha(opacity=" + ($trans * 100) + ")"); // IE6 to IE8
+    filter: unquote('alpha(opacity=' + ($trans * 100) + ')'); // IE6 to IE8
   opacity: $trans;
 }
 
@@ -539,7 +564,7 @@
 .show-focus {
   &:focus {
     @include box-shadow(0 0 0 3px $carrot);
-    outline: 0;
+        outline:0;
   }
 }
 
@@ -550,6 +575,7 @@
 .break-word {
   word-wrap: break-word;
 }
+
 
 // Baseline
 
@@ -569,6 +595,7 @@
   a {
     text-decoration: underline;
   }
+
 
   p {
     margin-top: 0;
@@ -596,11 +623,12 @@
       @extend p;
       margin-top: ($baseline * 2);
     }
+
   }
 }
 
 .markdown {
-  @include markdown;
+    @include markdown
 }
 
 @mixin font-heading-util {
@@ -616,21 +644,13 @@
 
 @include font-heading-util;
 
+
 // Add ".adjust-font-size--n" class to container elements to increase font size on body elements
 @mixin body-adjust-util {
   .adjust-font-size {
     @for $i from 14 through 20 {
       &--#{$i} {
-        dd,
-        dt,
-        fieldset,
-        input,
-        label,
-        li,
-        p,
-        a,
-        span,
-        .btn--link {
+                dd, dt, fieldset, input, label, li, p, a, span, .btn--link {
           font-size: $i + px;
         }
       }
