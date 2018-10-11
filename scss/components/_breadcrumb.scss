@@ -9,7 +9,7 @@
 	@include breakpoint(sm) {
 		padding: $baseline 0 (($baseline * 2) - 1) 0;
 	}
-    
+
 
 	&__list {
 		list-style: none;
@@ -72,5 +72,66 @@
 			content: '';
 			padding: 0;
 		}
+	}
+}
+
+.breadcrumb-bulletins {
+	// font-size: 14px;
+	// line-height: 24px;
+	margin: ($baseline * 2) 0;
+	clear:both;
+	@include breakpoint(sm) {
+		padding: $baseline 0 (($baseline * 2) - 1) 0;
+	}
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__item {
+		display: inline-block;
+		margin: 0 8px 0 0;
+		padding: 6px 0 10px 0;
+
+		@include breakpoint(sm) {
+			line-height: 16px;
+			padding: 10px 0 6px 0;
+		}
+
+		&:after {
+			content: '>';
+			padding-left: 8px;
+		}
+
+		&:last-child:after {
+			content: '';
+			padding: 0;
+		}
+
+		&--ellipsis {
+			display: inline-block;
+			margin: 0 8px 0 0;
+			padding: 6px 0 10px 0;
+
+			@include breakpoint(sm) {
+				line-height: 16px;
+				padding: 10px 0 6px 0;
+			}
+
+			&:after {
+				content: '...';
+				padding: 0px 0 0 8px;
+			}
+
+			&:last-child:after {
+				content: '';
+				padding: 0px 0 0 0px;
+			}
+		}
+	}
+	&__link {
+		color: white;
 	}
 }
