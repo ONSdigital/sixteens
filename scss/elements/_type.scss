@@ -116,7 +116,10 @@ a {
     color: $matisse;
     word-wrap: break-word;
 
-    &:hover,
+    &:hover {
+      text-decoration: underline;    
+      outline: 0;
+    }
     &:focus {
         text-decoration: underline;
     }

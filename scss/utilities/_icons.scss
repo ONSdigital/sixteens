@@ -7,9 +7,9 @@
 
 
 
-$sprite: 'https://cdn.ons.gov.uk/assets/images/icon-sprite.png';
-$png: 'https://cdn.ons.gov.uk/assets/images/icon-sprite.png';
-$svg: 'https://cdn.ons.gov.uk/assets/images/icon-sprite.svg';
+$sprite: 'https://cdn.ons.gov.uk/assets/images/icon-sprite/v2/icon-sprite.png';
+$png: 'https://cdn.ons.gov.uk/assets/images/icon-sprite/v2/icon-sprite.png';
+$svg: 'https://cdn.ons.gov.uk/assets/images/icon-sprite/v2/icon-sprite.svg';
 
 
 // Don't show icons on print - stops conflicts with print :after for links too
@@ -327,6 +327,39 @@ $svg: 'https://cdn.ons.gov.uk/assets/images/icon-sprite.svg';
                 background-size: 301px 1000px;
             }
 
+        }
+
+        &-arrow-back {
+            &--dark-small {
+                background-position: -143px -421px;
+                width: 13px;
+                height: 20px;
+                background-size: 301px 1000px;
+            }
+
+            &--light-small {
+                background-position: -176px -421px;
+                @include small-icon;
+                width: 13px;
+                height: 20px;
+                background-size: 301px 1000px;
+            }
+        }
+        
+        &-arrow-forward {
+           &--dark-small {
+                background-position: -140px -447px;
+                width: 13px;
+                height: 20px;
+                background-size: 301px 1000px;
+           }
+            &--light-small {
+                background-position: -173px -447px;
+                @include small-icon;
+                width: 13px;
+                height: 20px;
+                background-size: 301px 1000px;
+            }
         }
 
         &-return {
