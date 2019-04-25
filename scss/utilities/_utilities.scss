@@ -261,6 +261,44 @@
 	float: right !important;
 }
 
+//  New float rule that includes breakpoints
+.float-el {
+	&--right{
+		&-sm {
+			@include breakpoint(sm) {
+				float: right !important;
+			}
+		}
+		&-md {
+				@include breakpoint(md) {
+					float: right !important;
+				}
+			}
+		&-lg {
+			@include breakpoint(lg) {
+				float: right !important;
+			}
+		}
+	}
+	&--left{
+		&-sm {
+			@include breakpoint(sm) {
+				float: left !important;
+			}
+		}
+		&-md {
+				@include breakpoint(md) {
+					float: left !important;
+				}
+			}
+		&-lg {
+			@include breakpoint(lg) {
+				float: left !important;
+			}
+		}
+	}
+}
+
 .float-left {
 	float: left !important
 }
@@ -295,6 +333,11 @@
 	clear: right !important;
 }
 
+// Make an element full width
+.full-width {
+	width:100%!important;
+}
+
 // hiding polyfill placeholder - temporary fix for IE8/9
 
 .placeholder {
@@ -307,6 +350,33 @@
 .overflow {
     &--hidden {
       overflow: hidden !important;
+    }
+}
+
+.nowrap {
+    &-sm {
+        @include breakpoint(sm) {
+            white-space: nowrap;
+        }
+    }
+}
+
+.vertical-align-middle {
+
+    position: relative;
+    &__contents {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%)
+    }
+    &__contents--md {
+        @include breakpoint(md) {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%)
+        }
     }
 }
 
@@ -431,6 +501,43 @@
     text-decoration: underline !important;
 }
 
+.text-wrap {
+	white-space: normal;
+}
+
+.text-align-top {
+	vertical-align: top;
+}
+
+// Opacity value with fallback
+@mixin opacity($trans) {
+    zoom: 1;
+    filter: unquote('alpha(opacity=' + ($trans * 100) + ')'); // IE6 to IE8
+    opacity: $trans;
+}
+
+// Simple border radius
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius; // Chrome 4.0, Safari 3.1 to 4.0, Mobile Safari 3.2, Android Browser 2.1
+    -moz-border-radius: $radius; // Firefox 2.0 to 3.6
+    border-radius: $radius;
+}
+
+// Simple box shadow
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow; // Chrome 4.0 to 9.0, Safari 3.1 to 5.0, Mobile Safari 3.2 to 4.3, Android Browser 2.1 to 3.0
+    -moz-box-shadow: $shadow; // Firefox 3.5 to 3.6
+    box-shadow: $shadow;
+}
+
+// Remove the defauly focus and use our own.
+.show-focus {
+    &:focus {
+        @include box-shadow(0 0 0 3px $carrot);
+        outline:0;
+    }
+}
+
 .img-sparkline {
     max-height: 100%;
 }
@@ -445,4 +552,107 @@
 // Used on inline elements that aren't on grid because they're not in a baselined element (eg an anchor not in a <p>)
 .baseline {
     padding: 3px 0 5px 0;
+}
+
+// Mixin for silent styling to bunch up spacing between elements in big blocks of text (ie markdown)
+@mixin markdown {
+    overflow: visible;
+
+    h4 {
+        font-weight: 700;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+
+    p {
+        margin-top: 0;
+    }
+
+    ul {
+        margin-top: 0;
+    }
+
+    img {
+        max-width: ($col * 38);
+    }
+
+    li {
+        margin: 0;
+
+        // li with only one p shouldn't have padding (spacing looks excessive)
+        p:first-of-type {
+            margin: 0;
+            padding: 0;
+        }
+
+        // to offset above styling second p in an li should have extra margin on the top (giving it the same styling as an ordinary p)
+        p:nth-of-type(2) {
+            @extend p;
+            margin-top: ($baseline * 2);
+        }
+
+    }
+}
+
+.markdown {
+    @include markdown
+}
+
+@mixin font-heading-util {
+    .font-size {
+        @for $i from 1 through 6 {
+            //
+            &--h#{$i} {
+                @extend h#{$i};
+            }
+        }
+    }
+}
+
+@include font-heading-util;
+
+
+// Add ".adjust-font-size--n" class to container elements to increase font size on body elements
+@mixin body-adjust-util {
+   .adjust-font-size {
+        @for $i from 14 through 20 {
+               &--#{$i} {
+                dd, dt, fieldset, input, label, li, p, a, span, .btn--link {
+                   font-size: $i + px;
+               }
+           }
+       }
+   }
+}
+@include body-adjust-util;
+
+// Make all links within the component underlined
+.link-adjust a:not(.btn) {
+	@extend .underline-link;
+	&:focus {
+		@include box-shadow(0 0 0 3px $carrot);
+		outline: 0;
+	}
+}
+
+// Use as alternative to overflow:hidden
+%clearfix {
+    & {
+        *zoom: 1;
+    }
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+// Use as alternative to overflow:hidden
+.clearfix {
+    @extend %clearfix;
 }

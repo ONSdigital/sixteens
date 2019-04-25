@@ -81,6 +81,49 @@
             }
         }
     }
+
+    &--light {
+        padding:0 0 0 $baseline * 2;
+        background:none;
+        border-left: 8px $poppy solid;
+        color:$thunder;
+        a {
+          color:$poppy;
+        }
+    }
+}
+
+.status {
+    padding:$baseline * 2;
+    margin: 0 0 $baseline;
+    background:$gallery;
+    color:$thunder;
+
+    @media print {
+        display: none;
+    }
+
+    &--green {
+        border-left: 8px $salem solid;
+    }
+    &--amber {
+        border-left: 8px $carrot solid;
+    }
+    &--red {
+        border-left: 8px $poppy solid;
+    }
+
+    &__content {
+        margin:0 0 $baseline * 2;
+        font-size: 16px;
+        line-height: 24px;
+        color:$thunder;
+        padding: 0 $baseline 0 0 ;
+    }
+
+    &__link {
+        text-decoration: underline;
+    }
 }
 
 .alert-release-banner {

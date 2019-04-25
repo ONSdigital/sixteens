@@ -31,14 +31,13 @@ button {
 
     &--primary-disabled {
         opacity: 0.7;
-
         &:hover,
         &:focus {
             background-color: $primary;
             cursor: not-allowed;
         }
     }
-
+    
     &--secondary {
         background-color: $secondary;
         color: $white;
@@ -103,18 +102,42 @@ button {
             cursor: default;
         }
     }
-
+    &--focus {
+      &:focus {
+          @include box-shadow(0 0 0 3px $carrot);
+          outline: 0;
+      }
+    }
     &--link {
         background: transparent;
         color: $matisse;
         padding: 6px 0 2px 0;
 
-        &:hover,
-        &:focus {
+        &:hover {
             text-decoration: underline;
             outline: 0;
         }
+
+        &:focus {
+            @include box-shadow(0 0 0 3px $carrot);
+            outline: 0;
+        }
+
+        &-disabled {
+            color: $ship-grey;
+            cursor: text;
+            text-decoration: none!important;
+            &:hover, &:focus {
+                text-decoration: none;
+                outline: 0;
+            }
+        }
+
+        &-underlined {
+            text-decoration: underline;
+        }
     }
+
 
     &--small {
         font-size: 12px;

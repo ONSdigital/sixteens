@@ -1,0 +1,248 @@
+// Filter Selection (Shopping basket) & Filter Overview
+
+.filter-selection {
+  // don't want to show basket on any mobile/tablet devices
+  @media(max-width: 991px) {
+    display: none;
+  }
+
+  &__header {
+    background: $gallery;
+    padding:15px;
+
+    h2 {
+      font-size: 20px;
+      margin: 0;
+      padding:0;
+      display: inline-block;
+    }
+    a {
+      float:right;
+      text-align: right;
+      padding:0;
+    }
+  }
+
+  ul {
+    border-left: 1px solid $gallery;
+    border-right: 1px solid $gallery;
+    margin: 0;
+    li {
+      border-bottom: 1px solid $gallery;
+      padding: 15px;
+      margin: 0;
+      overflow: hidden;
+      span {
+        float: left;
+      }
+      @include breakpoint(md) {
+        span.remove-link {
+          float:right;
+          text-align: right;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.no-results-advice {
+
+  margin-left: 0px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  ul {
+    margin-left: 10px;
+    li {
+      line-height: 20px;
+    }
+  }
+}
+
+.dimension-name {
+  @media (max-width: 767px) {
+    position: absolute;
+    bottom: 25px;
+    width:auto;
+  }
+}
+
+/*.dimension-button {
+  @media (max-width: 641px) {
+    padding-right: 0px;
+  }
+}*/
+
+.filter-overview {
+  &__error {
+    border-left: thick solid $poppy;
+  }
+  &__add {
+    border-left: thick solid $blumine;
+  }
+  &__edit {
+    border-left: thick solid white;
+  }
+
+
+  &__link--add {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top:0;
+    padding-top:18px;
+    padding-right:$col;
+  }
+  &__link--edit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top:0;
+    padding-top:24px;
+    padding-right:$col;
+  }
+  &__row-adjust-right--5{
+    padding-left: 5px;
+  }
+  &__row-adjust-right--7{
+    padding-left: 7px;
+  }
+  li {
+    min-width: 200px;
+
+    @media (max-width: 767px) {
+      max-height: 75px;
+    }
+
+    &:not(:first-child) {
+      position: relative;
+    }
+    div:first-child {
+      padding-left:$col;
+      padding-right:$col;
+    }
+  }
+
+  @include breakpoint(lg) {
+    div:last-child {
+      padding-right:$col;
+    }
+  }
+
+  &__error-container{
+      position: relative;
+      @include breakpoint(sm) {
+        min-height:30px;
+      }
+
+  }
+
+  &__error-message{
+      left: 0;
+      top: -35px;
+  }
+}
+
+.view-link {
+    @media (max-width: 767px) {
+      position: relative;
+      bottom: 50px;
+      text-align: right;
+    }
+
+    @media (max-width: 635px) {
+      position: relative;
+      text-align: right;
+      top: 0px;
+      margin-right: 0px;
+    }
+}
+
+.hierarchy-box {
+    @media (min-width: 500px) {
+      position: relative;
+    }
+}
+
+// This is to add a small top padding to the icon on the hierarchy "browse" link
+.view-link--icon {
+    padding-top:4px;
+}
+
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+
+.block-with-text {
+  @media (min-width: 768px) {
+    overflow: hidden;
+    line-height: 25px;        /* fallback */
+    max-height: 75px;
+    min-height: 75px;
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      left: $col;
+
+      @supports (-webkit-line-clamp: 3) {
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+      }
+    
+      max-height: 75px;
+
+      &:after {
+        @supports not (-webkit-line-clamp: 3) {
+          content: "...";
+          text-align: right;
+          position: absolute;
+          bottom: 0;
+          top: 50px;
+          right: 30px;
+          width: 100%;
+          height: 75px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    text-overflow: ellipsis;
+    margin-left: 85px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+

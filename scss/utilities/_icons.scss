@@ -89,7 +89,8 @@ $svg: 'https://cdn.ons.gov.uk/assets/images/icon-sprite/v2/icon-sprite.svg';
 
             &--dark-small {
                 background-position: -138px -246px;
-                @include small-icon;
+                width: 20px;
+                height:17px;
                 background-size: 301px 1000px;
             }
 
@@ -99,7 +100,8 @@ $svg: 'https://cdn.ons.gov.uk/assets/images/icon-sprite/v2/icon-sprite.svg';
 
             &--light-small {
                 background-position: -170px -246px;
-                @include small-icon;
+                width: 20px;
+                height:17px;
                 background-size: 301px 1000px;
             }
         }

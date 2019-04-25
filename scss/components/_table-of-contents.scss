@@ -100,3 +100,11 @@
 	}
 
 }
+
+// Quick fix - Bug with Chrome (up to version 62)
+// We use a focus state on cmd screens for some links
+// When using column count the focus state overflows to the next column
+// Below is a workaround.
+.link-adjust .table-of-contents .table-of-contents__item{
+	 transform: translate3d(0, 0, 0)!important;
+}

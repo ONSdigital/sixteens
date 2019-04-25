@@ -4,18 +4,38 @@
 
     &__icon {
         vertical-align: middle;
+        position: relative;
+        top: -2px;
 
         @include breakpoint(sm) {
             display: none;
         }
     }
 
+    &__text-icon {
+        background-color: $ship-grey;
+        color: $iron-light;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 5px 8px;
+        font-size: 16px;
+        position: relative;
+        top: -2px;
+
+        @include breakpoint(sm) {
+            display: block;
+            float: left;
+            margin-top: 8px;
+            margin-right: 8px;
+        }
+    }
+
     &__body {
         display: inline-block;
-        padding-top: $baseline;
         padding-bottom: $baseline;
-
+        
         @include breakpoint(md) {
+            padding-top: $baseline;
             margin-left: $col;
         }
     }
@@ -26,6 +46,8 @@
 
     p {
         margin: 0;
+        padding-top: 5px;
+        padding-bottom: 3px;
         font-size: 16px;
 
         & > a {

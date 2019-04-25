@@ -22,6 +22,7 @@ $old-ie: false;
 @import "utilities/text-colour";
 @import "utilities/font-size";
 @import "utilities/fonts";
+@import "utilities/line-height";
 
 
 @import "elements/type";
@@ -33,6 +34,7 @@ $old-ie: false;
 @import "elements/images";
 @import "elements/lists";
 @import "elements/links";
+@import "elements/checkbox";
 @import "elements/details";
 
 
@@ -49,12 +51,14 @@ $old-ie: false;
 @import "components/footer";
 @import "components/accordions";
 @import "components/filters";
+@import "components/filter-selection";
 @import "components/tabs";
 @import "components/search-results";
 @import "components/tooltip";
 @import "components/js-enhance";
 @import "components/table-of-contents";
 @import "components/show-and-hide";
+@import "components/details";
 @import "components/side-bar";
 @import "components/date-picker";
 @import "components/time-series-tool";
@@ -63,6 +67,9 @@ $old-ie: false;
 @import "components/pym";
 @import "components/language-toggle";
 @import "components/info";
+@import "components/multiple-choice";
+@import "components/improve-this-page";
+@import "components/form";
 @import "components/embed-code";
 
 @import "shame";

@@ -27,8 +27,6 @@ table {
         padding: 6px 0 2px 0;
     }
 
-
-
 }
 
 dl {
@@ -45,6 +43,10 @@ dd {
     text-align:right;
 }
 
+.white-background{
+    background-color: white;
+}
+
 // Time series data table
 .table-advanced {
 
@@ -54,6 +56,8 @@ dd {
     border-bottom: 1px solid $iron;
     border-left: 1px solid $iron;
     border-right: 1px solid $iron;
+
+
 
     &__header {
         text-align: left;
@@ -171,4 +175,56 @@ dd {
     //		margin-left: $col;
     //	}
     //}
+}
+
+// Preview table for cmd
+
+.table-border{
+    border-style: solid;
+    border-color: #D0D2D3;
+    border-width: 1px;
+    padding-right: $col;
+}
+
+.table-preview {
+  width: 100%;
+  overflow: visible;
+  overflow-x: scroll;
+  padding:$col 0 $col $col;
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 3px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    background-color: #D0D2D3;
+  }
+
+  table {
+    display: table;
+    border-collapse: collapse;
+    width:100%;
+    tbody, thead {
+      td, th {
+        padding: $col/2 $col * 4 $col/2 0;
+        vertical-align: baseline;
+        font-weight: $base-font-weight;
+        text-align: left;
+        border-bottom: 1px solid $gallery;
+        min-width: $col * 8;
+        &:focus {
+            outline: 3px solid $carrot;
+        }
+      }
+      td {
+        white-space: nowrap;
+      }
+    }
+    thead th{
+      font-weight: bold;
+      vertical-align: bottom;
+      line-height: 18px;
+    }
+  }
 }

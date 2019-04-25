@@ -42,6 +42,7 @@
         @if $old-ie == false {
             @include breakpoint(sm) {
                 padding: ($baseline * 3) 0;
+                overflow: hidden;
             }
         }
     }
@@ -94,6 +95,15 @@
         &--results-page {
             height: ($baseline * 5);
         }
+
+        &--body {
+            background: none;
+            outline: 2px solid $thunder;
+            outline-offset: 0;
+            z-index: 1;
+            position: relative;
+            float: left;
+        }
     }
 
     &__button {
@@ -113,6 +123,10 @@
             background-color: darken($primary, 8%);
         }
 
+        &:focus {
+          outline: 3px solid $carrot;
+        }
+
         @if $old-ie == false {
             @include breakpoint(sm) {
                 width: 20%;
@@ -125,6 +139,13 @@
         &--results-page {
             height: ($baseline * 5);
             padding-top: ($baseline / 2);
+        }
+
+        &--body {
+            height: 52px;
+            width: 52px;
+            margin-top: -2px;
+            float: left;
         }
     }
 }
