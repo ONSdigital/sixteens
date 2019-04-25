@@ -154,7 +154,7 @@
 
 
 			// Chart subtitles
-			h4 + h5  {
+			h4 + h5 {
 				margin: ($baseline *3) 0 ($baseline * 2) 0;
 				font-weight: normal;
 				font-size: 18px;
@@ -168,6 +168,17 @@
 				margin-top: $baseline;
 			}
 
+			.cmd-heading {
+				padding-left: ($baseline * 6);
+				@include breakpoint(sm) { 
+					padding-left: ($baseline * 4);
+				}
+			}
+
+			.cmd-list {
+				padding: 0px;
+			}
+		
 			.font-xsmall {
 				font-size: 14px;
 				line-height: 24px;
@@ -323,9 +334,7 @@
 				margin: $col 0 $col $col;
 				padding-left: $col;
 			}
-
 		}
-
 	}
 
 }
