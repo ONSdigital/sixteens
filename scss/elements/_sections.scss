@@ -59,9 +59,10 @@
                 }
             }
 
-            ul, ol {
+            ul,
+            ol {
                 margin-bottom: ($baseline * 4);
-                  padding-left: ($col * 2);
+                padding-left: ($col * 2);
             }
 
             li {
@@ -70,6 +71,7 @@
                 font-weight: 400;
                 font-size: 18px;
                 padding: 0;
+
                 @include breakpoint(sm) {
                     font-size: 16px;
                 }
@@ -80,17 +82,20 @@
                 font-size: 18px;
                 font-weight: 400;
                 line-height: 32px;
+
                 @include breakpoint(sm) {
                     font-size: 16px;
                 }
-              }
+            }
 
-            h1, h2 {
+            h1,
+            h2 {
                 font-size: 30px;
                 margin: ($baseline * 4) 0 ($baseline * 4) 0;
                 padding: ($baseline * 3) 0 0 0;
                 font-weight: bold;
                 line-height: (40px);
+
                 @include breakpoint(sm) {
                     font-size: 24px;
                     margin: ($baseline * 3) 0 ($baseline * 2) 0;
@@ -104,6 +109,7 @@
                 padding: ($baseline * 3) 0 0 0;
                 font-weight: bold;
                 line-height: 32px;
+
                 @include breakpoint(sm) {
                     font-size: 18px;
                     line-height: 24px;
@@ -117,6 +123,7 @@
                 padding: ($baseline * 3) 0 0 0;
                 font-weight: bold;
                 line-height: 32px;
+
                 @include breakpoint(sm) {
                     font-size: 16px;
                     line-height: 24px;
@@ -124,47 +131,58 @@
                 }
             }
 
-            h5, h6 {
-                    font-size: 16px;
-                    margin: ($baseline * 2) 0 ($baseline) 0;
-                    @include breakpoint(sm) {
-                        margin: ($baseline * 2) 0 ($baseline * 2) 0;
-                    }
+            h5,
+            h6 {
+                font-size: 16px;
+                margin: ($baseline * 2) 0 ($baseline) 0;
+
+                @include breakpoint(sm) {
+                    margin: ($baseline * 2) 0 ($baseline * 2) 0;
+                }
             }
 
             // All 1-4 headings should be bold. They should have padding above, 
             // but only if not under a heading equal or lower level to itself
             @for $i from 1 through 4 {
                 @for $j from $i through 6 {
-                    h#{$i} + h#{$j} {
+                    h#{$i}+h#{$j} {
                         padding-top: 0;
-                   }
+                    }
                 }
             }
 
             // Special instances of headings
 
             // Sub headings
-            header + h3  {
+            header+h3 {
                 padding-top: 0;
             }
 
             // Chart subtitles
-            h4 + h5  {
+            h4+h5 {
                 margin: 0 0 ($baseline * 2) 0;
                 font-weight: normal;
                 font-size: 16px;
+
                 @include breakpoint(sm) {
                     font-size: 14px;
                 }
             }
 
-            .markdown-chart-container > h4:first-of-type {
+            h5 {
+                font-weight: normal;
+            }
+
+
+            .markdown-chart-container>h4:first-of-type {
                 margin-bottom: $baseline;
             }
 
             // Bullet points under a charts note title
-            h5 + ol, h5 + ul, h6 + ol, h6 + li {
+            h5+ul,
+            h6+ol,
+            h5+ol,
+            h6+li {
                 margin-top: $baseline;
             }
 
@@ -172,14 +190,15 @@
                 font-size: 14px;
                 line-height: 24px;
             }
-        
-            .markdown-chart-container, .markdown-table-container {
+
+            .markdown-chart-container,
+            .markdown-table-container {
                 margin-bottom: ($baseline * 4);
 
                 //On mobile remove grey border
                 @include breakpoint(sm) {
-                        border-left: 0;
-                    }
+                    border-left: 0;
+                }
 
                 &--error {
                     height: ($baseline * 36);
@@ -201,7 +220,7 @@
                 .markdown-table-wrap {
                     //Charts take up extra space when available (ie on desktop/tablet)
                     width: 700px;
-                    
+
                     // Slightly smaller on medium so that table right column isn't cut off
                     @include breakpoint(md) {
                         width: 670px;
@@ -212,7 +231,8 @@
                         width: 100%;
                     }
                 }
-                .markdown-chart{
+
+                .markdown-chart {
                     //Charts take up extra space when available (ie on desktop/tablet)
                     width: 700px;
 
@@ -220,11 +240,13 @@
                     @include breakpoint(md) {
                         width: 520px;
                     }
+
                     //On mobile 
                     @include breakpoint(sm) {
                         width: 360px;
                     }
                 }
+
                 .sm-multiple-holder {
                     // set the holder to max width: 3 small line charts
                     width: 700px;
@@ -237,14 +259,14 @@
                 }
 
                 .sm-multiple {
-                    padding-top:4px;
+                    padding-top: 4px;
                     width: 230px;
-                    float:left;
+                    float: left;
                 }
             }
 
-            .markdown-chart-container{
-                padding-left:0;
+            .markdown-chart-container {
+                padding-left: 0;
             }
 
             .markdown-box-container {
@@ -308,6 +330,7 @@
                     margin-left: 0;
                 }
             }
+
             // End of Neutral article specific styling
 
         }
@@ -317,7 +340,8 @@
 
             margin-top: ($baseline * 3);
 
-            ol, ul {
+            ol,
+            ul {
                 margin: $col 0 $col $col;
                 padding-left: $col;
             }
