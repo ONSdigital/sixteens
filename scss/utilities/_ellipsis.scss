@@ -11,23 +11,23 @@
 	&:before {
 		content:"";
 		float: left;
-		width: 5px; 
-		height: $height; 
+		width: 5px;
+		height: $height;
 	}
 
 	& > * {
 		float: right;
 		width: 100%;
-		margin-left: -5px !important; 
-	}		
+		margin-left: -5px !important;
+	}
 
 	&:after {
 		content: "\02026";
-		float: right; 
+		float: right;
 		position: relative;
-		top: -32px; 
-		left: 100%; 
-		width: $ellipsiswidth; 
+		top: -32px;
+		left: 100%;
+		width: $ellipsiswidth;
 		margin-left: -$ellipsiswidth;
 		padding-right: 5px;
 		padding-bottom: 24px;
@@ -35,8 +35,15 @@
 		background: inherit;
 		line-height: 8px;
 		text-indent: $ellipsistextindent;
+		clear:none;
 	}
-
 
 }
 
+// Mixin for adding ellipses to a single line
+@mixin truncateSingleLine($height:$baseline * 3){ // Default is 24px height
+	height: $height;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

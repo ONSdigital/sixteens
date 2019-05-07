@@ -30,6 +30,9 @@
                     margin-top: ($baseline * $i) !important;
                 }
             }
+            &--auto {
+                margin-top: auto;
+            }
         }
         &-bottom {
             @for $i from 0 through 8 {
@@ -57,6 +60,9 @@
                 &--#{$i} {
                     margin-bottom: ($baseline * $i) !important;
                 }
+            }
+            &--auto {
+                margin-bottom: auto;
             }
         }
         //
@@ -87,6 +93,9 @@
                     margin-left: ($col * $i) !important;
                 }
             }
+            &--auto {
+                margin-left: auto;
+            }
         }
         &-right {
             @for $i from 0 through 59 {
@@ -114,6 +123,9 @@
                 &--#{$i} {
                     margin-right: ($col * $i) !important;
                 }
+            }
+            &--auto {
+                margin-right: auto;
             }
         }
     }

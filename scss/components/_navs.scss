@@ -21,31 +21,16 @@
 	&-primary {
 		//move primary nav items here...
 	}
-	&-secondary-wrap {
-		background: $mercury;
-		border-top: 1px solid $iron;
-		margin-top: -1px;
-		padding-top: ($baseline * 2);
-	}
 
 	&-secondary {
-		// margin-top: ($baseline * 3);
 		margin-bottom: ($baseline * 2);
-
-		&--border-right-lg {
-			@include breakpoint(lg) {
-				border-right: 1px solid $iron;
-			}
-		}
-
-		&--border-left-lg {
-			@include breakpoint(lg) {
-				border-left: 1px solid $iron;
-			}
-		}
+		padding-top: $baseline;
 
 		&__title {
 			margin: 0 0 0 0;
+			font-size: 21px;
+			font-weight: 400;
+			line-height: 24px;
 		}
 
 		&__list {
@@ -60,14 +45,19 @@
 			padding: 11px 0 5px 0;
 			line-height: 16px;
 
+			a {
+				text-decoration: underline;
+			}
+
 			&:after {
 				content: '|';
-				padding: 0px 0 0 8px;
+				padding: 0 0 0 4px;
+				color: $aluminium;
 			}
 
 			&:last-child:after {
 				content: '';
-				padding: 0px 0 0 0px;
+				padding: 0 0 0 0;
 			}
 
 		}

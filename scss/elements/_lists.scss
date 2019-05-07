@@ -20,5 +20,118 @@
 		}
 	}
 
+	&--pipe-seperated {
+		ul, ol, dl {
+			list-style:none;
+			margin:0;
+			padding:0;
+			display: inline;
+			//ellipses sm
+			&-ellipses {
+				margin:0;
+				padding:0;
+				display: inline;
+				list-style:none;
+				@include breakpoint(sm) {
+					position: relative;
+					display: inline-block;
+					&:after {
+						content: "";
+						background-color: white;
+						position: absolute;
+						right: -800px;
+						top: 0;
+						width: 800px;
+						height: 1.5em;
+						z-index: 4;
+					}
+				}
+			}
+		}
+		li {
+			display: inline;
+			padding:0;
+			line-height: 24px;
+			margin-right: 4px;
+			&:after {
+			    content: "|";
+			    color: $iron;
+			    position: relative;
+                right: -4px;
+                top: -2px;
+			}
+			&:last-child:after { 
+				content: "";
+			}
+		}
+	}
+	
+	&--ellipses {
+		&-md{
+			@include breakpoint(md) {
+				overflow: hidden;
+				position: relative;
+				line-height: 1.2em;
+				text-align: justify;
+				margin-right: -1em;
+				padding-right: 1em;
+				&:before {
+					content: '...';
+					position: absolute;
+					right: 0;
+					bottom: 2px;
+				}
+				&:after {
+					content: '';
+					position: absolute;
+					right: 0;
+					width: 1em;
+					height: 1.2em;
+					margin-top: 0.2em;
+					background: white;
+				}
+			}
+		}
+		&-sm{
+			@include breakpoint(sm) {
+				&:after {
+					content: "...";
+					position: absolute;
+					right: 0;
+					top: 0;
+					background-color: white;
+				}
+			}
+		}
+	}
+
+	&--custom-numbered {
+		@if $old-ie != true {
+			list-style: none;
+			padding: 0;
+			> li {
+				counter-increment: step-counter;
+				padding: 0;
+				margin: 0;
+				position: relative;
+				&::before {
+					content: counter(step-counter)'.';
+					font-size: 30px;
+					font-weight: bold;
+					position: absolute;
+					top: $baseline;
+					left: 0;
+					@include breakpoint(sm) {
+							font-size: 24px;
+							top: 4px;
+					}
+				}
+				// If the list contains a separate list, don't follow the ul ul style
+				ul {
+					list-style-type: disc;
+				}
+			}
+		}
+	}
 
 }

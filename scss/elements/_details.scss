@@ -1,0 +1,27 @@
+.details {
+    position: relative;
+    margin-bottom: 6 * $baseline;
+
+    &__summary {
+        font-size: 16px;
+        padding: 4px;
+        text-decoration: underline;
+
+        &:focus {
+            background-color: $carrot;
+            display: inline-block;
+            outline: 0;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+    }
+
+    &__body {
+        margin-top: $baseline;
+        padding: $baseline 0 $col $col;
+        border-left: 3px solid $aluminium;
+    }
+}

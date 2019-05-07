@@ -12,7 +12,7 @@ inputs:
   - name: sixteens
 
 outputs:
-  - name: dist
+  - name: build
 
 run:
-  path: sixteens/ci/scripts/npm-install.sh
+  path: sixteens/ci/scripts/build.sh

@@ -39,6 +39,7 @@
     button {
         position: relative;
     }
+    
 
     // down arrow when not expanded
     button[aria-expanded=false]:after {
@@ -62,6 +63,21 @@
 
     button:focus {
         outline: none;
+    }
+
+    .js-show-hide__button--slim {
+        padding: ($baseline) $col / 2 ($baseline) 0;
+        &[aria-expanded=false]:after {
+            right: 8px;
+            top: 25%;            
+        }
+    }
+
+    &--dark-bg {
+      background: $gallery;
+      .show-hide__title:hover {
+        background: $iron-light;
+      }
     }
 
     &--dark {
@@ -103,6 +119,17 @@
 
         @include breakpoint(md) {
             padding-right: ($col * 2);
+        }
+
+        &--link-style {
+          color:$matisse;
+        }
+    }
+
+    // Remove padding above show/hide headings
+    @for $i from 1 through 6 {
+        h#{$i} {
+            padding-top: 0;
         }
     }
 

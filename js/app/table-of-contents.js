@@ -45,7 +45,9 @@ $(function() {
             var href = $(this).attr('href');
             $(tocSelectList).append($('<option/>', {
                 value: href,
-                text: text
+                text: text,
+                'data-gtm-title': text,
+                'data-gtm-type': 'sticky-toc'
             }));
         });
 
@@ -54,6 +56,8 @@ $(function() {
 
         $('.table-of-contents--sticky__select').change(function() {
             var location = $(this).find('option:selected').val();
+            var title = $(this).find('option:selected').text()
+            var targetId = location;
             if (location) {
                 // expands section if show/hide
                 forceShow($(location));
@@ -83,9 +87,22 @@ $(function() {
                         //jsEnhanceTriggerAnalyticsEvent(page);
                         functionTrigger = false;
                     }
+
+                    $(targetId).attr('tabindex','-1');
+                    $(targetId)[0].focus({preventScroll: true});
                 });
+
+                // Check if GTM dataLayer exists and if it does push
+                // a click event with the title of element clicked
+                if (window.dataLayer != undefined) {
+                    window.dataLayer.push({
+                        'event': 'StickyTopNavClick',
+                        'stickyTopNav': title
+                    });
+                }
             }
         });
+
 
 
         // sticky toc function that evaluates scroll position and activates the sticky toc as appropriate

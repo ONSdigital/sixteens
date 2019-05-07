@@ -3,7 +3,8 @@ $(function() {
     $('.js-scroll').click(function(e) {
         e.preventDefault();
 
-        var target = this.hash,
+        var targetId = this.hash;
+        var target = targetId,
             scrollOffset = $(target).offset().top;
 
         $('html, body').animate({
@@ -14,6 +15,8 @@ $(function() {
                 history.pushState(null, null, target);
             }
         });
+        $(targetId).attr('tabindex','-1');
+        $(targetId).focus();
     });
 
 });

@@ -1,0 +1,54 @@
+.form{
+    &-control{
+        width: 100%;
+        opacity: 1;
+        -webkit-appearance: none;
+        border-radius: 0;
+        background-image: none;
+        box-sizing: border-box;
+        font-weight: 400;
+        text-transform: none;
+        font-size: 16px;
+        line-height: 1.25;
+        padding: 5px 4px 4px;
+        border: 2px solid #0b0c0c;
+        margin-bottom: 40px;
+        outline-color: $carrot;
+
+        &__inline{
+            width: 70%;
+        }
+
+        &__error {
+            -webkit-box-shadow: 0 0 0 2px $poppy;
+            -moz-box-shadow: 0 0 0 2px $poppy;
+            box-shadow: 0 0 0 2px $poppy;
+        }
+
+    }
+
+    &-control:focus{
+        @include box-shadow(0 0 0 3px $carrot);
+    }
+
+    &-hint{
+        text-transform: none;
+        display: block;
+        color: #6f777b;
+        font-weight: normal;
+    }
+
+    &-helper{
+        color: #6f777b;
+        font-size: 14;
+    }
+
+    &-error{
+        text-transform: none;
+        display: block;
+        color: $poppy;
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+}

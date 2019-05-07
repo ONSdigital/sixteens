@@ -27,7 +27,7 @@ function hoverState() {
     // Mapping for utility classes and their opposites
     var classMap = [];
     classMap.push({class1: 'background--white', class2: 'background--ship-grey'});
-    classMap.push({class1: 'background--gallery', class2: 'background--nevada'});
+    classMap.push({class1: 'background--gallery', class2: 'background--ship-grey'});
     classMap.push({class1: 'background--mercury', class2: 'background--ship-grey'});
     classMap.push({class1: 'background--iron-light', class2: 'background--ship-grey'});
     classMap.push({class1: 'border-top--iron-sm', class2: 'border-top--thunder-sm'});
@@ -42,6 +42,14 @@ function hoverState() {
     classMap.push({class1: 'border-left--iron-light-md', class2: 'border-left--thunder-md'});
     classMap.push({class1: 'icon-arrow-right--dark', class2: 'icon-arrow-right--light'});
     classMap.push({class1: 'image-background', class2: 'image-background--mercury'});
+    classMap.push({class1: 'border-top--iron-light-sm', class2: 'border-top--thunder-sm'});
+    classMap.push({class1: 'border-top--gallery-sm', class2: 'border-top--nevada-sm'});
+    classMap.push({class1: 'border-left--gallery-sm', class2: 'border-left--nevada-sm'});
+    classMap.push({class1: 'border-right--gallery-sm', class2: 'border-right--nevada-sm'});
+    classMap.push({class1: 'border-top--gallery-md', class2: 'border-top--nevada-md'});
+    classMap.push({class1: 'border-left--gallery-md', class2: 'border-left--nevada-md'});
+    classMap.push({class1: 'border-right--gallery-md', class2: 'border-right--nevada-md'});
+    classMap.push({class1: 'border-bottom--gallery-md', class2: 'border-bottom--nevada-md'});
 
 
     // Loop through array and swap matching classes

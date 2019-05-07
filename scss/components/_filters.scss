@@ -48,6 +48,22 @@
         }
     }
 
+    &__age{
+        &--text {
+            width: 100px;
+            height: 35px;
+            border: 2px solid black;
+            border-radius: 0px;
+            padding-left: 8px;
+        }
+
+        &--text:focus{
+            outline-style:none;
+            -webkit-appearance: none;
+            @include box-shadow(0 0 0 3px $carrot);
+        }
+    }
+
     // Error message animations
     @keyframes showError {
         from {
@@ -93,7 +109,7 @@
             border: 1px solid $iron;
 
             &:focus {
-                outline: 3px solid $carrot;
+                outline: 3 px solid $carrot;
                 outline-offset: 0;
             }
         }

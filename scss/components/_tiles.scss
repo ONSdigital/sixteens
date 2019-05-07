@@ -911,16 +911,19 @@
 
 .tile-neutral {
 	background-color: $mercury;
-	padding: ($baseline * 2) $col;
+	padding: ($baseline * 4) (2 * $col);
 
 	&__heading {
 		font-weight: 700;
+		font-size: 24px;
+		line-height: 32px;
+		margin: 0 0 ($baseline * 2) 0;
 	}
 
 	&-content {
 		&__title {
 			font-size: 17px;
-			font-weight: 400;
+			font-weight: 700;
 			line-height: 24px;
 			margin: 16px 0;
 			padding: 5px 0 3px 0;
@@ -928,8 +931,11 @@
 		&__meta {
 			margin: 0;
 			padding: 6px 0 2px 0;
+			font-size: 14px;
 		}
 
+		&__description {
+			font-size: 16px;
+		}
 	}
-
 }

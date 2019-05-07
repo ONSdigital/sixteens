@@ -1,0 +1,54 @@
+
+// New variables
+$dark-blue: #003C57;
+$dull-blue: #5F7682;
+$dark-dull-blue: #45565E;
+
+// Button modifiers added for data visualisations, so that we have an alternative colour for in page calls to action
+.btn {
+
+    &--bold {
+        font-weight: 600;
+    }
+
+    &--primary-alternative {
+        background-color: $matisse;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            background-color: $dark-blue;
+        }
+    }
+
+    &--secondary-alternative {
+        background-color: $dull-blue;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            background-color: $dark-dull-blue;
+        }
+    }
+
+    &--neutral {
+        background-color: $alabaster;
+        border: 1px solid $aluminium;
+
+        &:hover,
+        &:focus {
+            background-color: $iron-light;
+        }
+    }
+
+    &--large {
+        font-size: 16px;
+    }
+
+    // Overwrites existing small button - this one has less padding, where as the original has a fixed height
+    &--small {
+        padding: 0 ($col/2);
+        font-size: 12px;
+    }
+
+}

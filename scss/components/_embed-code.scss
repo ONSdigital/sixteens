@@ -1,0 +1,74 @@
+.embed-code {
+    &__label {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    &__code {
+        font-size: 16px;
+        height: 60px;
+        background-color: $gallery;
+        border: 3px solid $iron;
+        padding: 8px $col;
+        overflow-x: scroll;
+        position: relative;
+        border-radius: 0;
+        -webkit-appearance: none;
+        margin: 0 0 0 0; // remove 2px border top and bottom that safari adds
+
+        &:focus {
+            outline: 3px solid $carrot;
+            outline-offset: 0;
+            z-index: 1;
+            position: relative;
+        }
+    }
+
+    &__button {
+        height: 60px;
+        position: absolute;
+        font-size: 16px;
+        font-weight: 600;
+
+        &:focus {
+            outline: 3px solid $carrot;
+            outline-offset: 0;
+            z-index: 1;
+        }
+
+    }
+
+    &__success {
+
+        &-container {
+            position: relative;
+        }
+
+        &-message {
+            position: absolute;
+            background-color: $ship-grey;
+            color: white;
+            width: 150px;
+            top: 50px;
+            left: -78px;
+            font-weight: 400;
+            padding: $baseline;
+            border-radius: 3px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: -10px;
+                left: 108px;
+                width: 0;
+                height: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-bottom: 10px solid $ship-grey;
+            }
+
+        }
+
+    }
+
+
+}

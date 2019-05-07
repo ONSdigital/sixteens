@@ -23,6 +23,13 @@
 			margin-top: -1px;
 			position: relative;
 		}
+		&--thin {
+			padding-top: ($baseline * 2);
+			.meta__item {
+				min-height: auto;
+				margin-bottom: ($baseline * 2);
+			}
+		}
 	}
 
 	&__item {

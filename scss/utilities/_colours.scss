@@ -41,28 +41,28 @@ $error:         $poppy;
 
 
 $colours: (
-		//name      	//primary 		//secondary			//tertiary
-		("thunder",		$thunder, 		$iron-light,		$iron-light)
-		("ship-grey", 	$ship-grey, 	$iron-light,		$iron-light)
-		("abbey", 		$abbey, 		$iron-light,		$iron-light)
-		("nevada", 		$nevada, 		$iron-light,		$iron-light)
-		("aluminium", 	$aluminium, 	$ship-grey,			$matisse)
-		("silver", 		$silver, 		$ship-grey,			$matisse)
-		("iron", 		$iron, 			$ship-grey,			$matisse)
-		("iron-light", 	$iron-light, 	$ship-grey,			$matisse)
-		("mercury",		$mercury, 		$ship-grey,			$matisse)
-		("gallery", 	$gallery, 		$ship-grey,			$matisse)
-		("alabaster", 	$alabaster, 	$ship-grey,			$matisse)
-		("haze", 		$haze,			$ship-grey,			$matisse)
-		("white", 		$white, 		$ship-grey,			$matisse)
+		//name      	//primary 		//secondary			        //tertiary
+		("thunder",		$thunder, 		$iron-light,		        $iron-light)
+		("ship-grey", 	$ship-grey, 	$iron-light,		        $iron-light)
+		("abbey", 		$abbey, 		$iron-light,		        $iron-light)
+		("nevada", 		$nevada, 		$iron-light,		        $iron-light)
+		("aluminium", 	$aluminium, 	$thunder,			$matisse)
+		("silver", 		$silver, 		$thunder,			$matisse)
+		("iron", 		$iron, 			$thunder,			$matisse)
+		("iron-light", 	$iron-light, 	$thunder,			$matisse)
+		("mercury",		$mercury, 		$thunder,			$matisse)
+		("gallery", 	$gallery, 		$thunder,			$matisse)
+		("alabaster", 	$alabaster, 	$thunder,			$matisse)
+		("haze", 		$haze,			$thunder,			$matisse)
+		("white", 		$white, 		$thunder,			$matisse)
 		("matisse",		$matisse, 		$white)
 		("blumine", 	$blumine, 		$white)
 		("salem",		$salem, 		$white)
 		("poppy", 		$poppy, 		$white)
-		("carrot", 		$carrot, 		$ship-grey)
+		("carrot", 		$carrot, 		$thunder)
 		("astral", 		$astral, 		$haze)
         ("indigo",      $indigo,        $iron-light)
-        ("prim",        $prim,        	$ship-grey)
+        ("prim",        $prim,        	$thunder)
 );
 
 

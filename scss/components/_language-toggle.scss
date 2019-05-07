@@ -1,11 +1,10 @@
 // Language selection
 .language {
-    background: $iron-light;
     font-size: 12px;
-    padding: 0 8px;
 
     @include breakpoint(md) {
         float: right;
+        color: $base-text-colour;
     }
 
     &__title {
@@ -15,6 +14,13 @@
     &__item {
         margin: 0 0 0 4px;
         display: inline;
+    }
+
+    &__link {
+        text-decoration: underline;
+        @include breakpoint(sm) {
+            color: $iron-light;
+        }
     }
 
     // Styles for js enhanced <select> form
@@ -29,7 +35,6 @@
         &__select {
             padding-bottom: 2px; // Fixes text being 1 pixel below label text
             float: right;
-            background-color: $iron-light;
             border: 0 !important;
             font-size: 12px;
             height: 24px;
@@ -44,14 +49,9 @@
             &::-ms-expand {
                 display: none;
             }
-            &::-ms-value {
-                background-color: $iron-light;
-            }
             &:focus::-ms-value {
                 color: $matisse;
-                background-color: $iron-light;
             }
-
             &:hover {
                 cursor: pointer;
             }

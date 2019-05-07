@@ -24,8 +24,8 @@
 
         font-size: 21px;
         height: ($baseline * 6);
-        background: $aluminium;
-        color: $ship-grey;
+        background: $abbey;
+        color: $haze;
         padding: 12px $col;
         margin: 0;
         display: block;
@@ -41,14 +41,14 @@
         &:hover,
         &:focus {
             cursor: pointer;
-            background: darken($aluminium, 15%);
+            background: $thunder;
         }
 
         &--active {
             padding-top: 20px;
             padding-bottom: 12px;
             background: $white;
-            color: $ship-grey;
+            color: $base-text-colour;
             height: ($baseline * 7);
 
             @include breakpoint(sm) {

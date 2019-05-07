@@ -1,159 +1,329 @@
 .section {
 
-	&__title {
-		margin-top: $baseline * 6;
-		margin-bottom: 0;
-	}
+    &__title {
+        margin-top: $baseline * 6;
+        margin-bottom: 0;
+    }
 
-	&__subtitle {
-		margin-top: $col;
-		margin-bottom: $baseline;
-	}
+    &__subtitle {
+        margin-top: $col;
+        margin-bottom: $baseline;
+    }
 
-	&__content {
+    &__content {
 
-		&-number {
-			position: relative;
-			margin-left: ($col * -3);
-			//padding-left: 6px;
-			//width: ($col * 3);
-			display: block;
-			float: left;
+        &-number {
+            position: relative;
+            margin-right: ($col);
+            display: block;
+            float: left;
 
-			@include breakpoint(sm) {
-				margin-right: $col;
-				margin-left: 0;
-			}
+            @include breakpoint(sm) {
+                margin-right: $col;
+                margin-left: 0;
+            }
 
-		}
+        }
 
-		&--markdown {
+        &--markdown {
 
-			@include breakpoint(sm) {
-				padding: 0;
-			}
+            &:focus {
+                outline: none;
+            }
 
-			@include breakpoint(md) {
-				padding: 0 0 0 ($col * 3);
-				margin-right: ($col * 3);
-			}
+            @include breakpoint(sm) {
+                padding: 0;
+            }
 
-			@include breakpoint(lg) {
-				margin-right: ($col * 4);
-			}
+            @include breakpoint(md) {
+                margin-right: ($col * 3);
+            }
 
-			@include markdown;
+            @include breakpoint(lg) {
+                margin-right: ($col * 2);
+            }
 
-			position: relative;
+            @include markdown;
 
-			.markdown-chart-container, .markdown-table-container {
-				margin-bottom: ($baseline * 4);
+            position: relative;
 
+            p {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 32px;
+                margin: 0 0 ($baseline * 3) 0;
+                padding: 0;
 
-				//On mobile remove grey border
-				@include breakpoint(sm) {
-						border-left: 0;
-					}
+                @include breakpoint(sm) {
+                    font-size: 16px;
+                }
+            }
 
-				&--error {
-					height: ($baseline * 36);
-					font-size: 17px;
-					font-weight: 600;
-					position: relative;
-					text-align: center;
-				}
+            ul, ol {
+                margin-bottom: ($baseline * 4);
+                  padding-left: ($col * 2);
+            }
 
-				&--error__message {
-					position: absolute;
-					top: ($baseline * 16);
-					left: 0;
-					width: 100%;
-					text-align: center;
-					padding: 5px 0 3px 0;
-				}
+            li {
+                margin: 0 0 $baseline 0;
+                line-height: 32px;
+                font-weight: 400;
+                font-size: 18px;
+                padding: 0;
+                @include breakpoint(sm) {
+                    font-size: 16px;
+                }
+            }
 
+            a {
+                text-decoration: underline;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 32px;
+                @include breakpoint(sm) {
+                    font-size: 16px;
+                }
+              }
 
-				.markdown-table-wrap {
-					//Charts take up extra space when available (ie on desktop/tablet)
-					width: 700px;
-					
-					// Slightly smaller on medium so that table right column isn't cut off
-					@include breakpoint(md) {
-						width: 670px;
-					}
+            h1, h2 {
+                font-size: 30px;
+                margin: ($baseline * 4) 0 ($baseline * 4) 0;
+                padding: ($baseline * 3) 0 0 0;
+                font-weight: bold;
+                line-height: (40px);
+                @include breakpoint(sm) {
+                    font-size: 24px;
+                    margin: ($baseline * 3) 0 ($baseline * 2) 0;
+                    line-height: 32px;
+                }
+            }
 
-					//On mobile then go 100% width
-					@include breakpoint(sm) {
-						width: 100%;
-					}
-				}
-				.markdown-chart{
-					//Charts take up extra space when available (ie on desktop/tablet)
-					width: 700px;
+            h3 {
+                font-size: 24px;
+                margin: ($baseline * 4) 0 ($baseline * 2) 0;
+                padding: ($baseline * 3) 0 0 0;
+                font-weight: bold;
+                line-height: 32px;
+                @include breakpoint(sm) {
+                    font-size: 18px;
+                    line-height: 24px;
+                    margin: ($baseline * 3) 0 ($baseline * 2) 0;
+                }
+            }
 
-					//On tablet
-					@include breakpoint(md) {
-						width: 520px;
-					}
-					//On mobile 
-					@include breakpoint(sm) {
-						width: 360px;
-					}
-				}
-				.sm-multiple-holder {
-					// set the holder to max width: 3 small line charts
-					width: 700px;
-					/*
-					// 2 small line chart on tablet?
-					@include breakpoint(md) {
-						width: 500px;
-					}
-					*/
-				}
+            h4 {
+                font-size: 18px;
+                margin: ($baseline *3) 0 ($baseline * 2) 0;
+                padding: ($baseline * 3) 0 0 0;
+                font-weight: bold;
+                line-height: 32px;
+                @include breakpoint(sm) {
+                    font-size: 16px;
+                    line-height: 24px;
+                    margin: ($baseline * 2) 0 ($baseline * 2) 0;
+                }
+            }
 
-				.sm-multiple {
-					padding-top:4px;
-					width: 230px;
-					float:left;
-				}
-			}
+            h5, h6 {
+                    font-size: 16px;
+                    margin: ($baseline * 2) 0 ($baseline) 0;
+                    @include breakpoint(sm) {
+                        margin: ($baseline * 2) 0 ($baseline * 2) 0;
+                    }
+            }
 
-			.markdown-chart-container{
-				padding-left:0;
-			}
+            // All 1-4 headings should be bold. They should have padding above, 
+            // but only if not under a heading equal or lower level to itself
+            @for $i from 1 through 4 {
+                @for $j from $i through 6 {
+                    h#{$i} + h#{$j} {
+                        padding-top: 0;
+                   }
+                }
+            }
 
-			// Neutral article specific styling
-			&--neutral-article {
-				padding-left: 0;
-				margin-right: 0;
+            // Special instances of headings
 
-				.pym-interactive--full-width {
-					margin-left: 0;
-				}
+            // Sub headings
+            header + h3  {
+                padding-top: 0;
+            }
 
-				h2, h3, h4, h5, h6 {
-					font-weight: 700;
-				}
+            // Chart subtitles
+            h4 + h5  {
+                margin: 0 0 ($baseline * 2) 0;
+                font-weight: normal;
+                font-size: 16px;
+                @include breakpoint(sm) {
+                    font-size: 14px;
+                }
+            }
 
-				h2 {
-					line-height: 32px;
-				}
+            .markdown-chart-container > h4:first-of-type {
+                margin-bottom: $baseline;
+            }
 
-			}
-			// End of Neutral article specific styling
-		}
+            // Bullet points under a charts note title
+            h5 + ol, h5 + ul, h6 + ol, h6 + li {
+                margin-top: $baseline;
+            }
 
-		&--static-markdown {
-			@include markdown;
+            .font-xsmall {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        
+            .markdown-chart-container, .markdown-table-container {
+                margin-bottom: ($baseline * 4);
 
-			margin-top: ($baseline * 3);
+                //On mobile remove grey border
+                @include breakpoint(sm) {
+                        border-left: 0;
+                    }
 
-			ol {
-				margin: $col 0 $col $col;
-			}
+                &--error {
+                    height: ($baseline * 36);
+                    font-size: 17px;
+                    font-weight: 600;
+                    position: relative;
+                    text-align: center;
+                }
 
-		}
+                &--error__message {
+                    position: absolute;
+                    top: ($baseline * 16);
+                    left: 0;
+                    width: 100%;
+                    text-align: center;
+                    padding: 5px 0 3px 0;
+                }
 
-	}
+                .markdown-table-wrap {
+                    //Charts take up extra space when available (ie on desktop/tablet)
+                    width: 700px;
+                    
+                    // Slightly smaller on medium so that table right column isn't cut off
+                    @include breakpoint(md) {
+                        width: 670px;
+                    }
+
+                    //On mobile then go 100% width
+                    @include breakpoint(sm) {
+                        width: 100%;
+                    }
+                }
+                .markdown-chart{
+                    //Charts take up extra space when available (ie on desktop/tablet)
+                    width: 700px;
+
+                    //On tablet
+                    @include breakpoint(md) {
+                        width: 520px;
+                    }
+                    //On mobile 
+                    @include breakpoint(sm) {
+                        width: 360px;
+                    }
+                }
+                .sm-multiple-holder {
+                    // set the holder to max width: 3 small line charts
+                    width: 700px;
+                    /*
+                    // 2 small line chart on tablet?
+                    @include breakpoint(md) {
+                        width: 500px;
+                    }
+                    */
+                }
+
+                .sm-multiple {
+                    padding-top:4px;
+                    width: 230px;
+                    float:left;
+                }
+            }
+
+            .markdown-chart-container{
+                padding-left:0;
+            }
+
+            .markdown-box-container {
+                background-color: $gallery;
+                padding: ($baseline * 2) $col;
+                margin-bottom: $baseline * 2;
+
+                // remove margin top and bottom from first and last items
+                // can't use :first-child because the markdown parser sometimes leaves empty p tag first :(
+                h3:first-of-type,
+                h4:first-of-type {
+                    margin-top: 0;
+                }
+
+                *:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            .markdown-warning-box {
+                &--container {
+                    background-color: $white;
+                    padding: ($baseline * 1) 0;
+                    position: relative;
+                    margin-bottom: 24px;
+                }
+
+                &--icon {
+                    font-weight: 700;
+                    display: inline-block;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    padding-top: 1px;
+                    min-width: 38px;
+                    min-height: 38px;
+                    margin-top: -19px;
+                    font-size: 26px;
+                    border: 3px solid #323132;
+                    border-radius: 50%;
+                    color: #fff;
+                    background: #323132;
+                    line-height: 29px;
+                    text-align: center;
+                }
+
+                &--text {
+                    p {
+                        font-weight: 700;
+                        margin-bottom: ($baseline * 3);
+                        padding: 0;
+                        font-size: 18px;
+                        line-height: 32px;
+                    }
+                }
+            }
+
+            // Neutral article specific styling
+            &--neutral-article {
+                .pym-interactive--full-width {
+                    margin-left: 0;
+                }
+            }
+            // End of Neutral article specific styling
+
+        }
+
+        &--static-markdown {
+            @include markdown;
+
+            margin-top: ($baseline * 3);
+
+            ol, ul {
+                margin: $col 0 $col $col;
+                padding-left: $col;
+            }
+
+        }
+
+    }
 
 }

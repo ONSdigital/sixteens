@@ -1,0 +1,42 @@
+// Pontential replacement for the show/hide component.
+// Heavily based on the GDS hidden text - http://govuk-elements.herokuapp.com/typography/#typography-hidden-text
+// Uses the HTML5 <details> attribute and therefore requires a pollyfill (details.polyfill.js)
+
+details {
+    display: block;
+    clear: both;
+
+    summary {
+        cursor:pointer;
+        color: $matisse;
+        text-decoration: underline;
+        display: inline-block;
+
+        &:focus {
+            @include box-shadow(0 0 0 3px $carrot);
+            outline:0;
+        }
+
+        span {
+            color: $matisse;
+            &::-webkit-details-marker {
+                font-size:20px;
+            }
+        }
+    }
+
+    .panel {
+        border-left: 5px solid $aluminium;
+        padding-left: $col;
+    }
+
+    // An i.arrow element is created via the pollyfill for old browsers
+    .arrow {
+        color: $matisse;
+        padding-right:5px;
+        &[aria-hidden=true] {
+            display: inline-block;
+            visibility: visible;
+        }
+    }
+}

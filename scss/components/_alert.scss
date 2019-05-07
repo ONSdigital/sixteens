@@ -33,7 +33,7 @@
         text-decoration: underline;
         padding: 5px 0 3px 0;
         display: inline-block;
-        
+
         &:hover {
             color: $white;
         }
@@ -64,25 +64,7 @@
 
         padding: $baseline 0;
 
-        //&__icon {
-        //	position: absolute;
-        //	height: ($baseline * 6);
-        //	width: ($col * 3);
-        //	border-radius: $col * 2;
-        //	display: inline-block;
-        //	border: 2px solid $white;
-        //	color: $white;
-        //	font-size: 26px;
-        //	padding: 10px 20px;
-        //	margin: 0 $col;
-        //
-        //	&:after {
-        //       content: "i";
-        //   }
-        //}
-
         &__title {
-            //display: inline-block;
             padding-left: ($col * 4);
             margin: $baseline 0;
             text-align: left; //IE9 fix, puts text centre aligned
@@ -99,76 +81,163 @@
             }
         }
     }
+
+    &--light {
+        padding:0 0 0 $baseline * 2;
+        background:none;
+        border-left: 8px $poppy solid;
+        color:$thunder;
+        a {
+          color:$poppy;
+        }
+    }
 }
 
-// show and hide (used for corrections and notices)
-//&--show-hide {
-//
-//	border-top: 1px solid $iron;
-//	//padding-top: ($baseline);
-//	margin-top: ($baseline * 2);
-//
-//	&__title {
-//
-//		//width: $col * 29;
-//		padding: $baseline 0 $baseline $col;
-//		width: inherit;
-//		background-color: $ship-grey;
-//
-//		button {
-//			padding: 3px 0 5px 0;
-//		}
-//
-//
-//		button[aria-expanded=false] {
-//			//Plus symbol before expanded
-//			&:after {
-//				content: '+';
-//				display: inline-block;
-//				width: $col;
-//				height: 24px;
-//				float: right;
-//				border-left: 1px solid $nevada;
-//				padding: 0 $col;
-//			}
-//
-//		}
-//
-//		button[aria-expanded=true] {
-//			//Plus symbol before expanded
-//			&:after {
-//				content: '\2212';
-//				display: inline-block;
-//				width: $col;
-//				height: 24px;
-//				float: right;
-//				border-left: 1px solid $nevada;
-//				padding: 0 $col;
-//			}
-//
-//			//background-color: $ship-grey;
-//		}
-//
-//		button:focus {
-//			outline: none;
-//		}
-//
-//	}
-//
-//	&__content {
-//		padding: $baseline $col;
-//		background-color: $nevada;
-//	}
-//}
-//
-//&--correction {
-//
-//}
-//
-//&--notice {
-//	background-color: $ship-grey;
-//
-//	&__date {
-//		margin: 0;
-//	}
-//}
+.status {
+    padding:$baseline * 2;
+    margin: 0 0 $baseline;
+    background:$gallery;
+    color:$thunder;
+
+    @media print {
+        display: none;
+    }
+
+    &--green {
+        border-left: 8px $salem solid;
+    }
+    &--amber {
+        border-left: 8px $carrot solid;
+    }
+    &--red {
+        border-left: 8px $poppy solid;
+    }
+
+    &__content {
+        margin:0 0 $baseline * 2;
+        font-size: 16px;
+        line-height: 24px;
+        color:$thunder;
+        padding: 0 $baseline 0 0 ;
+    }
+
+    &__link {
+        text-decoration: underline;
+    }
+}
+
+.alert-release-banner {
+    background-color: $white;
+    color: $ship-grey;
+    width: auto;
+
+    @media print {
+        display: none;
+    }
+
+    &__latest {
+        border-left: 7px solid $matisse;
+    }
+
+    &__not-latest {
+        border-left: 7px solid $carrot;
+    }
+
+    &__title {
+        font-size: 18px;
+        line-height: 32px;
+        padding: 0;
+        margin: ($baseline * 1) ($baseline * 2);
+
+        a {
+            color: $matisse;
+        }
+        
+        @include breakpoint(sm) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    &__link {
+        font-size: 18px;
+        display: inline-block;
+        
+        @include breakpoint(sm) {
+            font-size: 16px;
+        }
+    }
+
+    &__content {
+        font-size: 14px;
+        margin: 0;
+
+        &--large {
+            font-size: 17px;
+            margin: 0;
+        }
+    }
+
+    &__date {
+        padding: 5px 0 10px 0;
+        margin: 0;
+        font-size: 17px
+    }
+}
+
+
+.alert-bulletins {
+    background-color: $white;
+    color: $ship-grey;
+    width: auto;
+
+    @media print {
+        display: none;
+    }
+
+    &--warning {
+
+        padding: $baseline 0;
+
+        &__title {
+            padding-left: ($col * 4);
+            text-align: left; //IE9 fix, puts text centre aligned
+        }
+
+        &__content {
+
+            @include breakpoint(sm) {
+                margin: 0 $col
+            }
+
+            @include breakpoint(md) {
+                margin: 0 $col * 4;
+            }
+        }
+    }
+
+    &--light {
+        padding:0 0 0 $baseline * 2;
+        background:none;
+        border-left: 8px $poppy solid;
+        color:$thunder;
+        a {
+            color:$poppy;
+        }
+    }
+
+    &--border {
+        border: 1px solid #fff;
+        padding: ($baseline * 1) 0;
+    }
+
+    &--expand-arrow {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    &--info-box {//fix positioning of info-box on bulletin pages
+        top: $baseline * 1 !important;
+        margin: 0 !important;
+    }
+}
