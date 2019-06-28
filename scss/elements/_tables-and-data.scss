@@ -217,9 +217,16 @@ dd {
             outline: 3px solid $carrot;
         }
       }
+
       td {
         white-space: nowrap;
+        p {
+            &.wrap {
+                white-space: pre-line;
+            }
+          }
       }
+
     }
     thead th{
       font-weight: bold;

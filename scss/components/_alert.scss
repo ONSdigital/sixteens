@@ -112,6 +112,9 @@
     &--red {
         border-left: 8px $poppy solid;
     }
+    &--blue {
+        border-left: 8px $blue solid;
+    }
 
     &__content {
         margin:0 0 $baseline * 2;
