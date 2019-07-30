@@ -21,31 +21,31 @@
 	}
 
 	&--pipe-seperated {
-		ul, ol, dl {
-			list-style:none;
+		&-ellipses {
 			margin:0;
 			padding:0;
 			display: inline;
-			//ellipses sm
-			&-ellipses {
+			list-style:none;
+			@include breakpoint(sm) {
+				position: relative;
+				display: inline-block;
+				&:after {
+					content: "";
+					background-color: white;
+					position: absolute;
+					right: -800px;
+					top: 0;
+					width: 800px;
+					height: 1.5em;
+					z-index: 4;
+				}
+			}
+			ul, ol, dl {
+				list-style:none;
 				margin:0;
 				padding:0;
 				display: inline;
-				list-style:none;
-				@include breakpoint(sm) {
-					position: relative;
-					display: inline-block;
-					&:after {
-						content: "";
-						background-color: white;
-						position: absolute;
-						right: -800px;
-						top: 0;
-						width: 800px;
-						height: 1.5em;
-						z-index: 4;
-					}
-				}
+				//ellipses sm
 			}
 		}
 		li {
