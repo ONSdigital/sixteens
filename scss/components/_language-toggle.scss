@@ -18,9 +18,6 @@
 
     &__link {
         text-decoration: underline;
-        @include breakpoint(sm) {
-            color: $iron-light;
-        }
     }
 
     // Styles for js enhanced <select> form
