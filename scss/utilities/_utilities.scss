@@ -548,7 +548,7 @@
 // Remove the defauly focus and use our own.
 .show-focus {
     &:focus {
-        @include box-shadow(0 0 0 3px $carrot);
+        @include box-shadow(0 0 0 3px $jaffa-orange);
         outline:0;
     }
 }
@@ -648,7 +648,7 @@
 .link-adjust a:not(.btn) {
 	@extend .underline-link;
 	&:focus {
-		@include box-shadow(0 0 0 3px $carrot);
+		@include box-shadow(0 0 0 3px $jaffa-orange);
 		outline: 0;
 	}
 }

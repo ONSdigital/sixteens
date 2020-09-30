@@ -4,7 +4,7 @@
 	// font-size: 14px;
 	// line-height: 24px;
 	padding: ($baseline * 2) 0 (($baseline * 1) - 1) 0;
-	border-bottom: 1px solid $iron;
+	border-bottom: 1px solid $grey4;
 	clear:both;
 	@include breakpoint(sm) {
 		padding: $baseline 0 (($baseline * 2) - 1) 0;

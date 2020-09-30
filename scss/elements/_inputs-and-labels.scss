@@ -44,7 +44,7 @@ input, select {
     background-color: white;
     width: 100%;
     height: 32px;
-    border: 1px solid $iron;
+    border: 1px solid $grey4;
     padding: ($baseline) ($col / 2);
 
 
@@ -53,18 +53,18 @@ input, select {
     }
 
     &:focus {
-        outline: 3px solid $carrot;
+        outline: 3px solid $jaffa-orange;
     }
 
 	&--focus {
-		//outline: 1px dashed $nevada;
+		//outline: 1px dashed $grey2;
 		//outline-offset: -1px;
 
 		overflow: auto;
 		position: absolute;
-		box-shadow: 0px 0px 6px 5px $nevada;
-		-webkit-box-shadow: 0px 0px 6px 5px $nevada;
-		-moz-box-shadow: 0px 1px 3px $abbey;
+		box-shadow: 0px 0px 6px 5px $grey2;
+		-webkit-box-shadow: 0px 0px 6px 5px $grey2;
+		-moz-box-shadow: 0px 1px 3px $grey2;
 
 	}
 
@@ -75,7 +75,7 @@ input, select {
 
 .select {
     background-color: white;
-		border: 1px solid $iron;
+		border: 1px solid $grey4;
 		height: auto;
 }
 
@@ -83,7 +83,7 @@ input, select {
 	.select-alt{
 		position: relative;
 		display: inline-block;
-		border: 2px solid $thunder;
+		border: 2px solid $black;
 		.select {
 			font-size: 16px;
 			border: none;
@@ -91,7 +91,7 @@ input, select {
 			padding: 5px;
 			outline:none;
 			&:focus {
-					outline: 3px solid $carrot;
+					outline: 3px solid $jaffa-orange;
 			}
 		}
 	}

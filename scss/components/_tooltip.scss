@@ -10,7 +10,7 @@
     &:hover:before,
     &:focus:before {
         border: solid;
-        border-color: $abbey transparent;
+        border-color: $grey2 transparent;
         border-width: 6px 6px 0 6px;
         bottom: 25px;
         content: "";
@@ -21,9 +21,9 @@
 
     &:hover:after,
     &:focus:after{
-        background: $abbey;
+        background: $grey2;
         bottom: 31px;
-        color: $iron;
+        color: $grey4;
         content: attr(title);
         padding: $baseline $col;
         position: absolute;

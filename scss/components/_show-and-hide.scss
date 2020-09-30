@@ -33,7 +33,7 @@
 .show-hide {
 
     &:focus {
-        border: 2px solid $thunder;
+        border: 2px solid $black;
     }
 
     button {
@@ -74,18 +74,18 @@
     }
 
     &--dark-bg {
-      background: $gallery;
+      background: $grey5;
       .show-hide__title:hover {
-        background: $iron-light;
+        background: $grey4;
       }
     }
 
     &--dark {
 
-        //border: 1px solid $thunder;
+        //border: 1px solid $black;
         //margin: (($baseline * 3) - 1) 0 ($baseline - 1px) 0;
         ////padding: ($baseline * 2) $col;
-        //background-color: $ship-grey;
+        //background-color: $grey1;
 
         button[aria-expanded=false]:after {
             @extend .icon-arrow-down--light;
@@ -122,7 +122,7 @@
         }
 
         &--link-style {
-          color:$matisse;
+          color:$ocean-blue;
         }
     }
 
@@ -137,7 +137,7 @@
 
         //padding: 0 0 ($baseline * 2) 0;
         padding-left: 0;
-        border-bottom: 1px solid $aluminium;
+        border-bottom: 1px solid $grey3;
 
         //@include breakpoint(md) {
         //    margin-right: ($col * 5);

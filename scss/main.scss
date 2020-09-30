@@ -2,15 +2,12 @@
 
 $old-ie: false;
 
-@import "v2/utilities/colour-palette";
-
 @import "utilities/colours";
 @import "utilities/reset";
 @import "utilities/breakpoints";
 @import "utilities/flexbox";
 @import "utilities/grid";
 @import "utilities/grid-type";
-@import "utilities/colours";
 @import "utilities/ellipsis";
 @import "utilities/utilities";
 @import "utilities/print"; //remove this and create a seperate print css set with media="print" in the link tag for old browser support

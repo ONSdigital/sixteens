@@ -26,30 +26,30 @@ function hoverState() {
 
     // Mapping for utility classes and their opposites
     var classMap = [];
-    classMap.push({class1: 'background--white', class2: 'background--ship-grey'});
-    classMap.push({class1: 'background--gallery', class2: 'background--ship-grey'});
-    classMap.push({class1: 'background--mercury', class2: 'background--ship-grey'});
-    classMap.push({class1: 'background--iron-light', class2: 'background--ship-grey'});
-    classMap.push({class1: 'border-top--iron-sm', class2: 'border-top--thunder-sm'});
-    classMap.push({class1: 'border-top--iron-md', class2: 'border-top--thunder-md'});
-    classMap.push({class1: 'border-top--iron-light-sm', class2: 'border-top--thunder-sm'});
-    classMap.push({class1: 'border-top--iron-light-md', class2: 'border-top--thunder-md'});
-    classMap.push({class1: 'border-right--iron-light-sm', class2: 'border-right--thunder-sm'});
-    classMap.push({class1: 'border-right--iron-light-md', class2: 'border-right--thunder-md'});
-    classMap.push({class1: 'border-bottom--iron-light-sm', class2: 'border-bottom--thunder-sm'});
-    classMap.push({class1: 'border-bottom--iron-light-md', class2: 'border-bottom--thunder-md'});
-    classMap.push({class1: 'border-left--iron-light-sm', class2: 'border-left--thunder-sm'});
-    classMap.push({class1: 'border-left--iron-light-md', class2: 'border-left--thunder-md'});
+    classMap.push({class1: 'background--white', class2: 'background--grey1'});
+    classMap.push({class1: 'background--grey5', class2: 'background--grey1'});
+    classMap.push({class1: 'background--grey4', class2: 'background--grey1'});
+    classMap.push({class1: 'background--grey4', class2: 'background--grey1'});
+    classMap.push({class1: 'border-top--grey4-sm', class2: 'border-top--black-sm'});
+    classMap.push({class1: 'border-top--grey4-md', class2: 'border-top--black-md'});
+    classMap.push({class1: 'border-top--grey4-sm', class2: 'border-top--black-sm'});
+    classMap.push({class1: 'border-top--grey4-md', class2: 'border-top--black-md'});
+    classMap.push({class1: 'border-right--grey4-sm', class2: 'border-right--black-sm'});
+    classMap.push({class1: 'border-right--grey4-md', class2: 'border-right--black-md'});
+    classMap.push({class1: 'border-bottom--grey4-sm', class2: 'border-bottom--black-sm'});
+    classMap.push({class1: 'border-bottom--grey4-md', class2: 'border-bottom--black-md'});
+    classMap.push({class1: 'border-left--grey4-sm', class2: 'border-left--black-sm'});
+    classMap.push({class1: 'border-left--grey4-md', class2: 'border-left--black-md'});
     classMap.push({class1: 'icon-arrow-right--dark', class2: 'icon-arrow-right--light'});
-    classMap.push({class1: 'image-background', class2: 'image-background--mercury'});
-    classMap.push({class1: 'border-top--iron-light-sm', class2: 'border-top--thunder-sm'});
-    classMap.push({class1: 'border-top--gallery-sm', class2: 'border-top--nevada-sm'});
-    classMap.push({class1: 'border-left--gallery-sm', class2: 'border-left--nevada-sm'});
-    classMap.push({class1: 'border-right--gallery-sm', class2: 'border-right--nevada-sm'});
-    classMap.push({class1: 'border-top--gallery-md', class2: 'border-top--nevada-md'});
-    classMap.push({class1: 'border-left--gallery-md', class2: 'border-left--nevada-md'});
-    classMap.push({class1: 'border-right--gallery-md', class2: 'border-right--nevada-md'});
-    classMap.push({class1: 'border-bottom--gallery-md', class2: 'border-bottom--nevada-md'});
+    classMap.push({class1: 'image-background', class2: 'image-background--grey4'});
+    classMap.push({class1: 'border-top--grey4-sm', class2: 'border-top--black-sm'});
+    classMap.push({class1: 'border-top--grey5-sm', class2: 'border-top--grey2-sm'});
+    classMap.push({class1: 'border-left--grey5-sm', class2: 'border-left--grey2-sm'});
+    classMap.push({class1: 'border-right--grey5-sm', class2: 'border-right--grey2-sm'});
+    classMap.push({class1: 'border-top--grey5-md', class2: 'border-top--grey2-md'});
+    classMap.push({class1: 'border-left--grey5-md', class2: 'border-left--grey2-md'});
+    classMap.push({class1: 'border-right--grey5-md', class2: 'border-right--grey2-md'});
+    classMap.push({class1: 'border-bottom--grey5-md', class2: 'border-bottom--grey2-md'});
 
 
     // Loop through array and swap matching classes

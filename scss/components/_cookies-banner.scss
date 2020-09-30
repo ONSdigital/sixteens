@@ -1,5 +1,5 @@
 .cookies-banner {
-    background-color: $mercury;
+    background-color: $grey4;
     padding: 20px 0;
     box-sizing: border-box;
 
@@ -59,7 +59,7 @@
             border: 0;
             background: none;
             text-decoration: underline;
-            color: $matisse;
+            color: $ocean-blue;
             padding: 0;
             float: right;
 
@@ -82,8 +82,8 @@
 
     &__preferences-success {
         display: block;
-        border-left: 8px solid $salem;
-        background: $lily-white;
+        border-left: 8px solid $leaf-green;
+        background: $grey5;
     }
 
     &__preferences-success-body {

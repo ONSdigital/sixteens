@@ -40,12 +40,12 @@
 
     &__controls__custom--active {
         margin-top: ($baseline * 2);
-        background-color: $nevada;
+        background-color: $grey2;
         // overflow: hidden;
         position: relative;
 
         &:before {
-            @include triangle(15px, $nevada, false);
+            @include triangle(15px, $grey2, false);
             top: -15px;
 
             @include breakpoint(sm) {
@@ -72,7 +72,7 @@
         }
 
         legend {
-            color: $iron-light;
+            color: $grey4;
             padding: 6px 0 2px 0;
         }
 
@@ -81,7 +81,7 @@
     &__controls__custom__container {
         overflow: hidden;
         padding: 0 $col;
-        color: $iron-light;
+        color: $grey4;
 
         p {
             margin: 0;
@@ -94,7 +94,7 @@
     }
 
     &__controls__custom__errors {
-        background-color: $poppy;
+        background-color: $ruby-red;
 
         p {
             margin: 0;
@@ -120,7 +120,7 @@
     }
 
     &__controls__download {
-        background-color: $nevada;
+        background-color: $grey2;
         margin-top: ($baseline * 2);
         position: relative;
         width: 100%;
@@ -128,7 +128,7 @@
 
         &--unfiltered {
             &:before {
-                @include triangle(15px, $nevada, true);
+                @include triangle(15px, $grey2, true);
                 left: calc(25% - 15px);
             }
 
@@ -136,7 +136,7 @@
 
         &--filtered {
             &:before {
-                @include triangle(15px, $nevada, true);
+                @include triangle(15px, $grey2, true);
                 right: calc(25% - 15px);
             }
         }
@@ -145,8 +145,8 @@
 
 #custom-tooltip {
     display: block;
-    border: 1px solid $iron;
-    background-color: $gallery;
+    border: 1px solid $grey4;
+    background-color: $grey5;
     position: relative;
     z-index: 999;
 }
@@ -245,7 +245,7 @@
 
 .tooltip-right:after {
     content: "";
-    border-color: transparent transparent transparent $iron;
+    border-color: transparent transparent transparent $grey4;
     border-style: solid;
     border-width: 15px;
     width: 0;
@@ -261,7 +261,7 @@
 
 .tooltip-left:after {
     content: "";
-    border-color: transparent $iron transparent transparent;
+    border-color: transparent $grey4 transparent transparent;
     border-style: solid;
     border-width: 15px;
     width: 0;

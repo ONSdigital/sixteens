@@ -7,7 +7,7 @@
   }
 
   &__header {
-    background: $gallery;
+    background: $grey5;
     padding:15px;
 
     h2 {
@@ -24,11 +24,11 @@
   }
 
   ul {
-    border-left: 1px solid $gallery;
-    border-right: 1px solid $gallery;
+    border-left: 1px solid $grey5;
+    border-right: 1px solid $grey5;
     margin: 0;
     li {
-      border-bottom: 1px solid $gallery;
+      border-bottom: 1px solid $grey5;
       padding: 15px;
       margin: 0;
       overflow: hidden;
@@ -79,10 +79,10 @@
 
 .filter-overview {
   &__error {
-    border-left: thick solid $poppy;
+    border-left: thick solid $ruby-red;
   }
   &__add {
-    border-left: thick solid $blumine;
+    border-left: thick solid $ocean-blue;
   }
   &__edit {
     border-left: thick solid white;

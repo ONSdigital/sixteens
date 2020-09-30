@@ -52,7 +52,7 @@
 			&:after {
 				content: '|';
 				padding: 0 0 0 4px;
-				color: $aluminium;
+				color: $grey3;
 			}
 
 			&:last-child:after {
@@ -63,9 +63,9 @@
 		}
 
 		&--census {
-			color: $iron-light;
+			color: $grey4;
 			a {
-				color: $iron-light;
+				color: $grey4;
 			}
 		}
 	}

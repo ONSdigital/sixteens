@@ -1,7 +1,7 @@
 .info-box {
 
-    background-color: $astral;
-    color: $haze;
+    background-color: $sky-blue;
+    color: $grey5;
     position: relative;
 
     a {
@@ -9,8 +9,8 @@
         text-decoration: underline;
 
         &:not(.btn):focus {
-            background-color: $haze;
-            color: $astral;
+            background-color: $grey5;
+            color: $sky-blue;
         }
 
     }

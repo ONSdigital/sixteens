@@ -12,7 +12,7 @@
             margin: 0;
 
             &:focus {
-                @include box-shadow(0 0 0 3px $carrot);
+                @include box-shadow(0 0 0 3px $jaffa-orange);
             }
 
             &:checked + label:after {
@@ -22,7 +22,7 @@
             + label {
                 &:before {
                     content: "";
-                    border: 2px solid $ship-grey;
+                    border: 2px solid $grey1;
                     background: white;
                     width: 34px;
                     height: 34px;
@@ -35,7 +35,7 @@
                     content: "";
                     border: solid;
                     border-width: 0 0 5px 5px;
-                    border-color: $ship-grey;
+                    border-color: $grey1;
                     background: transparent;
                     width: 17px;
                     height: 7px;
@@ -70,11 +70,11 @@
         &.disabled {
             input[disabled] {
                 &:before {
-                    border: 2px solid $iron;
+                    border: 2px solid $grey4;
                 }
             }
             label {
-                color: $iron;
+                color: $grey4;
             }
         }
     }

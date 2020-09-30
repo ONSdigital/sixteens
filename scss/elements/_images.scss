@@ -9,17 +9,17 @@ a img {
 }
 
 .image-background {
-    &--mercury {
-        background-color: $mercury;
+    &--grey4 {
+        background-color: $grey4;
     }
 }
 
 // Accessibility fixes
 //a:focus > img {
-//    outline: $matisse dotted 1px;
+//    outline: $ocean-blue dotted 1px;
 //}
 //
 //a:focus > img.main-logo {
-//    outline: $matisse dotted 1px;
+//    outline: $ocean-blue dotted 1px;
 //    margin: 2px 0 2px 0; //without extra margin outline doesn't show
 //}

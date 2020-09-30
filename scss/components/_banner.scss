@@ -1,13 +1,13 @@
 .banner {
     background-color: $white;
 
-    &--carrot {
-        background-color: $carrot;
+    &--jaffa-orange {
+        background-color: $jaffa-orange;
         color: $white;
     }
 
     &--bottom-border {
-        border-bottom: 1px solid $iron;
+        border-bottom: 1px solid $grey4;
     }
 
     &--no-border {
@@ -35,8 +35,8 @@
     }
 
     &__text-icon {
-        background-color: $matisse;
-        color: $iron-light;
+        background-color: $ocean-blue;
+        color: $grey4;
         font-weight: 700;
         text-transform: uppercase;
         padding: 5px 8px;
@@ -55,7 +55,7 @@
     &__heading {
         font-size: 30px;
         line-height: 1.33;
-        color: $mine-shaft;
+        color: $black;
         letter-spacing: -0.02px;
         margin-left: $col;
         

@@ -74,7 +74,7 @@
     }
 
     [type=radio]:focus + label::before {
-        @include box-shadow(0 0 0 3px $carrot);
+        @include box-shadow(0 0 0 3px $jaffa-orange);
     }
 
     [type=radio] ~ &__content {
@@ -101,7 +101,7 @@
     [type=radio]:checked ~ &__content.multiple-choice__error:before {
         content: "";
         vertical-align: bottom;
-        background-color: $poppy;
+        background-color: $ruby-red;
         width:  4px;
         height: 100%;
         position: absolute;

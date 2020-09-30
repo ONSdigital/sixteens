@@ -10,7 +10,7 @@
         height: 38px;
 
         &:focus {
-            @include box-shadow(0 0 0 5px $carrot);
+            @include box-shadow(0 0 0 5px $jaffa-orange);
             @include border-radius(50%);
         }
 
@@ -20,7 +20,7 @@
 
         &:before {
             content: "";
-            border: 2px solid $ship-grey;
+            border: 2px solid $grey1;
             background: white;
             width: 34px;
             height: 34px;
@@ -32,7 +32,7 @@
 
         &:after {
             content: "";
-            border: 10px solid $ship-grey;
+            border: 10px solid $grey1;
             width: 0;
             height: 0;
             position: absolute;
@@ -60,7 +60,7 @@
     }
 
     .focused:before {
-        @include box-shadow(0 0 0 5px $carrot);
+        @include box-shadow(0 0 0 5px $jaffa-orange);
 
     }
 

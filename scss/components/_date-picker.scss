@@ -1,5 +1,5 @@
 .datepicker {
-    background-color: $ship-grey;
+    background-color: $grey1;
     color: $grey5;
     padding: ($baseline * 3) $col;
     margin-top: ($baseline * 2);
@@ -20,7 +20,7 @@
         right: $col;
         border-right: 15px solid transparent;
         border-left: 15px solid transparent;
-        border-bottom: 15px solid $ship-grey;
+        border-bottom: 15px solid $grey1;
     }
 
     &--left-arrow:before {
@@ -33,7 +33,7 @@
         background: transparent;
 
         &:focus {
-            background: $iron;
+            background: $grey4;
         }
 
         @include breakpoint(sm) {
@@ -68,7 +68,7 @@
         position: relative;
 
         &:focus {
-            outline: 1px solid $iron;
+            outline: 1px solid $grey4;
         }
 
         // Get arrow as far right in button as possible
@@ -95,7 +95,7 @@
             height: 100%;
             position: absolute;
             top: 0;
-            background: $thunder;
+            background: $black;
             opacity: 0.4;
             z-index: 2;
         }
@@ -113,32 +113,32 @@
         width: ($col * 2);
         text-align: center;
         vertical-align: middle;
-        background: $nevada;
-        //border: 1px solid $ship-grey;
-        border-right: 1px solid $ship-grey;
-        border-bottom: 1px solid $ship-grey;
+        background: $grey2;
+        //border: 1px solid $grey1;
+        border-right: 1px solid $grey1;
+        border-bottom: 1px solid $grey1;
         position: relative;
         cursor: pointer;
         padding: 0;
 
         &.empty {
-            background: $abbey;
+            background: $grey2;
         }
 
         &.focus {
-            background: $thunder;
+            background: $black;
         }
 
         &.active {
-            background: $iron-light;
-            color: $thunder;
+            background: $grey4;
+            color: $black;
         }
 
         &.today:after {
             content: "";
             width: 0;
             height: 0;
-            border-top: 8px solid $iron-light;
+            border-top: 8px solid $grey4;
             border-left: 8px solid transparent;
             position: absolute;
             right: 0;

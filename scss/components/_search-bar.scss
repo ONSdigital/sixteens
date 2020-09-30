@@ -3,11 +3,11 @@
 .search {
 
     @include breakpoint(sm) {
-        background-color: $abbey;
+        background-color: $grey2;
     }
 
     @include breakpoint(md) {
-        background-color: $ship-grey;
+        background-color: $grey1;
         font-size: 17px;
         height: 80px;
     }
@@ -16,7 +16,7 @@
         height: ($baseline * 24);
 
         h1 {
-            color: $iron-light;
+            color: $grey4;
             margin: ($baseline * 2) 0 $baseline 0;
         }
 
@@ -35,7 +35,7 @@
         font-family: $base-font-family;
         font-weight: $base-font-weight;
         line-height: $base-line-height;
-        color: $iron-light;
+        color: $grey4;
         padding: ($baseline * 2) 0 ($baseline * 2) ($baseline * 2);
         overflow: initial;
 
@@ -52,7 +52,7 @@
         font-weight: $base-font-weight;
         line-height: $base-line-height;
         font-size: 17px;
-        color: $iron-light;
+        color: $grey4;
         padding: 12px $col 12px 0;
         background-color: transparent;
         position: relative;
@@ -79,7 +79,7 @@
         -webkit-appearance: textfield; // Fix for safari hiding 'x' behind padding
 
         &:focus {
-            outline: 2px solid $carrot;
+            outline: 2px solid $jaffa-orange;
             outline-offset: -2px;
             z-index: 1;
             position: relative;
@@ -100,7 +100,7 @@
 
         &--body {
             background: none;
-            outline: 2px solid $thunder;
+            outline: 2px solid $black;
             outline-offset: 0;
             z-index: 1;
             position: relative;
@@ -127,7 +127,7 @@
         }
 
         &:focus {
-          outline: 3px solid $carrot;
+          outline: 3px solid $jaffa-orange;
         }
 
         @if $old-ie == false {

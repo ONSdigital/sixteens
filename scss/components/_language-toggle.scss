@@ -19,7 +19,7 @@
     &__link {
         text-decoration: underline;
         @include breakpoint(sm) {
-            color: $iron-light;
+            color: $grey4;
         }
     }
 
@@ -38,7 +38,7 @@
             border: 0 !important;
             font-size: 12px;
             height: 24px;
-            color: $matisse;
+            color: $ocean-blue;
             font-weight: $base-font-weight;
             -webkit-appearance: none;  /*Removes default chrome and safari style*/
             -moz-appearance: none; /* Removes Default Firefox style*/
@@ -50,7 +50,7 @@
                 display: none;
             }
             &:focus::-ms-value {
-                color: $matisse;
+                color: $ocean-blue;
             }
             &:hover {
                 cursor: pointer;

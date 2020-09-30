@@ -8,7 +8,7 @@
         text-decoration: underline;
 
         &:focus {
-            background-color: $carrot;
+            background-color: $jaffa-orange;
             display: inline-block;
             outline: 0;
         }
@@ -22,6 +22,6 @@
     &__body {
         margin-top: $baseline;
         padding: $baseline 0 $col $col;
-        border-left: 3px solid $aluminium;
+        border-left: 3px solid $grey3;
     }
 }

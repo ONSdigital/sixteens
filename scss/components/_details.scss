@@ -8,17 +8,17 @@ details {
 
     summary {
         cursor:pointer;
-        color: $matisse;
+        color: $ocean-blue;
         text-decoration: underline;
         display: inline-block;
 
         &:focus {
-            @include box-shadow(0 0 0 3px $carrot);
+            @include box-shadow(0 0 0 3px $jaffa-orange);
             outline:0;
         }
 
         span {
-            color: $matisse;
+            color: $ocean-blue;
             &::-webkit-details-marker {
                 font-size:20px;
             }
@@ -26,13 +26,13 @@ details {
     }
 
     .panel {
-        border-left: 5px solid $aluminium;
+        border-left: 5px solid $grey3;
         padding-left: $col;
     }
 
     // An i.arrow element is created via the pollyfill for old browsers
     .arrow {
-        color: $matisse;
+        color: $ocean-blue;
         padding-right:5px;
         &[aria-hidden=true] {
             display: inline-block;

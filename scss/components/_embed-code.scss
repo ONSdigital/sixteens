@@ -6,8 +6,8 @@
     &__code {
         font-size: 16px;
         height: 60px;
-        background-color: $gallery;
-        border: 3px solid $iron;
+        background-color: $grey5;
+        border: 3px solid $grey4;
         padding: 8px $col;
         overflow-x: scroll;
         position: relative;
@@ -16,7 +16,7 @@
         margin: 0 0 0 0; // remove 2px border top and bottom that safari adds
 
         &:focus {
-            outline: 3px solid $carrot;
+            outline: 3px solid $jaffa-orange;
             outline-offset: 0;
             z-index: 1;
             position: relative;
@@ -30,7 +30,7 @@
         font-weight: 600;
 
         &:focus {
-            outline: 3px solid $carrot;
+            outline: 3px solid $jaffa-orange;
             outline-offset: 0;
             z-index: 1;
         }
@@ -45,7 +45,7 @@
 
         &-message {
             position: absolute;
-            background-color: $ship-grey;
+            background-color: $grey1;
             color: white;
             width: 150px;
             top: 50px;
@@ -63,7 +63,7 @@
                 height: 0;
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
-                border-bottom: 10px solid $ship-grey;
+                border-bottom: 10px solid $grey1;
             }
 
         }

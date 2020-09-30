@@ -2,8 +2,8 @@
 
 .meta {
 	&-wrap {
-		background: $mercury;
-		border-top: 1px solid $iron;
+		background: $grey4;
+		border-top: 1px solid $grey4;
 		margin-top: -1px;
 		padding-top: ($baseline * 3);
 		// padding-bottom: ($baseline * 3);
@@ -17,9 +17,9 @@
 			padding: 6px 0 2px 0;
 		}
 
-		&--gallery {
-			background: $gallery;
-			border-top: 1px solid $iron;
+		&--grey5 {
+			background: $grey5;
+			border-top: 1px solid $grey4;
 			margin-top: -1px;
 			position: relative;
 		}
@@ -42,10 +42,10 @@
 			margin-bottom: $baseline;
 		}
 		@include breakpoint(md) {
-			border-right: 1px solid $iron;
+			border-right: 1px solid $grey4;
 		}
 		@include breakpoint(lg) {
-			border-right: 1px solid $iron;
+			border-right: 1px solid $grey4;
 		}
 
 		&--no-border {

@@ -6,7 +6,7 @@
 	}
 
 	&__list {
-		//border-bottom: 1px solid $iron;
+		//border-bottom: 1px solid $grey4;
 		padding: 6px 0 18px 0;
 		margin-top: $baseline;
 
@@ -32,7 +32,7 @@
 
 		&__wrap {
 			overflow: hidden;
-			background: $ship-grey;
+			background: $grey1;
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -46,7 +46,7 @@
 			}
 
 			a {
-				color: $alabaster;
+				color: $grey5;
 			}
 
 		}

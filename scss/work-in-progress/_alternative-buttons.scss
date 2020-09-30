@@ -12,7 +12,7 @@ $dark-dull-blue: #45565E;
     }
 
     &--primary-alternative {
-        background-color: $matisse;
+        background-color: $ocean-blue;
         color: $white;
 
         &:hover,
@@ -32,12 +32,12 @@ $dark-dull-blue: #45565E;
     }
 
     &--neutral {
-        background-color: $alabaster;
-        border: 1px solid $aluminium;
+        background-color: $grey5;
+        border: 1px solid $grey3;
 
         &:hover,
         &:focus {
-            background-color: $iron-light;
+            background-color: $grey4;
         }
     }
 

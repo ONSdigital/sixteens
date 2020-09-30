@@ -4,7 +4,7 @@
 	box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	border-bottom: 2px solid $iron;
+	border-bottom: 2px solid $grey4;
 	margin-bottom: -2px;
 	padding-bottom: 0;
 
@@ -20,7 +20,7 @@
 
 
 	&:first-of-type {
-    	border-top: 2px solid $iron;
+    	border-top: 2px solid $grey4;
     	margin-top: ($baseline * 2)-2px;
   	}
 

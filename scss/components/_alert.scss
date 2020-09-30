@@ -1,9 +1,9 @@
 //_alert.scss
 
 .alert {
-    background-color: $abbey;
+    background-color: $grey2;
     padding: ($baseline * 2) 0 ($baseline * 3) 0;
-    color: $iron;
+    color: $grey4;
 
     @media print {
         display: none;
@@ -17,7 +17,7 @@
         padding: 3px 0 5px 0;
 
         a {
-            color: $iron;
+            color: $grey4;
 
             &:hover {
                 color: $white;
@@ -28,7 +28,7 @@
     }
 
     &__link {
-        color: $iron;
+        color: $grey4;
         font-size: 16px;
         text-decoration: underline;
         padding: 5px 0 3px 0;
@@ -39,8 +39,8 @@
         }
 
         &:focus {
-            color: $thunder;
-            background: $iron;
+            color: $black;
+            background: $grey4;
         }
     }
 
@@ -85,10 +85,10 @@
     &--light {
         padding:0 0 0 $baseline * 2;
         background:none;
-        border-left: 8px $poppy solid;
-        color:$thunder;
+        border-left: 8px $ruby-red solid;
+        color:$black;
         a {
-          color:$poppy;
+          color:$ruby-red;
         }
     }
 }
@@ -96,31 +96,31 @@
 .status {
     padding:$baseline * 2;
     margin: 0 0 $baseline;
-    background:$gallery;
-    color:$thunder;
+    background:$grey5;
+    color:$black;
 
     @media print {
         display: none;
     }
 
     &--green {
-        border-left: 8px $salem solid;
+        border-left: 8px $leaf-green solid;
     }
     &--amber {
-        border-left: 8px $carrot solid;
+        border-left: 8px $jaffa-orange solid;
     }
     &--red {
-        border-left: 8px $poppy solid;
+        border-left: 8px $ruby-red solid;
     }
     &--blue {
-        border-left: 8px $blue solid;
+        border-left: 8px $indigo-blue solid;
     }
 
     &__content {
         margin:0 0 $baseline * 2;
         font-size: 16px;
         line-height: 24px;
-        color:$thunder;
+        color:$black;
         padding: 0 $baseline 0 0 ;
     }
 
@@ -131,7 +131,7 @@
 
 .alert-release-banner {
     background-color: $white;
-    color: $ship-grey;
+    color: $grey1;
     width: auto;
 
     @media print {
@@ -139,11 +139,11 @@
     }
 
     &__latest {
-        border-left: 7px solid $matisse;
+        border-left: 7px solid $ocean-blue;
     }
 
     &__not-latest {
-        border-left: 7px solid $carrot;
+        border-left: 7px solid $jaffa-orange;
     }
 
     &__title {
@@ -153,7 +153,7 @@
         margin: ($baseline * 1) ($baseline * 2);
 
         a {
-            color: $matisse;
+            color: $ocean-blue;
         }
         
         @include breakpoint(sm) {
@@ -191,7 +191,7 @@
 
 .alert-bulletins {
     background-color: $white;
-    color: $ship-grey;
+    color: $grey1;
     width: auto;
 
     @media print {
@@ -222,10 +222,10 @@
     &--light {
         padding:0 0 0 $baseline * 2;
         background:none;
-        border-left: 8px $poppy solid;
-        color:$thunder;
+        border-left: 8px $ruby-red solid;
+        color:$black;
         a {
-            color:$poppy;
+            color:$ruby-red;
         }
     }
 

@@ -1,13 +1,13 @@
 .select {
     background-color: white;
-    border: 1px solid $iron;
+    border: 1px solid $grey4;
 }
 
 @if $old-ie != true {
 	.select-alt{
 		position: relative;
 		display: inline-block;
-		border: 2px solid $thunder;
+		border: 2px solid $black;
 		.select {
 			font-size: 16px;
 			border: none;
@@ -15,7 +15,7 @@
 			padding: 5px;
 			outline:none;
 			&:focus {
-					outline: 3px solid $carrot;
+					outline: 3px solid $jaffa-orange;
 			}
 		}
 	}

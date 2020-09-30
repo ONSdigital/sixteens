@@ -7,29 +7,29 @@
     &__basket {
         //border: none;
         border-radius: 0;
-        //background: $iron-light;
-        background: $abbey;
-        color: $iron-light;
+        //background: $grey4;
+        background: $grey2;
+        color: $grey4;
         //padding: 5px ($col / 2) 3px ($col / 2);
         min-height: ($baseline * 5);
         //margin: ($baseline * 3) 0 0 ($col * 14);
         width: ($col * 7);
         font-size: 14px;
         position: absolute;
-        border: 1px solid $ship-grey;
+        border: 1px solid $grey1;
         top: ($baseline * 2);
         right: 0;
 
         &--active {
             outline: none;
-            background: $salem;
+            background: $leaf-green;
             color: $white;
         }
 
         &:hover,
         &:focus,
         &--focus {
-            background-color: $ship-grey;
+            background-color: $grey1;
             outline: none;
         }
     }
@@ -44,15 +44,15 @@
             display: none;
             position: absolute;
             width: ($col * 28);
-            background: $iron-light;
+            background: $grey4;
             top: ($baseline * 11);
             //left: 0;
             right: 0;
             z-index: 1000;
             //padding: ($baseline * 4) $col ($baseline * 3) $col;
             padding: $baseline 0 ($baseline * 3) 0;
-            color: $iron-light;
-            background: $ship-grey;
+            color: $grey4;
+            background: $grey1;
 
             @include breakpoint(sm) {
                 width: ($col * 18);
@@ -64,7 +64,7 @@
                 height: 0;
                 border-left: 16px solid transparent;
                 border-right: 16px solid transparent;
-                border-bottom: 16px solid $ship-grey;
+                border-bottom: 16px solid $grey1;
                 position: absolute;
                 top: -16px;
                 right: ($col * 2.5);
@@ -85,7 +85,7 @@
     }
 
     &__download {
-        border-top: 1px solid $iron;
+        border-top: 1px solid $grey4;
         margin: -1px $col 0 $col;
         display: none;
     }

@@ -42,8 +42,8 @@ $old-ie: false;
     }
 
     .page-intro {
-        background-color: $gallery !important;
-        border-top: 1px solid $iron;
+        background-color: $grey5 !important;
+        border-top: 1px solid $grey4;
 
         &__title {
             margin: 0 16px !important;
@@ -54,7 +54,7 @@ $old-ie: false;
         }
 
         &__type {
-            color: $salem !important;
+            color: $leaf-green !important;
         }
     }
 
@@ -77,9 +77,9 @@ $old-ie: false;
     .meta-wrap {
         margin-top: 24px;
         padding-top: 8px;
-        background-color: $iron-light !important;
-        border-top: 1px solid $iron;
-        border-bottom: 1px solid $iron;
+        background-color: $grey4 !important;
+        border-top: 1px solid $grey4;
+        border-bottom: 1px solid $grey4;
 
         > div {
             margin: 0 16px !important;

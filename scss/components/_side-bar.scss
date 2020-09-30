@@ -8,7 +8,7 @@
 
         &:hover {
             cursor: pointer;
-            //background-color: $ship-grey;
+            //background-color: $grey1;
             //color: $white;
         }
 
@@ -21,7 +21,7 @@
     }
 
     &__active {
-        background-color: lighten($matisse, 50%);
+        background-color: lighten($ocean-blue, 50%);
         font-weight: 400;
     }
 }

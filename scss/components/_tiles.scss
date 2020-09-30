@@ -1,16 +1,16 @@
 // tiles.scss
 
 // .tile {
-// 	background-color: $gallery;
+// 	background-color: $grey5;
 // 	//padding: 6px $col 10px $col;
 //
 // 	&--nav-block {
-// 		background-color: $mercury;
+// 		background-color: $grey4;
 // 		padding: 0;
 // 		margin-top: 0;
 // 		// position: relative;
 //
-// 		@include multiline-ellipsis(280px, $col, $mercury);
+// 		@include multiline-ellipsis(280px, $col, $grey4);
 //
 // 		&__title {
 // 			min-height: 56px;
@@ -21,8 +21,8 @@
 //
 // 		&__content {
 // 			// height: 160px;
-// 			background-color: $mercury;
-// 			border-top:1px solid $iron;
+// 			background-color: $grey4;
+// 			border-top:1px solid $grey4;
 // 			margin: ($baseline * 2) 0 0 0;
 // 			padding: 13px $col 16px $col;
 //
@@ -31,7 +31,7 @@
 // 	}
 //
 // 	&--headline-block {
-// 		background-color: $mercury;
+// 		background-color: $grey4;
 // 		padding: 0;
 // 		margin: 0 0 $col 0;
 //
@@ -40,7 +40,7 @@
 // 			height: 288px;
 // 			max-height: 288px;
 // 			background-color: $white;
-// 			border: $mercury 1px solid;
+// 			border: $grey4 1px solid;
 // 			border-bottom: none;
 // 		}
 //
@@ -116,11 +116,11 @@
 // 			padding: 15px $col 17px $col;
 // 			width: 100%;
 // 			margin: 0;
-// 			background-color: $iron-light;
-// 			border-top: 2px solid $iron;
+// 			background-color: $grey4;
+// 			border-top: 2px solid $grey4;
 //
 // 			&:hover {
-// 				background-color: $iron;
+// 				background-color: $grey4;
 // 			}
 //
 // 		}
@@ -182,7 +182,7 @@
 	// 	margin-top: 0;
 	//
 	// 	&__item {
-	// 		border-bottom: 1px solid $iron-light;
+	// 		border-bottom: 1px solid $grey4;
 	// 		padding: 0 $col;
 	// 		list-style: none;
 	// 		margin-top: -1px;
@@ -227,7 +227,7 @@
 	}
 	&__item {
 		margin: 0 0 ($baseline * 2) $col;
-		background-color: $mercury;
+		background-color: $grey4;
 		padding: 0;
 		display: flex;
 		flex-direction: column;
@@ -237,7 +237,7 @@
 		}
 
 		&--hover {
-			background-color: $ship-grey;
+			background-color: $grey1;
 			color: $white;
 		}
 
@@ -245,7 +245,7 @@
 			// background-color: transparent;
 			padding: 0;
 			margin-top: $baseline;
-			// @include multiline-ellipsis(616px, $col, $mercury);
+			// @include multiline-ellipsis(616px, $col, $grey4);
 		}
 		&--image-type {
 
@@ -258,7 +258,7 @@
 			// 	top: 0;
 			// 	left: 0;
 			// 	background: $white;
-			// 	border: 1px solid $mercury;
+			// 	border: 1px solid $grey4;
 			// }
 
 			&-46-rows {
@@ -266,7 +266,7 @@
 				height: $baseline * 46;
 				position: relative;
 				padding-top: 192px;
-				// @include multiline-ellipsis(($baseline * 46), $col, $mercury);
+				// @include multiline-ellipsis(($baseline * 46), $col, $grey4);
 
 				.sparkline-holder, .image-holder {
 					height: 192px;
@@ -275,7 +275,7 @@
 					top: 0;
 					left: 0;
 					background: $white;
-					border: 1px solid $mercury;
+					border: 1px solid $grey4;
 					overflow: hidden;
 
 					img {
@@ -284,15 +284,15 @@
 					}
 
 					&--hover {
-						//background-color: $silver;
-						border-color: $ship-grey;
+						//background-color: $grey3;
+						border-color: $grey1;
 
 						&:after {
 							content: "";
 							width: 100%;
 							height: 192px;
 							max-height: 192px;
-							background-color: $silver-light;
+							background-color: $grey3;
 							position: absolute;
 							top: 0;
 							left: 0;
@@ -308,7 +308,7 @@
 				height: $baseline * 30;
 				position: relative;
 				padding-top: 112px;
-				// @include multiline-ellipsis(($baseline * 46), $col, $mercury);
+				// @include multiline-ellipsis(($baseline * 46), $col, $grey4);
 
 				.sparkline-holder, .image-holder {
 					height: 112px;
@@ -317,7 +317,7 @@
 					top: 0;
 					left: 0;
 					background: $white;
-					border: 1px solid $mercury;
+					border: 1px solid $grey4;
 					overflow: hidden;
 
 					img {
@@ -326,15 +326,15 @@
 					}
 
 					&--hover {
-						//background-color: $silver;
-						border-color: $ship-grey;
+						//background-color: $grey3;
+						border-color: $grey1;
 
 						&:after {
 							content: "";
 							width: 100%;
 							height: 112px;
 							max-height: 112px;
-							background-color: $silver-light;
+							background-color: $grey3;
 							position: absolute;
 							top: 0;
 							left: 0;
@@ -349,7 +349,7 @@
 				height: $baseline * 31;
 				position: relative;
 				padding-top: 112px;
-				// @include multiline-ellipsis(($baseline * 46), $col, $mercury);
+				// @include multiline-ellipsis(($baseline * 46), $col, $grey4);
 
 				.sparkline-holder, .image-holder {
 					height: 112px;
@@ -358,7 +358,7 @@
 					top: 0;
 					left: 0;
 					background: $white;
-					border: 1px solid $mercury;
+					border: 1px solid $grey4;
 					overflow: hidden;
 
 					img {
@@ -367,15 +367,15 @@
 					}
 
 					&--hover {
-						//background-color: $silver;
-						border-color: $ship-grey;
+						//background-color: $grey3;
+						border-color: $grey1;
 
 						&:after {
 							content: "";
 							width: 100%;
 							height: 112px;
 							max-height: 112px;
-							background-color: $silver-light;
+							background-color: $grey3;
 							position: absolute;
 							top: 0;
 							left: 0;
@@ -392,12 +392,12 @@
 			list-style: none;
 			margin-top: 0;
 
-			&-mercury {
-				background-color: $mercury;
+			&-grey4 {
+				background-color: $grey4;
 			}
 
 			&-hover {
-				background-color: $ship-grey;
+				background-color: $grey1;
 			}
 
 		}
@@ -405,12 +405,12 @@
 			padding: ($baseline * 2) 0;
 			list-style: none;
 			margin-top: -1px;
-			border-bottom: 1px solid $iron;
+			border-bottom: 1px solid $grey4;
 			width: 100%;
 
 			&-hover {
-				background-color: $iron-light;
-				border-color: $abbey;
+				background-color: $grey4;
+				border-color: $grey2;
 			}
 
 
@@ -423,7 +423,7 @@
 			&-hover {
 
 				&:after {
-					background-color: $ship-grey;
+					background-color: $grey1;
 				}
 
 			}
@@ -453,7 +453,7 @@
 
 		&--hover {
 			color: $white;
-			background-color: $ship-grey;
+			background-color: $grey1;
 
 			a {
 				color: $white;
@@ -462,11 +462,11 @@
 
 		&--nav {
 			min-height: ($baseline * 10);
-			background-color: $gallery;
+			background-color: $grey5;
 
 		  &-hover {
 			color: $white;
-			background-color: $nevada;
+			background-color: $grey2;
 
 			a {
 			  color: $white;
@@ -501,11 +501,11 @@
 
 		&--nav {
 			min-height: ($baseline * 10);
-			background-color: $gallery;
+			background-color: $grey5;
 
 			&-hover {
 				color: $white;
-				background-color: $nevada;
+				background-color: $grey2;
 
 				a {
 					color: $white;
@@ -537,8 +537,8 @@
 		// display: inline-block;
 
 		&--hover {
-			background-color: $ship-grey;
-			border-color: $thunder;
+			background-color: $grey1;
+			border-color: $black;
 			color: $white;
 
 			a {
@@ -547,8 +547,8 @@
 		}
 
 		&--nav {
-			background-color: $mercury;
-			border-top:1px solid $iron;
+			background-color: $grey4;
+			border-top:1px solid $grey4;
 			margin: -1px 0 0 0;
 			padding: $baseline $col ($baseline * 2) $col;
 			width: 100%;
@@ -578,8 +578,8 @@
 			}
 
 			&-hover {
-				background-color: $ship-grey;
-				border-color: $thunder;
+				background-color: $grey1;
+				border-color: $black;
 				color: $white;
 
 				a {
@@ -593,8 +593,8 @@
 			// }
 		}
 		// &--nav-list {
-		// 	background-color: $mercury;
-		// 	border-top:1px solid $iron;
+		// 	background-color: $grey4;
+		// 	border-top:1px solid $grey4;
 		// 	margin: 0;
 		// 	padding: 15px $col 16px $col;
 		// 	width: 100%;
@@ -618,8 +618,8 @@
 	// 	// display: inline-block;
 
 	// 	&--nav {
-	// 		background-color: $mercury;
-	// 		border-top:1px solid $iron;
+	// 		background-color: $grey4;
+	// 		border-top:1px solid $grey4;
 	// 		// margin: 0;
 	// 		padding: 13px $col 16px $col;
 	// 		width: 100%;
@@ -630,18 +630,18 @@
 		width: 100%;
 		height: 288px;
 		max-height: 288px;
-		background-color: $abbey;
+		background-color: $grey2;
 
 		&--home-quarter {}
 		&--home-half {}
 		&--headline {
-			border: $abbey 1px solid;
+			border: $grey2 1px solid;
 			position: relative;
 			margin-top: -1px;
 
 			&-hover {
-				// background-color: $silver;
-				border-color: $ship-grey;
+				// background-color: $grey3;
+				border-color: $grey1;
 
 
 				&:after {
@@ -649,7 +649,7 @@
 					width: 100%;
 					height: 288px;
 					max-height: 288px;
-					background-color: $silver-light;
+					background-color: $grey3;
 					position: absolute;
 					top: 0;
 					left: 0;
@@ -660,7 +660,7 @@
 		}
 		&--headline-sparkline {
 			background-color: $white;
-			border: $mercury 1px solid;
+			border: $grey4 1px solid;
 			border-bottom: none;
 			// margin-top: -1px;
 			position: relative;
@@ -668,15 +668,15 @@
 
 
 			&-hover {
-				// background-color: $silver;
-				border-color: $ship-grey;
+				// background-color: $grey3;
+				border-color: $grey1;
 
 				&:after {
 					content: "";
 					width: 100%;
 					height: 288px;
 					max-height: 288px;
-					background-color: $silver-light;
+					background-color: $grey3;
 					position: absolute;
 					top: 0;
 					left: 0;
@@ -687,21 +687,21 @@
 		}
 		&--search-sparkline {
 			background-color: $white;
-			border: $mercury 1px solid;
+			border: $grey4 1px solid;
 			height: 248px;
 			max-height: 248px;
 			position: relative;
 
 			&-hover {
-				// background-color: $silver;
-				border-color: $ship-grey;
+				// background-color: $grey3;
+				border-color: $grey1;
 
 				&:after {
 					content: "";
 					width: 100%;
 					height: 248px;
 					max-height: 248px;
-					background-color: $silver-light;
+					background-color: $grey3;
 					position: absolute;
 					top: 0;
 					left: 0;
@@ -767,13 +767,13 @@
 		padding: 15px $col 17px $col;
 		width: 100%;
 		margin: 0;
-		background-color: $iron-light;
-		border-top: 1px solid $iron;
+		background-color: $grey4;
+		border-top: 1px solid $grey4;
 		margin-top: -1px;
 
 		&--hover {
-			background-color: $nevada;
-			border-color: $thunder;
+			background-color: $grey2;
+			border-color: $black;
 			color: $white;
 		}
 	}
@@ -886,14 +886,14 @@
 	}
 
     &__timeseries {
-        border: 1px solid $iron-light;
+        border: 1px solid $grey4;
     }
 
     &__image {
         position: relative;
 
         .image-holder {
-            border: 1px solid $iron-light;
+            border: 1px solid $grey4;
             width: 100%;
             position: absolute;
             top: 0;
@@ -918,7 +918,7 @@
 }
 
 .tile-neutral {
-	background-color: $mercury;
+	background-color: $grey4;
 	padding: ($baseline * 4) (2 * $col);
 
 	&__heading {
