@@ -29,9 +29,6 @@ function hoverState() {
     classMap.push({class1: 'background--white', class2: 'background--grey1'});
     classMap.push({class1: 'background--grey5', class2: 'background--grey1'});
     classMap.push({class1: 'background--grey4', class2: 'background--grey1'});
-    classMap.push({class1: 'background--grey4', class2: 'background--grey1'});
-    classMap.push({class1: 'border-top--grey4-sm', class2: 'border-top--black-sm'});
-    classMap.push({class1: 'border-top--grey4-md', class2: 'border-top--black-md'});
     classMap.push({class1: 'border-top--grey4-sm', class2: 'border-top--black-sm'});
     classMap.push({class1: 'border-top--grey4-md', class2: 'border-top--black-md'});
     classMap.push({class1: 'border-right--grey4-sm', class2: 'border-right--black-sm'});
