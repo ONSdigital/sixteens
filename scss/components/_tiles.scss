@@ -226,14 +226,13 @@
 		padding: 0;
 	}
 	&__item {
-		margin: 0 0 ($baseline * 2) $col;
 		background-color: $mercury;
 		padding: 0;
 		display: flex;
 		flex-direction: column;
 
 		@include breakpoint(sm) {
-			margin: 0 0 ($baseline * 2) 0;
+			margin: 0 0 0 0;
 		}
 
 		&--hover {
