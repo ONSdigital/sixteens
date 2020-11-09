@@ -25,6 +25,10 @@ label {
 input, select {
     font-family: $base-font-family;
     font-size: $base-font-size;
+
+    &[type=radio] {
+        margin-right: .765em;
+        }
 }
 
 .label {
@@ -46,7 +50,6 @@ input, select {
     height: 32px;
     border: 1px solid $iron;
     padding: ($baseline) ($col / 2);
-
 
     &[type=search] {
         -webkit-appearance: none; // Fix for Safari not accepting element height
