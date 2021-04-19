@@ -1,7 +1,7 @@
 //height
 @mixin height-util {
     .height {
-        @for $i from 0 through 50 {
+        @for $i from 0 through 60 {
             @include breakpoint(sm) {
                 &-sm--#{$i} {
                     height: ($baseline * $i);
@@ -16,7 +16,7 @@
                 }
             }
         }
-        @for $i from 0 through 50 {
+        @for $i from 0 through 60 {
             @include breakpoint(md) {
                 &-md--#{$i} {
                     height: ($baseline * $i);
@@ -31,7 +31,7 @@
                 }
             }
         }
-        @for $i from 0 through 50 {
+        @for $i from 0 through 60 {
             @include breakpoint(lg) {
                 &-lg--#{$i} {
                     height: ($baseline * $i);
@@ -46,7 +46,7 @@
                 }
             }
         }
-        @for $i from 0 through 50 {
+        @for $i from 0 through 60 {
             &--#{$i} {
                 height: ($baseline * $i);
 
@@ -65,28 +65,28 @@
 
 @mixin min-height-util {
     .min-height {
-        @for $i from 0 through 50 {
+        @for $i from 0 through 60 {
             @include breakpoint(sm) {
                 &-sm--#{$i} {
                     min-height: ($baseline * $i);
                 }
             }
         }
-        @for $i from 0 through 50 {
+        @for $i from 0 through 60 {
             @include breakpoint(md) {
                 &-md--#{$i} {
                     min-height: ($baseline * $i);
                 }
             }
         }
-        @for $i from 0 through 50 {
+        @for $i from 0 through 60 {
             @include breakpoint(lg) {
                 &-lg--#{$i} {
                     min-height: ($baseline * $i);
                 }
             }
         }
-        @for $i from 0 through 50 { //
+        @for $i from 0 through 60 { //
             &--#{$i} {
                 min-height: ($baseline * $i);
             }
@@ -97,14 +97,14 @@
 
 @mixin max-height-util {
     .max-height {
-        @for $i from 0 through 50 {
+        @for $i from 0 through 600 {
             @include breakpoint(md) {
                 &-md--#{$i} {
                     max-height: ($baseline * $i);
                 }
             }
         }
-        @for $i from 0 through 50 { 
+        @for $i from 0 through 60 { 
             &--#{$i} {
                 max-height: ($baseline * $i);
             }
@@ -112,3 +112,7 @@
     }
 }
 @include max-height-util;
+
+.height--fill {
+    height: 100%;
+}

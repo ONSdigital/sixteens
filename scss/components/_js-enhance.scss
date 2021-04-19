@@ -232,44 +232,8 @@
   border-radius: 3px 3px 0 0;
 }
 
-.btn--mobile-table-show, .btn--mobile-table-hide, .btn--mobile-chart-show, .btn--mobile-chart-hide {
-  display: none;
-}
-
 
 @media screen and (max-width: 799px) {
-  .markdown-chart {
-    //display: none;
-  }
-  .markdown-table-wrap, .markdown-chart-overlay {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0px;
-    overflow: scroll;
-    background: #fff;
-    padding: 60px 0 20px 0;
-    overflow: scroll;
-  }
-
-
-  .btn--mobile-table-show, .btn--mobile-chart-show {
-    display: inline-block;
-    /*visibility: visible !important;*/
-    /*display: inline-block !important;*/
-  }
-
-  .btn--mobile-table-hide, .btn--mobile-chart-hide {
-    display: inline-block;
-    /*visibility: visible !important;*/
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-
   #my_feedback {
     margin: 0;
   }

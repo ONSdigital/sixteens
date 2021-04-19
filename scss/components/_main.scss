@@ -1,0 +1,7 @@
+//main.scss
+
+.main {
+  &--sticky-footer-offset {
+    padding-bottom: $baseline * 25
+  }
+}

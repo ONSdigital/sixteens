@@ -21,11 +21,12 @@ $(function() {
       el, id, label, filterSelectItem, removeOne, removeAll, removeAllLink;
 
   // url
-  var urlToPost = $('#filter-form').attr('action'),
-      url = window.location.pathname;
+  var url = window.location.pathname;
+  var urlToPost;
 
-  $(document).on('click', '.js-filter', function(){
+  $(document).on('click', '.js-filter', function() {
     el = $(this);
+    urlToPost = $('#filter-form').attr('action');
     removeAll = $('.remove-all');
     removeOne = $('.remove-link');
 
@@ -66,13 +67,12 @@ $(function() {
     }
 
     // Run the postForm function with the appropriate url
-      postForm(urlToPost);
+    postForm(urlToPost);
 
     // Checkboxes need to return true to select/deselect
     if(!el.is(checkBox)) {
       return false;
     }
-
   });
 
   // Add the selected item/s to the filter selection block (cart)
@@ -81,7 +81,7 @@ $(function() {
       filterSelectItem =
           '<li><span class="col col--md-6 col--lg-12">' + label +
           '</span><span class="remove-link js-filter">' +
-          '<a href="' + url + '/remove/' + id + '" id="' + id + '">Remove</a></li>';
+          '<a href="' + url + '/remove/' + id + '" data-id="'+ id +'">Remove</a></li>';
       // Build remove all link
       removeAllLink =
           '<a class="remove-all js-filter" href="' + urlToPost +
@@ -100,12 +100,12 @@ $(function() {
   function removeFilter(el){
     // Case - if checkbox is clicked
     if(el.is(checkBox)){
-      filterSelectList.find('a#'+id).parents('li').remove();
+      filterSelectList.find('a[data-id="' + id + '"]').parents('li').remove();
       el.removeClass('checked');
 
     // Case - if single remove linked clicked
     } else if (el.is(removeOne)) {
-      id = el.find('a').attr('id');
+      id = el.find('a').attr('data-id');
       el.parents('li').remove();
       urlToPost = url + '/remove/' + id;
       $('.checkbox__input[name="'+id+'"]').prop('checked', false)
@@ -123,7 +123,7 @@ $(function() {
       checkBox.each(function(){
         id = $(this).attr('name');
         filterSelectList.children('li').each(function(){
-          $(this).find('a#'+id).parents('li').remove();
+          $(this).find('a[data-id="' + id + '"]').parents('li').remove();
         });
       });
     }

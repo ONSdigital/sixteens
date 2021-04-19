@@ -10,8 +10,10 @@ if ($('#preview-and-download').length) {
 
 // Vars
 var loader = $('.loader-svg'),
-    message = $('<h3 class="margin-bottom">There has been an error creating your files. Try refreshing the page.</h3>' +
+    message = $('<h3 class="margin-bottom" role="alert">There has been an error creating your files. Try refreshing the page.</h3>' +
                 '<a class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="' + window.location.pathname + '">Refresh page</a>'),
+    preparingAlert = $('<p role="alert" class="visuallyhidden">Preparing your download</p>'),
+    downloadReady = $('<p role="alert" class="visuallyhidden">The download is ready</p>'),
     count = 0;
 
 function fileHasLoaded(downloads) {
@@ -53,12 +55,18 @@ function getDownloadFiles() {
         $('#other-downloads').removeClass('js-hidden');
         $('#excel-skipped').remove();
         $('#csv-item').remove();
+        $('#excel-file').attr('aria-hidden', false);
+        downloadReady.prependTo('#excel-file');
         addFilesToPage(response);
       } else {
         // Poll the server every 2 seconds up to a maximum of 60 attempts (2 minutes)
         if (count < 60) {
             count++;
             loader.removeClass('js-hidden');
+            $('#excel-file').attr('aria-hidden', true);
+            if (count === 2) {
+                preparingAlert.prependTo(loader);
+            }
             setTimeout(function() { getDownloadFiles(); }, 2000);
         } else {
             // Show an error message if the files aren't created after 60 attempts
@@ -75,9 +83,9 @@ function addFilesToPage(files) {
     var csvURL = files.downloads.csv.href,
         csvFileSize = files.downloads.csv.size,
         csvFile = $('<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">' +
-                    '<span class="inline-block width--24 padding-top--2">Filtered dataset (<span class="uppercase">csv</span> format)</span>' +
+                    '<span class="inline-block padding-top--2">Filtered dataset (<span class="uppercase">csv</span> format)</span>' +
                     '<div class="width--12 inline-block float-right text-right">' +
-                    '<a id="csv-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="' + csvURL + '"><strong>csv</strong> ('+ formatBytes(csvFileSize) +')</a></div></li>');
+                    '<a id="csv-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="' + csvURL + '" aria-label="Download the filtered dataset as csv (' + formatBytes(csvFileSize) + ')"><span role="text"><strong>csv</strong> ('+ formatBytes(csvFileSize) +')</span></a></div></li>');
 
     // Get the xls data and create the link
     var excelURL = files.downloads.xls.href,
@@ -86,14 +94,14 @@ function addFilesToPage(files) {
 
     var excelFile = "";
     if (excelFileSize > 0) {
-      excelFile = $('<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href=" ' + excelURL + '"><strong>Excel file</strong> <span class="font-size--14">('+ formatBytes(excelFileSize) +')</span></a>');
+      excelFile = $('<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href=" ' + excelURL + '" aria-label="Download the filtered dataset as an excel file (' + formatBytes(excelFileSize) + ')"><span role="text"><strong>Excel file</strong> <span class="font-size--14">('+ formatBytes(excelFileSize) +')</span></span></a>');
     }
 
     if (excelSkipped) {
       excelFile = $('<div class="status status--amber col--lg-two-thirds col--md-two-thirds" id="excel-skipped">' +
                     '<p class="flush status__content">There are too many cells to create an Excel file. ' +
                     '<a href="/filters/' + files.links.filter_blueprint.id + '/dimensions">Adjust the filter options</a>' +
-                    ' or <a href="' + csvURL + '">download the CSV (' + formatBytes(csvFileSize) + ')</a>.' +
+                    ' or <a href="' + csvURL + '" aria-label="Download the filtered dataset as csv (' + formatBytes(csvFileSize) + ')">download the CSV (' + formatBytes(csvFileSize) + ')</a>.' +
                     '</p>' +
                     '</div>');
     }

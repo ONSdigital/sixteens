@@ -1,5 +1,11 @@
 .improve-this-page{
 
+    font-size: 18px;
+
+    button, .btn {
+        font-size: 18px;
+    }
+
     &__prompt{
         background-color: #3B7A9E;
         color: #fff;
@@ -8,7 +14,6 @@
         a{
             color: #fff;
             display: inline-block;
-            font-size: 16px;
         }
     }
 
@@ -26,12 +31,10 @@
             box-sizing: border-box;
             font-weight: 400;
             text-transform: none;
-            font-size: 16px;
             line-height: 1.25;
             padding: 5px 4px 4px;
             border: 2px solid #0b0c0c;
             margin-bottom: 40px;
-            outline-color: $carrot;
 
             @media (min-width: 641px) {
                 width: 70%;
@@ -40,15 +43,16 @@
             }
 
             &__error {
-                -webkit-box-shadow: 0 0 0 2px $poppy;
-                -moz-box-shadow: 0 0 0 2px $poppy;
-                box-shadow: 0 0 0 2px $poppy;
+                outline: 3px solid $poppy;
+                outline-offset: -2px;
+                border: none;
             }
-
         }
 
         .form-control:focus{
-            @include box-shadow(0 0 0 3px $carrot);
+            outline: 3px solid $carrot;
+            outline-offset: -2px;
+            border: none;
         }
 
         textarea{
@@ -59,18 +63,13 @@
 
             &-bold{
                 font-weight: 700;
-                font-size: 14px;
+                font-size: 18px;
                 line-height: 1.25;
                 text-transform: none;
                 display: block;
                 color: #0b0c0c;
                 padding-bottom: 2px;
                 margin-bottom: 4px;
-
-                @media (min-width: 641px) {
-                    font-size: 16px;
-                    line-height: 1.31579;
-                }
 
                 .form-hint{
                     text-transform: none;
@@ -96,7 +95,6 @@
             margin-bottom: 4px;
 
             @media (min-width: 641px) {
-                font-size: 16px;
                 line-height: 1.31579;
             }
         }
@@ -105,7 +103,6 @@
     &__is-useful-question{
         font-weight: 700;
         text-transform: none;
-        font-size: 16px;
         display: inline;
     }
 
@@ -115,26 +112,10 @@
 
     &__anything-wrong{
         float: right;
-    }
 
-    @media (min-width: 641px) {
-        &__close{
-            display: inherit;
-            float: right;
-            padding-top: 0;
-            font-size: 16px;
-            line-height: 1.25;
+        @include breakpoint(sm) {
+           float: none;
+           margin: $col 0 $baseline 0;
         }
     }
-
-    &__close{
-        font-weight: 400;
-        text-transform: none;
-        font-size: 14px;
-        line-height: 1.14286;
-        text-align: right;
-        display: block;
-        margin-bottom: 10px;
-    }
-
 }
