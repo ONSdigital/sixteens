@@ -1,0 +1,50 @@
+.scrollable-container__parent {
+    position: relative;
+
+    @include breakpoint(md) {
+        // Grow the parent to the size of the child
+        display: inline-block;
+    }
+}
+
+.scrollable-container {
+    overflow: visible;
+    // Don't show scrollbars if we don't need them on Windows
+    overflow-x: auto;
+    width: $col * 45;
+
+    @include breakpoint(sm) {
+        width: 100%;
+    }
+}
+
+.scrollable-container__overflow{
+    &:after, &:before {
+        content: '';
+        height: 100%;
+        width: 5px;
+        display: block;
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        display: none;
+    }
+
+    &:before {
+        left: 0;
+        box-shadow: inset 1px 0 0 0 #bfc1c3,inset -5px 0 0 0 rgba(191,193,195,.4)
+    }
+
+    &.scroll-container__left-shadow:before {
+        display: block;
+    }
+
+    &:after {
+        right: 0;
+        box-shadow: inset -1px 0 0 0 #bfc1c3,inset -5px 0 0 0 rgba(191,193,195,.4);
+    }
+
+    &.scroll-container__right-shadow:after {
+        display: block;
+    }
+}

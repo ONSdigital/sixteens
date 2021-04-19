@@ -1,11 +1,16 @@
 //footer.scss
 
 .footer {
-	background-color: $ship-grey;
-	color: $iron-light;
+	background-color: $grey1;
+	color: $grey5;
+
+	&--sticky {
+		bottom: 0;
+		width: 100%;
+	}
 
 	a {
-		color: $iron;
+		color: $grey5;
 		text-decoration: underline;
 
 		&:hover {
@@ -24,6 +29,10 @@
 		&__heading {
 			margin-top: ($baseline * 4);
 			margin-bottom: 0;
+			font-size: 24px;
+			font-weight: 800;
+			line-height: 1.33;
+			color: $grey5;
 		}
 
 		&__list {
@@ -35,21 +44,25 @@
 		&__item {
 			margin: 0;
 			padding: 6px 0 2px 0;
+			font-size: 18px;
+			color: $grey5;
 		}
 
 	}
 
 	&-license {
-		border-top: 1px solid $silver;
+		border-top: 1px solid $grey2;
 		padding: $col*2 0 $col 0;
 
-			&__img {
-				display: inline-block;
-			}
+		&__img {
+			display: inline-block;
+		}
 
-			&__text {
-				display: inline-block;
-				margin: $col 0 $col $col;
-			}
+		&__text {
+			display: inline-block;
+			margin: $col 0 $col $col;
+			font-size: 18px;
+			vertical-align: super;
+		}
 	}
 }

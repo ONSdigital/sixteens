@@ -23,3 +23,48 @@
     }
 
 }
+
+.flex {
+    display: flex !important;
+
+    &.align-items-stretch {
+        align-items: stretch !important;
+    }
+
+    &.flex-wrap-wrap {
+        flex-wrap: wrap !important;
+    }
+
+    &.content {
+        &-space-between {
+            justify-content: space-between;
+        }
+
+        @include breakpoint(lg) {
+            &-lg--flex-start {
+                justify-content: flex-start;
+            }
+        }
+    }
+
+    &.flex-direction--column {
+        flex-direction: column;
+    }
+}
+
+.flex--1 {
+    flex: 1 0 auto;
+}
+
+
+.flex-basis {
+    @include breakpoint(sm) {
+        &-sm--full {
+            flex-basis: 100% !important;
+        }
+    }
+}
+
+.flex-col {
+    width: 100%;
+}

@@ -201,16 +201,6 @@
                 .markdown-table-wrap {
                     //Charts take up extra space when available (ie on desktop/tablet)
                     width: 700px;
-                    
-                    // Slightly smaller on medium so that table right column isn't cut off
-                    @include breakpoint(md) {
-                        width: 670px;
-                    }
-
-                    //On mobile then go 100% width
-                    @include breakpoint(sm) {
-                        width: 100%;
-                    }
                 }
                 .markdown-chart{
                     //Charts take up extra space when available (ie on desktop/tablet)

@@ -1,0 +1,40 @@
+.quote {
+    border-left: 0.33rem solid $grey4;
+    margin: 2.25rem 0 2.25rem 0;
+    padding-left: 1.6rem;
+
+    blockquote {
+        margin: 0;
+    }
+
+    &--body {
+        margin-left: 0;
+        
+        p {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0;
+            margin-bottom: 0.5rem;
+            quotes: "“" "”" "‘" "’";
+            padding: 0;
+        }
+
+        p:before {
+            content: open-quote;
+            display: inline;
+            margin-left: -0.45rem;
+        }
+
+        p:after {
+            content: close-quote;
+        }
+    }
+    &--source {
+        font-size: 1.13rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.4;
+        margin-top: 1rem;
+    }
+}

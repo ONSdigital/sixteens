@@ -22,6 +22,7 @@
 	border: 0;
 	overflow: hidden;
 	clip: rect(0 0 0 0);
+	white-space: nowrap;
 
   	// Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p
   	&.focusable:active,
@@ -109,6 +110,10 @@
         }
     }
 
+    &--0 {
+        margin: 0 !important;
+    }
+
 }
 
 
@@ -183,7 +188,11 @@
 		  	padding-left: 0 !important;
 		  	padding-right: 0 !important;
 		}
-	}
+    }
+
+    &--0 {
+        padding: 0 !important;
+    }
 
 }
 
@@ -208,6 +217,8 @@
         }
     }
 }
+
+
 
 .hide {
 	display: none !important;
@@ -399,6 +410,10 @@
      }
  }
 
+.datepicker__icon[aria-hidden*=true] {
+  visibility: initial;
+}
+
 #viewport {
 
     &-sm {
@@ -483,6 +498,12 @@
 
 .text-left {
     text-align: left !important;
+
+    &--sm {
+            @include breakpoint(sm) {
+                text-align: left !important;
+            }
+          }
 
     &--md {
         @include breakpoint(md) {

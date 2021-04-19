@@ -14,11 +14,6 @@ fieldset {
 	min-width: 0;
 }
 
-//body:not(:-moz-handler-blocked) fieldset {
-//	display: table-cell;
-//}
-
-
 label {
     //Attempt to fix inputs not taking font size and family
     font-family: "Open Sans", sans-serif;
@@ -26,27 +21,6 @@ label {
     font-size: 14px;
     line-height: 24px;
 }
-
-/* on grid forms */
-//label{
-//    display:inline-block;
-//    padding:7px 0 9px 0;
-//}
-//input{
-//    font-size:14px;
-//    padding-bottom: 2px;
-//}
-//legend {
-//    padding: 6px 0 2px 0;
-//}
-//textarea {
-//    display: block;
-//    font-size: 14px;
-//    color: #414042;
-//    font-weight: 300;
-//    margin-bottom: 2px;
-//    line-height: 16px;
-//}
 
 input, select {
     font-family: $base-font-family;
@@ -95,13 +69,14 @@ input, select {
 	}
 
 	&__wrapper {
-        padding: 2px 0 2px 0;
-    }
+    padding: 2px 0 2px 0;
+  }
 }
 
 .select {
     background-color: white;
-    border: 1px solid $iron;
+		border: 1px solid $iron;
+		height: auto;
 }
 
 @if $old-ie != true {

@@ -2,17 +2,19 @@
 
 $old-ie: false;
 
+@import "v2/utilities/colour-palette";
+
 @import "utilities/colours";
 @import "utilities/reset";
 @import "utilities/breakpoints";
+@import "utilities/flexbox";
 @import "utilities/grid";
 @import "utilities/grid-type";
 @import "utilities/colours";
 @import "utilities/ellipsis";
 @import "utilities/utilities";
-@import "utilities/print";  //remove this and create a seperate print css set with media="print" in the link tag for old browser support
+@import "utilities/print"; //remove this and create a seperate print css set with media="print" in the link tag for old browser support
 @import "utilities/icons";
-@import "utilities/flexbox";
 @import "utilities/borders";
 @import "utilities/margins";
 @import "utilities/padding";
@@ -35,11 +37,15 @@ $old-ie: false;
 @import "elements/lists";
 @import "elements/links";
 @import "elements/checkbox";
+@import "elements/radio";
 @import "elements/details";
 
+@import "v2/components/tile";
 
 @import "components/header";
+@import "components/main";
 @import "components/banner";
+@import "components/cookies-banner";
 @import "components/slates";
 @import "components/breadcrumb";
 @import "components/navs";
@@ -71,5 +77,11 @@ $old-ie: false;
 @import "components/improve-this-page";
 @import "components/form";
 @import "components/embed-code";
+@import "components/scrollable-container";
+@import "components/blockquote";
+@import "components/emergency-banner";
+
+@import "v2/components/promo";
+
 
 @import "shame";

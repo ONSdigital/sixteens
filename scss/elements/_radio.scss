@@ -1,0 +1,71 @@
+.radio {
+    position: relative;
+
+    &__input {
+        position: absolute;
+        cursor: pointer;
+        left: 0;
+        top: 0;
+        width: 38px;
+        height: 38px;
+
+        &:focus {
+            @include box-shadow(0 0 0 5px $carrot);
+            @include border-radius(50%);
+        }
+
+        &:checked:after {
+            @include opacity(1);
+        }
+
+        &:before {
+            content: "";
+            border: 2px solid $ship-grey;
+            background: white;
+            width: 34px;
+            height: 34px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include border-radius(50%);
+        }
+
+        &:after {
+            content: "";
+            border: 10px solid $ship-grey;
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 9px;
+            left: 9px;
+            @include border-radius(50%);
+            @include opacity(0);
+        }
+
+    }
+
+    &__label {
+        //display: block;
+        display: inline-block;
+        float: none;
+        clear: left;
+        position: relative;
+        padding: (8px 8px 9px 50px);
+        margin-bottom: 8px;
+        cursor: pointer; // Encourage clicking on block labels
+    }
+
+    .selected:after {
+        @include opacity(1);
+    }
+
+    .focused:before {
+        @include box-shadow(0 0 0 5px $carrot);
+
+    }
+
+    &--inline {
+        display: inline-block;
+    }
+
+}

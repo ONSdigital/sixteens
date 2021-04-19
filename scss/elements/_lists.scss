@@ -65,6 +65,10 @@
 			}
 		}
 	}
+
+	&--no-separator:after {
+		content: "" !important;
+	}
 	
 	&--ellipses {
 		&-md{

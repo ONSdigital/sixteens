@@ -229,6 +229,8 @@
 		margin: 0 0 ($baseline * 2) $col;
 		background-color: $mercury;
 		padding: 0;
+		display: flex;
+		flex-direction: column;
 
 		@include breakpoint(sm) {
 			margin: 0 0 ($baseline * 2) 0;
@@ -528,6 +530,7 @@
 
 	}
 	&__content {
+		flex: 1 0 auto;
 		margin: 0;
 		padding: 0 $col $col $col;
 		overflow: hidden;
@@ -818,9 +821,14 @@
 			margin: 0;
 			padding: 6px 0 2px 0;
 		}
-		dd,
-		dt {
-			display: inline-block;
+
+		dt, dd {
+			display: inline;
+		}
+
+		dt:not(:first-of-type):before {
+			content: '\A';
+			white-space: pre;
 		}
 
 		.stand-out {

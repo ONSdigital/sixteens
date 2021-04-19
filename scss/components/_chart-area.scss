@@ -85,6 +85,11 @@
 
         p {
             margin: 0;
+            color: $white;
+        }
+
+        a {
+            border: 1px solid $white;
         }
     }
 
@@ -102,28 +107,37 @@
         * {
             font-family: $base-font-family;
         }
+
+        @include breakpoint(sm) {
+            .highcharts-legend {
+                display: none;
+            }
+        }
+    }
+
+    &__radiogroup {
+        display: flex;
     }
 
     &__controls__download {
         background-color: $nevada;
         margin-top: ($baseline * 2);
         position: relative;
+        width: 100%;
+        max-width: ($col * 22);
 
         &--unfiltered {
-
             &:before {
                 @include triangle(15px, $nevada, true);
-                left: 75px;
-
+                left: calc(25% - 15px);
             }
+
         }
 
         &--filtered {
-
             &:before {
-                //@extend .controls__download__arrow;
                 @include triangle(15px, $nevada, true);
-                right: 75px;
+                right: calc(25% - 15px);
             }
         }
     }

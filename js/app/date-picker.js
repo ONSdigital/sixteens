@@ -130,9 +130,9 @@ datepicker.prototype.popGrid = function() {
         if (weekday == 6 && curDay < numDays) {
             // This was the last day of the week, close it out
             // and begin a new one
-            gridCells += '\t</tr>\n\t<tr id="' + this.id + '-row' + rowCount + '">\n';
             rowCount++;
             weekday = 0;
+            gridCells += '\t</tr>\n\t<tr id="' + this.id + '-row' + rowCount + '">\n';
         }
         else {
             weekday++;

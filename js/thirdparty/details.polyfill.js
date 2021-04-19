@@ -9,9 +9,25 @@
 ;(function () {
   'use strict'
 
+  //polyfill for details expansion/collapse in Voiceover on iOS
+  $(function() {
+    var embedCodeBtns = $('details').find('summary');
+
+    if (embedCodeBtns.length) {
+      embedCodeBtns.attr('aria-expanded', false)
+      embedCodeBtns.click(function () {
+        $(this).attr('aria-expanded', $(this).attr('aria-expanded') === 'false');
+      });
+    }
+  });
+
   var NATIVE_DETAILS = typeof document.createElement('details').open === 'boolean'
   var KEY_ENTER = 13
   var KEY_SPACE = 32
+
+  if (NATIVE_DETAILS) {
+    return;
+  }
 
   // Add event construct for modern browsers or IE
   // which fires the callback with a pre-converted target reference

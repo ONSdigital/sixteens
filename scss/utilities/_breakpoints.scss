@@ -8,7 +8,11 @@
 	}
 
 	@else {
-		@if $class == sm {
+		@if $class == xs {
+			@media (max-width: 330px) { @content; }
+		}
+
+		@else if $class == sm {
 			@media (max-width: 767px) { @content; }
 		}
 

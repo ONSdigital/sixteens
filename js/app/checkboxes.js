@@ -39,11 +39,6 @@ $(function() {
     		var relatedSelector = $(this).prev(),
     			selectAll = relatedSelector.find('#select-all'),
     			selectNone = relatedSelector.find('#select-none');
-
-            // create unique id for aria relationship and add to the button wrapper and each checkbox group.
-            var ariaId = 'checkboxes-' + i;
-            $(this).attr('id', ariaId);
-            $(relatedSelector).attr('aria-contols', ariaId);
     		
     		// When all checkboxes are checked.
 	    	if ($('input:checked', this).length == $('input', this).length) {

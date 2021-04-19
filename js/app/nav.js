@@ -2,6 +2,11 @@ function toggleSubnav(element) {
     element
         .toggleClass('js-expandable-active')
         .find('.js-expandable__content').toggleClass('js-nav-hidden');
+    toggleAriaHidden(element.find('a:first'));
+}
+
+function toggleAriaHidden(element) {
+    element.attr('aria-expanded', element.attr('aria-expanded') === 'false');
 }
 
 function expandSubnav(element) {
@@ -24,32 +29,46 @@ function collapseSubnav(element) {
 
 function showMenu(toggleElement, menuElement) {
     toggleElement.addClass('menu-is-expanded');
+    toggleElement.find('a').attr('aria-expanded', true);
     menuElement.removeClass('nav-main--hidden');
     menuElement.attr('aria-expanded', true);
 }
 
 function hideMenu(toggleElement, menuElement) {
     toggleElement.removeClass('menu-is-expanded');
+    toggleElement.find('a').attr('aria-expanded', false);
     menuElement.addClass('nav-main--hidden');
     menuElement.attr('aria-expanded', false);
 }
 
 function showSearch(toggleElement, searchElement) {
+    var langAttribute = $('html')[0].lang;
     toggleElement.addClass('search-is-expanded');
+    toggleElement.find('a').attr('aria-expanded', true);
     toggleElement.find('.nav--controls__icon')
         .removeClass('icon-search-1')
         .addClass('icon-cancel');
-    toggleElement.find('.nav--controls__text').text('Hide');
+    if (langAttribute == 'en') {
+        toggleElement.find('.nav--controls__text').text('Hide search');
+    } else {
+        toggleElement.find('.nav--controls__text').text('Cuddio');
+    }
     searchElement.removeClass('nav-search--hidden');
     searchElement.attr('aria-expanded', true);
 }
 
 function hideSearch(toggleElement, searchElement) {
+    var langAttribute = $('html')[0].lang;
     toggleElement.removeClass('search-is-expanded');
+    toggleElement.find('a').attr('aria-expanded', false);
     toggleElement.find('.nav--controls__icon')
         .removeClass('icon-cancel')
         .addClass('icon-search-1');
-    toggleElement.find('.nav--controls__text').text('Search');
+    if (langAttribute == 'en') {
+        toggleElement.find('.nav--controls__text').text('Search');
+    } else {
+        toggleElement.find('.nav--controls__text').text('Chwilio');
+    }
     searchElement.addClass('nav-search--hidden');
     searchElement.attr('aria-expanded', false);
 }
@@ -62,6 +81,7 @@ function cloneSecondaryNav() {
     if ($('body').hasClass('viewport-sm') && $('.js-nav-clone__list').find($navLink).length > 0) {
         // Remove from separate UL and add into primary
         $navLink.each(function() {
+            $(this).parent().hide();
             $(this)
                 .removeClass('secondary-nav__link')
                 .insertAfter('.primary-nav__item:last')
@@ -78,6 +98,7 @@ function cloneSecondaryNav() {
                .removeClass('primary-nav__link col')
                .addClass('secondary-nav__link')
                .appendTo('.js-nav-clone__list li:nth-child(' + index + ')');
+            $(this).parent().show();
         });
     }
 }
@@ -90,7 +111,7 @@ function clonePrimaryItems() {
         $('.js-expandable').each(function () {
             var $this = $(this),
                 $thisHref = $this.find('a:first').attr('href'),
-                $thisText = $this.find('a:first').html(),
+                $thisText = $this.find('.submenu-title').html(),
                 $childList = $this.find('.js-expandable__content'),
                 $newLink = '<a class="primary-nav__child-link" href="' + $thisHref + '">' + $thisText + '</a>',
                 $newItem = '<li class="primary-nav__child-item js-nav__duplicate js-expandable__child">' + $newLink + '</li>';
@@ -194,6 +215,20 @@ $(document).ready(function () {
         if ($navItem.find(':focus')) {
             $navItem.find(':focus').blur();
             $navItem.removeClass('primary-nav__item--focus');
+        }
+    });
+
+
+    $expandableItem.focusin(function () {
+        if (!$('body').hasClass('viewport-sm')) {
+            $(this).find('.primary-nav__link').attr('aria-expanded', 'true')
+            $(this).find('.js-expandable__content').attr('aria-expanded', 'true')
+        }
+    });
+    $expandableItem.focusout(function ()  {
+        if (!$('body').hasClass('viewport-sm')) {
+            $(this).find('.primary-nav__link').attr('aria-expanded', 'false')
+            $(this).find('.js-expandable__content').attr('aria-expanded', 'false')
         }
     });
 

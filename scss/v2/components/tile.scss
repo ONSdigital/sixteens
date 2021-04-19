@@ -1,0 +1,232 @@
+.tile {
+    font-size: 18px;
+    line-height: 1.78;
+    color: $grey2;
+    overflow: hidden;
+    box-shadow: 0px 2px 0px 0px rgba($grey1, .3);
+    background-color: $grey5;
+    padding: 0px 16px 16px 16px;
+    margin: 16px 0px 2px 0px;
+
+    &:focus {
+        outline: 2px solid $sun-yellow;
+        box-shadow: none;
+    }
+
+    @include breakpoint(sm) {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    &__content-container {
+        &--space-between {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            justify-content: space-between;
+            height: 77%;
+        }
+    }
+
+    &__highlighted-content {
+        @include breakpoint(xs) {
+            min-height: 340px;
+        }
+
+        height: 100%;
+    }
+
+    &__split-bar {
+        height: 1px;
+        border: solid 1px $grey2;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    &__title {
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 1.33;
+        letter-spacing: -0.02px;
+        color: $black;
+        margin-bottom: 16px;
+        margin-top: 10px;
+    }
+
+    &__figure {
+        font-size: 60px;
+        font-weight: 600;
+        line-height: 1.37;
+        color: $black;
+
+        @include breakpoint(md) {
+            margin: 8px 0px 8px 0px;
+        }
+
+        @include breakpoint(lg) {
+            margin: 8px 0px 8px 0px;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 42px;
+            margin: 8px 0px 8px 0px;
+
+        }
+    }
+
+    &__trend {
+        width: 208px;
+        font-size: 18px;
+        line-height: 1.78;
+        margin: 0px;
+        padding: 0px;
+
+        @include breakpoint(sm) {
+            width: 240px;
+            font-size: 16px;
+        }
+
+        &__icon {
+            color: $black;
+            font-weight: bolder;
+        }
+
+        &__text {
+            vertical-align: top;
+            display: inline-block;
+            width: 176px;
+            padding-left: 8px;
+
+            @include breakpoint(sm) {
+                width: 224px;
+            }
+        }
+    }
+    &__link {
+        font-size: 18px;
+        line-height: 1.78;
+        color: $ocean-blue;
+        text-decoration: underline;
+        margin-left: 0px;
+
+        &:focus {
+            box-shadow: 0px 4px 0px 0px $black;
+            background-color: $sun-yellow;
+            text-decoration: none;
+            color: $black;
+        }
+
+        &:hover {
+            color: $night-blue;
+            box-shadow: none;
+            background-color: transparent;
+        }
+
+        &--highlighted-content-title {
+            line-height: 1.33;
+            font-weight: 800;
+
+            &:focus {
+                box-shadow: 0px 4px 0px 0px $black;
+                background-color: $sun-yellow;
+                text-decoration: none;
+                color: $black;
+            }
+
+            &:hover {
+                color: $night-blue;
+                box-shadow: none;
+                background-color: transparent;
+            }
+        }
+    }
+
+    &__button {
+        margin: 8px 0px 8px 0px;
+        padding: 8px 0px 8px 0px;
+        background-color: $ocean-blue;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        color: $white;
+        line-height: 1.86;
+        box-shadow: 0px 2px 0px 0px rgba($ocean-blue, .3);
+
+        &:hover {
+            background-color: darken($ocean-blue, 5%);
+        }
+    }
+
+    &__subheading {
+        color: $black;
+        font-weight: bold;
+        letter-spacing: -0.02px;
+    }
+
+    &__list {
+
+        &-item  {
+            margin: 0;
+
+            &-title {
+                font-size: 18px;
+
+                @include breakpoint(md) {
+                    $height-of-title: 18px * 4;
+                    display: inline-block;
+                    position: relative;
+                    max-height: $height-of-title;
+                    overflow: hidden;
+                    
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: $height-of-title / 2;
+                        right: 0;
+                        width: 28px;
+                        height: 28px;
+                        background: $grey5;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        right: 12px;
+                        top: 32px;
+                        content: "...";
+                    }
+                }
+
+            }
+
+            &-content {
+                font-size: 18px
+            }
+        }
+
+    }
+
+    &__highlighted-content-image-container {
+        // Remove margin from the image container so that the image can stretch across the full width of the tile.
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+
+    &__highlighted-content-image {
+        width: 100%;
+        height: auto;
+
+        @include breakpoint(sm) {
+            max-height: 180px;
+        }
+    }
+
+    &__text-description {
+        font-size: inherit;
+        line-height: 1.78;
+        color: $black;
+
+        @include breakpoint(sm) {
+            line-height: 1.5;
+        }
+    }
+}

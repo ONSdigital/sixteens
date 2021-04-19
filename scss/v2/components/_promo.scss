@@ -1,0 +1,109 @@
+.promo {
+    &__container {
+        display: block;
+        height: 100%;
+
+        @include breakpoint(sm) {
+            margin-left: -16px;
+            margin-right: -16px;
+        }
+
+        > section {
+            height: 100%;
+        }
+
+        &:focus {
+            outline: 2px solid $sun-yellow;
+            outline-offset: 2px;
+            text-decoration: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__background {
+        &--blue-gradient {
+            background-image: linear-gradient(to bottom, $night-blue, $ocean-blue);
+            color: $white;
+        }
+
+        &--plum-gradient {
+            background-image: linear-gradient(to right, $indigo-blue, $plum-purple);
+            color: $white;
+        }
+    }
+
+    &__body {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+
+        @include breakpoint(md) {
+            align-items: flex-start;
+        }
+
+        &:before,
+        &:after {
+          content: '';
+          display: block;
+        }
+
+        &--column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+    }
+
+    &__copy {
+        @include breakpoint(sm) {
+            flex-basis: 75%;
+        }
+
+        @include breakpoint(md) {
+            flex-basis: 90%;
+        }
+        
+        @include breakpoint(lg) {
+            flex-basis: auto;
+        }
+    }
+
+    &__heading {
+        @include breakpoint(sm) {
+            font-size: 18px;
+            line-height: 1.78;
+        }
+
+        @include breakpoint(md) {
+            font-size: 30px;
+            line-height: 1.4;
+        }
+
+        @include breakpoint(lg) {
+            font-size: 30px;
+            line-height: 1.33;
+        }
+        font-weight: bold;
+    }
+
+    &__description {
+        font-size: 16px;
+        color: $white;
+        width: 100%;
+
+        @include breakpoint(md) {
+            font-size: 18px;
+            line-height: 1.55;
+        }
+
+        @include breakpoint(lg) {
+            font-size: 18px;
+            line-height: 1.22;
+        }
+    }
+}

@@ -2,6 +2,8 @@
 
 $old-ie: true;
 
+@import "v2/utilities/colour-palette";
+
 @import "utilities/colours";
 @import "utilities/reset";
 @import "utilities/breakpoints";
@@ -10,7 +12,7 @@ $old-ie: true;
 @import "utilities/colours";
 @import "utilities/ellipsis";
 @import "utilities/utilities";
-@import "utilities/print";  //remove this and create a seperate print css set with media="print" in the link tag for old browser support
+@import "utilities/print"; //remove this and create a seperate print css set with media="print" in the link tag for old browser support
 @import "utilities/icons";
 @import "utilities/flexbox";
 @import "utilities/borders";
@@ -33,6 +35,8 @@ $old-ie: true;
 @import "elements/links";
 @import "elements/checkbox";
 
+
+@import "v2/components/tile";
 
 @import "components/header";
 @import "components/banner";
@@ -63,5 +67,7 @@ $old-ie: true;
 @import "components/pym";
 @import "components/language-toggle";
 @import "components/info";
+
+@import "v2/components/promo";
 
 @import "shame";
