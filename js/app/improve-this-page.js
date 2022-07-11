@@ -43,7 +43,6 @@ $(document).ready(function () {
         var emailField = $(" #email-field ")
         var descriptionField = $(" #description-field ")
         descriptionField.removeClass("form-control__error");
-        $(" #purpose-field ").removeClass("form-control__error");
         emailField.removeClass("form-control__error");
         $(" .form-error ").each(function () {
             $(this).remove();
