@@ -2,11 +2,11 @@
     "name": "sixteens",
     "version": "1.0.1",
     "description": "Pattern library for ONS website",
-    "main": "",
     "config": {
         "js": "js/thirdparty/jquery.js js/thirdparty/details.polyfill.js js/thirdparty/doubletaptogo.js js/thirdparty/resize-observer-polyfill.js js/app.js js/app/cookies-banner.js js/app/cookies-pref.js js/app/display.js  js/app/preview.js js/app/checkboxes.js js/app/viewport-size.js js/app/gtm.js js/app/nav.js js/app/show-and-hide.js js/app/show-more-list.js js/app/sticky-scroll.js js/app/date-picker.js js/app/mobile-filters.js js/app/print-page.js js/app/hover-state.js js/app/scroll.js js/app/loading-screen.js js/app/date-range-updater.js js/app/filter-options.js js/app/time-selector.js js/app/filter-select.js js/app/improve-this-page.js js/app/embed-code-copy.js js/app/tile.js js/app/scrollable-container.js js/app/auto-submit-form.js js/app/load-results.js"
     },
     "scripts": {
+        "preinstall": "npx npm-force-resolutions",
         "audit": "auditjs ossi --quiet",
         "clean": "",
         "minify-imgs": "imagemin dist/img/ dist/img",
@@ -30,15 +30,23 @@
     "license": "Open Government License v3.0",
     "dependencies": {
         "bless": "3.0.3",
-        "node-sass": "^7.0.0",
+        "node-sass": "^7.0.1",
         "replace": "latest",
+        "semver-regex": "^3.1.4",
+        "shell-quote": "^1.7.3",
         "uglify-js": "latest"
     },
     "devDependencies": {
-        "auditjs": "^4.0.33",
+        "auditjs": "^4.0.37",
         "catw": "latest",
         "http-server": "latest",
         "imagemin-cli": "latest",
         "onchange": "latest"
+    },
+    "resolutions": {
+        "semver-regex": "3.1.4",
+        "trim-newlines": "3.0.1",
+        "minimatch": "3.0.2",
+        "shell-quote": "1.7.3"
     }
 }
