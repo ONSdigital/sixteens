@@ -32,6 +32,7 @@
         "bless": "3.0.3",
         "node-sass": "^7.0.1",
         "replace": "latest",
+        "scss-tokenizer": "^0.4.2",
         "semver-regex": "^3.1.4",
         "shell-quote": "^1.7.3",
         "uglify-js": "latest"
@@ -46,7 +47,9 @@
     "resolutions": {
         "semver-regex": "3.1.4",
         "trim-newlines": "3.0.1",
-        "minimatch": "3.0.2",
-        "shell-quote": "1.7.3"
+        "minimatch": "5.1.0",
+        "shell-quote": "1.7.3",
+        "request": "2.88.2",
+        "scss-tokenizer": "0.4.2"
     }
 }
