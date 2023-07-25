@@ -1,6 +1,12 @@
 //_utilities.scss
 
 
+// Highlighting elasticsearch results
+.highlight {
+    background-color: $neon-yellow;
+    font-style: normal;
+    padding: 0 2px;
+}
 
 //hiding
 
@@ -677,3 +683,4 @@
 .clearfix {
     @extend %clearfix;
 }
+

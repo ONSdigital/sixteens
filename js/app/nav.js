@@ -216,19 +216,30 @@ $(document).ready(function () {
             $navItem.find(':focus').blur();
             $navItem.removeClass('primary-nav__item--focus');
         }
+
+        if (!$('body').hasClass('viewport-sm')) {
+            $(this).find('.primary-nav__link').attr('aria-expanded', 'true');
+            $(this).find('.js-expandable__content').attr('aria-expanded', 'true');
+        }
+
+    }, function() {
+        if (!$('body').hasClass('viewport-sm')) {
+            $(this).find('.primary-nav__link').attr('aria-expanded', 'false');
+            $(this).find('.js-expandable__content').attr('aria-expanded', 'false');
+        }
     });
 
 
     $expandableItem.focusin(function () {
         if (!$('body').hasClass('viewport-sm')) {
-            $(this).find('.primary-nav__link').attr('aria-expanded', 'true')
-            $(this).find('.js-expandable__content').attr('aria-expanded', 'true')
+            $(this).find('.primary-nav__link').attr('aria-expanded', 'true');
+            $(this).find('.js-expandable__content').attr('aria-expanded', 'true');
         }
     });
     $expandableItem.focusout(function ()  {
         if (!$('body').hasClass('viewport-sm')) {
-            $(this).find('.primary-nav__link').attr('aria-expanded', 'false')
-            $(this).find('.js-expandable__content').attr('aria-expanded', 'false')
+            $(this).find('.primary-nav__link').attr('aria-expanded', 'false');
+            $(this).find('.js-expandable__content').attr('aria-expanded', 'false');
         }
     });
 

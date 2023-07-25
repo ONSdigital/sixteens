@@ -1,14 +1,25 @@
 $(document).ready(function () {
     var pageURL = window.location.href;
     var feedbackOrigin = window.feedbackOrigin;
-    var feedbackURL = "/feedback";
+    var useFeedbackAPI = document.querySelector("#feedback-api-enabled");
+    if (document.querySelector("#feedback-api-enabled") && 
+        document.querySelector("#feedback-api-enabled").value === "true" && 
+        document.querySelector("#feedback-api-url")) {
+        var feedbackURL = document.querySelector("#feedback-api-url").value;
+    } else {
+        var feedbackURL ="/feedback";
+    }
 
     if (feedbackOrigin && feedbackOrigin.length > 0) {
         feedbackURL = feedbackOrigin + feedbackURL;
     }
 
     var feedbackMessage = (
-        '<span id="feedback-form-confirmation" aria-live="polite" class="font-size--18">Thank you. Your feedback will help us as we continue to improve the service.</span>'
+        '<span id="feedback-form-confirmation" class="font-size--18">Thank you. Your feedback will help us as we continue to improve the service.</span>'
+    )
+
+    var feedbackErrorMessage = (
+        '<span id="feedback-form-error" class="font-size--18">Sorry. Your feedback has failed to send.</span>'
     )
 
     $("#feedback-form-url").val(pageURL);
@@ -27,23 +38,59 @@ $(document).ready(function () {
 
     $("#feedback-form-yes").click(function (e) {
         e.preventDefault();
+        var postData = $("#feedback-form-container").serialize();
+        var postObject = new Object();
+        postObject.is_page_useful = true;
+        postObject.is_general_feedback = false;
+        postObject.ons_url  = window.location.href;
+        var postJson = JSON.stringify(postObject);
 
-        $.ajax({
-            type: "POST",
-            url: feedbackURL + "/positive",
-            data: $("#feedback-form-container").serialize(),
-            beforeSend: function () {
-                $("#feedback-form-header").html(feedbackMessage);
-            }
-        })
+        if (useFeedbackAPI && useFeedbackAPI.value === "true") { 
+            $.ajax({
+                type: "POST",
+                url: feedbackURL,
+                dataType: 'json',
+                processData: false ,
+                data: postJson,
+                contentType: "application/json",
+                beforeSend: function () {
+                    var formHeader = $("#feedback-form-header")
+                    $("#feedback-form").addClass("js-hidden");
+                    formHeader.removeClass("js-hidden");
+                },
+                success: function () {
+                    $("#feedback-form-header").html(feedbackMessage);
+                },
+                error: function () {
+                    $("#feedback-form-header").html(feedbackErrorMessage);
+                },
+            })
+        } else {
+            $.ajax({
+                type: "POST",
+                url: feedbackURL,
+                data: postData,
+                beforeSend: function () {
+                    var formHeader = $("#feedback-form-header")
+                    $("#feedback-form").addClass("js-hidden");
+                    formHeader.removeClass("js-hidden");
+                },
+                success: function () {
+                    $("#feedback-form-header").html(feedbackMessage);
+                },
+                error: function () {
+                    $("#feedback-form-header").html(feedbackErrorMessage);
+                },
+            })            
+        }
     });
 
     $("#feedback-form-container").on("submit", function (e) {
         e.preventDefault();
         var emailField = $(" #email-field ")
+        var nameField = $(" #name-field ")
         var descriptionField = $(" #description-field ")
         descriptionField.removeClass("form-control__error");
-        $(" #purpose-field ").removeClass("form-control__error");
         emailField.removeClass("form-control__error");
         $(" .form-error ").each(function () {
             $(this).remove();
@@ -85,29 +132,54 @@ $(document).ready(function () {
             return
         }
 
-        $.ajax({
-            type: "POST",
-            url: feedbackURL,
-            data: $("#feedback-form-container").serialize(),
-            beforeSend: function () {
-                var formHeader = $("#feedback-form-header")
-                $("#feedback-form").addClass("js-hidden");
-                formHeader.removeClass("js-hidden");
-                formHeader.html(feedbackMessage);
-            }
-        })
+        var postData = $("#feedback-form-container").serialize();
+        var postObject = new Object();
+        postObject.is_page_useful = false;
+        postObject.is_general_feedback = false;
+        postObject.feedback = descriptionField.val();
+        postObject.ons_url  = window.location.href;
+        postObject.name = nameField.val();
+        postObject.email_address = email;
+        var postJson = JSON.stringify(postObject);
 
-        if (window.location.pathname === feedbackURL) {
-            $(this).remove();
-            $("h1").html("Thank you");
-            var displayURL = document.referrer;
-            var len = displayURL.length;
-            if (len > 50) {
-                displayURL = "..." + displayURL.slice(len - 50, len);
-            }
-            $("#feedback-description").html("<div class=\"font-size--16\"><br>Your feedback will help us to improve the website. We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.<br><br>Return to <a class=\"underline-link\" href=\"" + document.referrer + "\">" + displayURL + "</a></div>")
+        if (useFeedbackAPI && useFeedbackAPI.value === "true") { 
+            $.ajax({
+                type: "POST",
+                url: feedbackURL,
+                dataType: 'json',
+                processData: false ,
+                data: postJson,
+                contentType: "application/json",
+                beforeSend: function () {
+                    var formHeader = $("#feedback-form-header")
+                    $("#feedback-form").addClass("js-hidden");
+                    formHeader.removeClass("js-hidden");
+                },
+                success: function () {
+                    $("#feedback-form-header").html(feedbackMessage);
+                },
+                error: function () {
+                    $("#feedback-form-header").html(feedbackErrorMessage);
+                },
+            })
+        } else {
+            $.ajax({
+                type: "POST",
+                url: feedbackURL,
+                data: postData,
+                beforeSend: function () {
+                    var formHeader = $("#feedback-form-header")
+                    $("#feedback-form").addClass("js-hidden");
+                    formHeader.removeClass("js-hidden");
+                },
+                success: function () {
+                    $("#feedback-form-header").html(feedbackMessage);
+                },
+                error: function () {
+                    $("#feedback-form-header").html(feedbackErrorMessage);
+                },
+            })            
         }
     });
-
-
 });
+

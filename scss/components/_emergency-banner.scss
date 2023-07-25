@@ -1,0 +1,134 @@
+// Colours are from gov.uk and not our usual design system choices
+$gov_black: #0b0c0c;
+$gov_red: #b10e1e;
+$gov_teal: #28a197;
+$gov_grey: #b1b4b6;
+
+.page-type--homepage .emergency-banner {
+  padding: 27px 0;
+}
+
+.emergency-banner {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.25;
+  background-color: $gov_grey;
+  color: $white;
+  margin-top: 2px;
+  padding: 18px 0;
+  border-bottom: 5px solid $white;
+  margin-bottom: -10px;
+  margin-top: 0;
+  position: relative;
+
+  &__heading {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    @include breakpoint(md-max) {
+      font-size: 26px;
+    }
+  }
+  .page-type--homepage &__heading {
+    font-size: 36px;
+    line-height: 1.4;
+    @include breakpoint(md-max) {
+      font-size: 28px;
+    }
+  }
+
+  &__description {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: $white;
+    margin: 0 0 18px 0;
+    padding: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .page-type--homepage &__description {
+    margin: 18px 0;
+    @include breakpoint(md-max) {
+      line-height: 1.4;
+    }
+  }
+
+  &__link {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    text-decoration: underline;
+    color: $white;
+    line-height: 1.6;
+    &:visited {
+      color: $white;
+    }
+    &:focus {
+      background-color: $pineapple-yellow;
+      color: $gov_black;
+    }
+  }
+  @include breakpoint(md-max) {
+    .page-type--homepage &__link {
+      line-height: 1.4;
+    }
+  }
+
+  &--notable-death {
+    background-color: $gov_black;
+  }
+  &--national-emergency {
+    background-color: $gov_red;
+  }
+  &--local-emergency {
+    background-color: $gov_teal;
+  }
+
+  @include breakpoint(md-max) {
+    .wrapper {
+      padding: 0 18px;
+    }
+  }
+}
+
+@media print {
+  .emergency-banner {
+    font-family: sans-serif;
+    font-size: 14pt;
+    line-height: 1.15;
+
+    &__heading {
+      font-family: sans-serif;
+      font-size: 18pt;
+      line-height: 1.15;
+    }
+
+    &__description {
+      font-family: sans-serif;
+      font-size: 14pt;
+      line-height: 1.15;
+    }
+  }
+
+  .page-type--homepage .emergency-banner__heading {
+    font-family: sans-serif;
+    font-size: 32pt;
+    line-height: 1.15;
+  }
+
+  .emergency-banner__link {
+    font-family: sans-serif;
+    font-size: 14pt;
+    line-height: 1.15;
+  }
+}

@@ -40,6 +40,10 @@
             justify-content: space-between;
         }
 
+        &-center {
+            justify-content: center;
+        }
+
         @include breakpoint(lg) {
             &-lg--flex-start {
                 justify-content: flex-start;

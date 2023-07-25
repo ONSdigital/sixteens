@@ -6,16 +6,51 @@
         font-size: 18px;
     }
 
-    &__prompt{
-        background-color: #3B7A9E;
-        color: #fff;
+    &__prompt {
+        background-color: $astral;
+        color: $white;
         padding: 10px 15px 10px;
+        display: flex;
+        justify-content: space-between;
 
-        a{
-            color: #fff;
-            display: inline-block;
+        @include breakpoint(sm) {
+          flex-wrap: wrap;
         }
-    }
+
+        h3 {
+          margin-bottom: 0;
+        }
+
+        a {
+          color: $white;
+          display: inline-block;
+        }
+      }
+
+      &__prompt_left {
+        flex-grow: 1;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        padding-right: 2rem;
+
+        @include breakpoint(sm) {
+          padding: 0;
+        }
+
+        a {
+          white-space: nowrap;
+        }
+      }
+
+      &__prompt_right {
+        padding-left: 2rem;
+
+        @include breakpoint(sm) {
+          padding: 0;
+          margin: $col 0 $baseline 0;
+        }
+      }
+
 
     &__form{
         margin-top: 30px;

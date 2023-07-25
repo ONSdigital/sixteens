@@ -1,2 +1,14 @@
 //_links.scss
 
+.covid-banner {
+    &__link {
+        display: block;
+        padding-top: $baseline;
+
+        &:focus {
+            outline: 3px solid $black;
+            outline-offset: 0;
+        }
+
+    }
+}

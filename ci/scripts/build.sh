@@ -2,6 +2,8 @@
 
 pushd sixteens
   npm install --unsafe-perm
+  SHORT_REF=`git rev-parse --short HEAD`
 popd
 
-cp -r sixteens/dist/* build/
+mkdir -p build/$SHORT_REF
+cp -r sixteens/dist/* build/$SHORT_REF

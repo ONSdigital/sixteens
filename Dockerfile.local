@@ -1,0 +1,5 @@
+FROM node:14.15.4 AS base
+
+WORKDIR /sixteens
+
+CMD npm install && npm run dev
