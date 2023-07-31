@@ -26,13 +26,12 @@
 			padding: 10px 0 6px 0;
 		}
 
-		&:after {
+		&:not(:last-child):after {
 			content: '>';
 			padding-left: 8px;
 		}
 
 		&:last-child:after {
-			content: '';
 			padding: 0;
 		}
 

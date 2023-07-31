@@ -1,4 +1,4 @@
-FROM node:14.15.4 AS base
+FROM node:18.17.0 AS base
 
 WORKDIR /sixteens
 
