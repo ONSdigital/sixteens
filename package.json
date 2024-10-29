@@ -31,7 +31,7 @@
     "license": "Open Government License v3.0",
     "dependencies": {
         "bless": "3.0.3",
-        "jquery": "^3.4.1",
+        "jquery": "=3.7.1",
         "node-sass": "^9.0.0",
         "qs": "^6.11.0",
         "replace": "latest",
