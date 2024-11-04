@@ -36,55 +36,6 @@ $(document).ready(function () {
         }
     });
 
-    $("#feedback-form-yes").click(function (e) {
-        e.preventDefault();
-        var postData = $("#feedback-form-container").serialize();
-        var postObject = new Object();
-        postObject.is_page_useful = true;
-        postObject.is_general_feedback = false;
-        postObject.ons_url  = window.location.href;
-        var postJson = JSON.stringify(postObject);
-
-        if (useFeedbackAPI && useFeedbackAPI.value === "true") { 
-            $.ajax({
-                type: "POST",
-                url: feedbackURL,
-                dataType: 'json',
-                processData: false ,
-                data: postJson,
-                contentType: "application/json",
-                beforeSend: function () {
-                    var formHeader = $("#feedback-form-header")
-                    $("#feedback-form").addClass("js-hidden");
-                    formHeader.removeClass("js-hidden");
-                },
-                success: function () {
-                    $("#feedback-form-header").html(feedbackMessage);
-                },
-                error: function () {
-                    $("#feedback-form-header").html(feedbackErrorMessage);
-                },
-            })
-        } else {
-            $.ajax({
-                type: "POST",
-                url: feedbackURL,
-                data: postData,
-                beforeSend: function () {
-                    var formHeader = $("#feedback-form-header")
-                    $("#feedback-form").addClass("js-hidden");
-                    formHeader.removeClass("js-hidden");
-                },
-                success: function () {
-                    $("#feedback-form-header").html(feedbackMessage);
-                },
-                error: function () {
-                    $("#feedback-form-header").html(feedbackErrorMessage);
-                },
-            })            
-        }
-    });
-
     $("#feedback-form-container").on("submit", function (e) {
         e.preventDefault();
         var emailField = $(" #email-field ")
@@ -134,34 +85,35 @@ $(document).ready(function () {
 
         var postData = $("#feedback-form-container").serialize();
         var postObject = new Object();
-        postObject.is_page_useful = false;
+        postObject.is_page_useful = true;
         postObject.is_general_feedback = false;
         postObject.feedback = descriptionField.val();
         postObject.ons_url  = window.location.href;
         postObject.name = nameField.val();
         postObject.email_address = email;
         var postJson = JSON.stringify(postObject);
-
-        if (useFeedbackAPI && useFeedbackAPI.value === "true") { 
+        
+        if (useFeedbackAPI && useFeedbackAPI.value === "true") {                         
             $.ajax({
-                type: "POST",
-                url: feedbackURL,
-                dataType: 'json',
-                processData: false ,
-                data: postJson,
-                contentType: "application/json",
-                beforeSend: function () {
-                    var formHeader = $("#feedback-form-header")
-                    $("#feedback-form").addClass("js-hidden");
-                    formHeader.removeClass("js-hidden");
+              type: "POST",
+              url: feedbackURL,
+              dataType: "json",
+              data: postJson,
+              contentType: "application/json",
+              statusCode: {
+                201: function () {
+                  $("#feedback-form-header").html(feedbackMessage);
                 },
-                success: function () {
-                    $("#feedback-form-header").html(feedbackMessage);
-                },
-                error: function () {
-                    $("#feedback-form-header").html(feedbackErrorMessage);
-                },
-            })
+              },
+              beforeSend: function () {
+                var formHeader = $("#feedback-form-header");
+                $("#feedback-form").addClass("js-hidden");
+                formHeader.removeClass("js-hidden");
+              },
+              error: function () {
+                $("#feedback-form-header").html(feedbackErrorMessage);
+              },
+            });            
         } else {
             $.ajax({
                 type: "POST",
