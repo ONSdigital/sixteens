@@ -136,15 +136,15 @@ $(document).ready(function () {
 
         var postData = $("#feedback-form-container").serialize();
         var postObject = new Object();
-        postObject.is_page_useful = true;
+        postObject.is_page_useful = false;
         postObject.is_general_feedback = false;
         postObject.feedback = descriptionField.val();
         postObject.ons_url  = window.location.href;
         postObject.name = nameField.val();
         postObject.email_address = email;
         var postJson = JSON.stringify(postObject);
-        
-        if (useFeedbackAPI && useFeedbackAPI.value === "true") {                         
+
+        if (useFeedbackAPI && useFeedbackAPI.value === "true") {
             $.ajax({
                 type: "POST",
                 url: feedbackURL,
@@ -153,7 +153,7 @@ $(document).ready(function () {
                 contentType: "application/json",
                 statusCode: {
                     201: function () {
-                    $("#feedback-form-header").html(feedbackMessage);
+                        $("#feedback-form-header").html(feedbackMessage);
                     },
                 },
                 beforeSend: function () {
@@ -164,7 +164,7 @@ $(document).ready(function () {
                 error: function () {
                     $("#feedback-form-header").html(feedbackErrorMessage);
                 },
-            });            
+            })
         } else {
             $.ajax({
                 type: "POST",
