@@ -14,14 +14,6 @@ $(document).ready(function () {
         feedbackURL = feedbackOrigin + feedbackURL;
     }
 
-    var feedbackMessage = (
-        '<span id="feedback-form-confirmation" class="font-size--18">Thank you. Your feedback will help us as we continue to improve the service.</span>'
-    )
-
-    var feedbackErrorMessage = (
-        '<span id="feedback-form-error" class="font-size--18">Sorry. Your feedback has failed to send.</span>'
-    )
-
     $("#feedback-form-url").val(pageURL);
 
     $("a.js-toggle").click(function (e) {
@@ -38,52 +30,26 @@ $(document).ready(function () {
 
     $("#feedback-form-yes").click(function (e) {
         e.preventDefault();
-        var postData = $("#feedback-form-container").serialize();
-        var postObject = new Object();
-        postObject.is_page_useful = true;
-        postObject.is_general_feedback = false;
-        postObject.feedback = "Is this page useful? Yes" // Description message, else it will not be added
-        postObject.ons_url  = window.location.href;
-        var postJson = JSON.stringify(postObject);
+        if (useFeedbackAPI && useFeedbackAPI.value === "true") {
+            var postObject = new Object();
+            postObject.is_page_useful = true;
+            postObject.is_general_feedback = false;
+            postObject.feedback = "Is this page useful? Yes" // Description message, else it will not be added
+            postObject.ons_url  = window.location.href;
+            var postJson = JSON.stringify(postObject);
 
-        if (useFeedbackAPI && useFeedbackAPI.value === "true") { 
-            $.ajax({
-                type: "POST",
-                url: feedbackURL,
-                dataType: 'json',
-                data: postJson,
-                contentType: "application/json",
-                statusCode: {
-                    201: function () {
-                    $("#feedback-form-header").html(feedbackMessage);
-                    },
-                },
-                beforeSend: function () {
-                    var formHeader = $("#feedback-form-header")
-                    $("#feedback-form").addClass("js-hidden");
-                    formHeader.removeClass("js-hidden");
-                },
-                error: function () {
-                    $("#feedback-form-header").html(feedbackErrorMessage);
-                },
-            })
+            sendFeedbackEmail(
+                feedbackURL,
+                postJson,
+                true,
+            );
         } else {
-            $.ajax({
-                type: "POST",
-                url: feedbackURL,
-                data: postData,
-                beforeSend: function () {
-                    var formHeader = $("#feedback-form-header")
-                    $("#feedback-form").addClass("js-hidden");
-                    formHeader.removeClass("js-hidden");
-                },
-                success: function () {
-                    $("#feedback-form-header").html(feedbackMessage);
-                },
-                error: function () {
-                    $("#feedback-form-header").html(feedbackErrorMessage);
-                },
-            })            
+            var postData = $("#feedback-form-container").serialize();
+            sendFeedbackEmail(
+                feedbackURL,
+                postData,
+                false,
+            );
         }
     });
 
@@ -134,55 +100,81 @@ $(document).ready(function () {
             return
         }
 
-        var postData = $("#feedback-form-container").serialize();
-        var postObject = new Object();
-        postObject.is_page_useful = false;
-        postObject.is_general_feedback = false;
-        postObject.feedback = descriptionField.val();
-        postObject.ons_url  = window.location.href;
-        postObject.name = nameField.val();
-        postObject.email_address = email;
-        var postJson = JSON.stringify(postObject);
-
         if (useFeedbackAPI && useFeedbackAPI.value === "true") {
-            $.ajax({
-                type: "POST",
-                url: feedbackURL,
-                dataType: "json",
-                data: postJson,
-                contentType: "application/json",
-                statusCode: {
-                    201: function () {
-                        $("#feedback-form-header").html(feedbackMessage);
-                    },
-                },
-                beforeSend: function () {
-                    var formHeader = $("#feedback-form-header");
-                    $("#feedback-form").addClass("js-hidden");
-                    formHeader.removeClass("js-hidden");
-                },
-                error: function () {
-                    $("#feedback-form-header").html(feedbackErrorMessage);
-                },
-            })
+            var postObject = new Object();
+            postObject.is_page_useful = false;
+            postObject.is_general_feedback = false;
+            postObject.feedback = descriptionField.val();
+            postObject.ons_url  = window.location.href;
+            postObject.name = nameField.val();
+            postObject.email_address = email;
+            var postJson = JSON.stringify(postObject);
+
+            sendFeedbackEmail(
+                feedbackURL,
+                postJson,
+                true,
+            );
         } else {
-            $.ajax({
-                type: "POST",
-                url: feedbackURL,
-                data: postData,
-                beforeSend: function () {
-                    var formHeader = $("#feedback-form-header")
-                    $("#feedback-form").addClass("js-hidden");
-                    formHeader.removeClass("js-hidden");
-                },
-                success: function () {
-                    $("#feedback-form-header").html(feedbackMessage);
-                },
-                error: function () {
-                    $("#feedback-form-header").html(feedbackErrorMessage);
-                },
-            })            
+            var postData = $("#feedback-form-container").serialize();
+            sendFeedbackEmail(
+                feedbackURL,
+                postData,
+                false,
+            );
         }
     });
 });
 
+function sendFeedbackEmail (
+    url,
+    data,
+    postFeedbackAPI,
+) {
+    var feedbackMessage = (
+        '<span id="feedback-form-confirmation" class="font-size--18">Thank you. Your feedback will help us as we continue to improve the service.</span>'
+    )
+
+    var feedbackErrorMessage = (
+        '<span id="feedback-form-error" class="font-size--18">Sorry. Your feedback has failed to send.</span>'
+    )
+    if (postFeedbackAPI) {
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            dataType: 'json',
+            contentType: "application/json",
+            statusCode: {
+                201: function () {
+                    $("#feedback-form-header").html(feedbackMessage);
+                },
+            },
+            beforeSend: function () {
+                var formHeader = $("#feedback-form-header")
+                $("#feedback-form").addClass("js-hidden");
+                formHeader.removeClass("js-hidden");
+            },
+            error: function () {
+                $("#feedback-form-header").html(feedbackErrorMessage);
+            },
+        })
+    } else {
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            beforeSend: function () {
+                var formHeader = $("#feedback-form-header")
+                $("#feedback-form").addClass("js-hidden");
+                formHeader.removeClass("js-hidden");
+            },
+            success: function () {
+                $("#feedback-form-header").html(feedbackMessage);
+            },
+            error: function () {
+                $("#feedback-form-header").html(feedbackErrorMessage);
+            },
+        })     
+    }
+}
