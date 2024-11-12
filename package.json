@@ -53,6 +53,6 @@
         "semver-regex": "^3.1.4",
         "minimatch": "latest",
         "trim-newlines": "^3.0.1",
-        "cross-spawn": "latest"
+        "cross-spawn": "^7.0.5"
     }
 }
