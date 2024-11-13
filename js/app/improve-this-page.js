@@ -145,9 +145,6 @@ function fetchFeedbackAPI (
             dataType: 'json',
             contentType: "application/json",
             statusCode: {
-                200: function () {
-                    $("#feedback-form-header").html(feedbackMessage);
-                },
                 201: function () {
                     $("#feedback-form-header").html(feedbackMessage);
                 },
