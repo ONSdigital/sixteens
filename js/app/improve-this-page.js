@@ -1,7 +1,6 @@
 $(document).ready(function () {
     var pageURL = window.location.href;
     var feedbackOrigin = window.feedbackOrigin;
-    var positiveFeedbackPath = '/feedback/thanks';
     var useFeedbackAPI = document.querySelector("#feedback-api-enabled");
     if (document.querySelector("#feedback-api-enabled") && 
         document.querySelector("#feedback-api-enabled").value === "true" && 
@@ -35,19 +34,18 @@ $(document).ready(function () {
             var postObject = new Object();
             postObject.is_page_useful = true;
             postObject.is_general_feedback = false;
-            postObject.feedback = "Is this page useful? Yes" // Description message, else it will not be added
             postObject.ons_url  = window.location.href;
             var postJson = JSON.stringify(postObject);
 
-            sendFeedbackEmail(
-                positiveFeedbackPath,
+            fetchFeedbackAPI(
+                feedbackURL,
                 postJson,
                 true,
             );
         } else {
             var postData = $("#feedback-form-container").serialize();
-            sendFeedbackEmail(
-                feedbackURL,
+            fetchFeedbackAPI(
+                `${feedbackURL}/thanks`,
                 postData,
                 false,
             );
@@ -111,14 +109,14 @@ $(document).ready(function () {
             postObject.email_address = email;
             var postJson = JSON.stringify(postObject);
 
-            sendFeedbackEmail(
+            fetchFeedbackAPI(
                 feedbackURL,
                 postJson,
                 true,
             );
         } else {
             var postData = $("#feedback-form-container").serialize();
-            sendFeedbackEmail(
+            fetchFeedbackAPI(
                 feedbackURL,
                 postData,
                 false,
@@ -127,7 +125,7 @@ $(document).ready(function () {
     });
 });
 
-function sendFeedbackEmail (
+function fetchFeedbackAPI (
     url,
     data,
     postFeedbackAPI,
