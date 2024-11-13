@@ -1,6 +1,7 @@
 $(document).ready(function () {
     var pageURL = window.location.href;
     var feedbackOrigin = window.feedbackOrigin;
+    var positiveFeedbackPath = '/feedback/thanks';
     var useFeedbackAPI = document.querySelector("#feedback-api-enabled");
     if (document.querySelector("#feedback-api-enabled") && 
         document.querySelector("#feedback-api-enabled").value === "true" && 
@@ -39,7 +40,7 @@ $(document).ready(function () {
             var postJson = JSON.stringify(postObject);
 
             sendFeedbackEmail(
-                feedbackURL,
+                positiveFeedbackPath,
                 postJson,
                 true,
             );
@@ -146,6 +147,9 @@ function sendFeedbackEmail (
             dataType: 'json',
             contentType: "application/json",
             statusCode: {
+                200: function () {
+                    $("#feedback-form-header").html(feedbackMessage);
+                },
                 201: function () {
                     $("#feedback-form-header").html(feedbackMessage);
                 },
