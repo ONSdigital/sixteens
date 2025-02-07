@@ -1,3 +1,4 @@
+@use "sass:color";
 .side-bar {
 
     &__item {
@@ -21,7 +22,7 @@
     }
 
     &__active {
-        background-color: lighten($matisse, 50%);
+        background-color: color.adjust($matisse, $lightness: 50%);
         font-weight: 400;
     }
 }

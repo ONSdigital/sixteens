@@ -1,3 +1,4 @@
+@use "sass:color";
 //SEARCH
 
 .search {
@@ -123,7 +124,7 @@
 
         &:hover,
         &:focus {
-          background-color: darken($primary, 8%);
+          background-color: color.adjust($primary, $lightness: -8%);
         }
 
         &:focus {

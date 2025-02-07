@@ -1,3 +1,6 @@
+@use "../utilities/colours";
+@use "../utilities/grid";
+
 
 // New variables
 $dark-blue: #003C57;
@@ -12,8 +15,8 @@ $dark-dull-blue: #45565E;
     }
 
     &--primary-alternative {
-        background-color: $matisse;
-        color: $white;
+        background-color: colours.$matisse;
+        color: colours.$white;
 
         &:hover,
         &:focus {
@@ -23,7 +26,7 @@ $dark-dull-blue: #45565E;
 
     &--secondary-alternative {
         background-color: $dull-blue;
-        color: $white;
+        color: colours.$white;
 
         &:hover,
         &:focus {
@@ -32,12 +35,12 @@ $dark-dull-blue: #45565E;
     }
 
     &--neutral {
-        background-color: $alabaster;
-        border: 1px solid $aluminium;
+        background-color: colours.$alabaster;
+        border: 1px solid colours.$aluminium;
 
         &:hover,
         &:focus {
-            background-color: $iron-light;
+            background-color: colours.$iron-light;
         }
     }
 
@@ -47,7 +50,7 @@ $dark-dull-blue: #45565E;
 
     // Overwrites existing small button - this one has less padding, where as the original has a fixed height
     &--small {
-        padding: 0 ($col*0.5);
+        padding: 0 (grid.$col*0.5);
         font-size: 12px;
     }
 

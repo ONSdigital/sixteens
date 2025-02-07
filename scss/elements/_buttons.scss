@@ -1,3 +1,4 @@
+@use "sass:color";
 //_buttons.scss
 
 button {
@@ -25,7 +26,7 @@ button {
 
         &:hover,
         &:focus {
-            background-color: darken($primary, 8%);
+            background-color: color.adjust($primary, $lightness: -8%);
         }
     }
 
@@ -73,7 +74,7 @@ button {
 
         &:hover,
         &:focus {
-            background-color: darken($blumine, 8%);
+            background-color: color.adjust($blumine, $lightness: -8%);
         }
     }
 

@@ -1,3 +1,4 @@
+@use "sass:color";
 .banner {
     background-color: $white;
 
@@ -127,6 +128,6 @@
     }
 
     &__bottom-shadow {
-        box-shadow: 0 2px 0 0 darken($sun-yellow, 15%);
+        box-shadow: 0 2px 0 0 color.adjust($sun-yellow, $lightness: -15%);
     }
 }

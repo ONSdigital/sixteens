@@ -1,3 +1,4 @@
+@use "sass:color";
 .tile {
     font-size: 18px;
     line-height: 1.78;
@@ -153,7 +154,7 @@
         box-shadow: 0px 2px 0px 0px rgba($ocean-blue, .3);
 
         &:hover {
-            background-color: darken($ocean-blue, 5%);
+            background-color: color.adjust($ocean-blue, $lightness: -5%);
         }
     }
 

@@ -1,3 +1,4 @@
+@use "sass:string";
 //_utilities.scss
 
 
@@ -535,7 +536,7 @@
 // Opacity value with fallback
 @mixin opacity($trans) {
     zoom: 1;
-    filter: unquote('alpha(opacity=' + ($trans * 100) + ')'); // IE6 to IE8
+    filter: string.unquote('alpha(opacity=' + ($trans * 100) + ')'); // IE6 to IE8
     opacity: $trans;
 }
 

@@ -1,13 +1,16 @@
+@use "../utilities/colours";
+@use "../work-in-progress";
+
 .select {
     background-color: white;
-    border: 1px solid $iron;
+    border: 1px solid colours.$iron;
 }
 
-@if $old-ie != true {
+@if work-in-progress.$old-ie != true {
 	.select-alt{
 		position: relative;
 		display: inline-block;
-		border: 2px solid $thunder;
+		border: 2px solid colours.$thunder;
 		.select {
 			font-size: 16px;
 			border: none;
@@ -15,7 +18,7 @@
 			padding: 5px;
 			outline:none;
 			&:focus {
-					outline: 3px solid $carrot;
+					outline: 3px solid colours.$carrot;
 			}
 		}
 	}
