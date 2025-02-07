@@ -94,7 +94,7 @@
                 margin-top: $baseline;
             }
             @include breakpoint(md) {
-                margin-left: ($col / 2);
+                margin-left: ($col * 0.5);
             }
             @include breakpoint(lg) {
                 margin-left: $col;
@@ -104,7 +104,7 @@
         input {
             width: 100%;
             line-height: $base-line-height;
-            padding-left: ($col/2);
+            padding-left: ($col*0.5);
             height: ($baseline * 4);
             border: 1px solid $iron;
 

@@ -66,7 +66,7 @@
     }
 
     .js-show-hide__button--slim {
-        padding: ($baseline) $col / 2 ($baseline) 0;
+        padding: ($baseline) $col * 0.5 ($baseline) 0;
         &[aria-expanded=false]:after {
             right: 8px;
             top: 25%;            

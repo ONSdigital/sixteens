@@ -31,7 +31,7 @@
         display: block;
 
         @include breakpoint(sm) {
-            padding: 9px ($col/2) 3px ($col/2);
+            padding: 9px ($col*0.5) 3px ($col*0.5);
             font-size: 14px;
             word-wrap: normal;
             line-height: 18px;

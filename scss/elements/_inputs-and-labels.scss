@@ -45,7 +45,7 @@ input, select {
     width: 100%;
     height: 32px;
     border: 1px solid $iron;
-    padding: ($baseline) ($col / 2);
+    padding: ($baseline) ($col * 0.5);
 
 
     &[type=search] {

@@ -181,7 +181,7 @@
                     &::before {
                         content: "";
                         position: absolute;
-                        top: $height-of-title / 2;
+                        top: $height-of-title * 0.5;
                         right: 0;
                         width: 28px;
                         height: 28px;

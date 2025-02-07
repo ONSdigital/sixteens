@@ -207,7 +207,7 @@ dd {
     width:100%;
     tbody, thead {
       td, th {
-        padding: $col/2 $col * 4 $col/2 0;
+        padding: $col*0.5 $col * 4 $col*0.5 0;
         vertical-align: baseline;
         font-weight: $base-font-weight;
         text-align: left;
