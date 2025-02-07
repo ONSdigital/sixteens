@@ -10,10 +10,10 @@
         "audit": "auditjs ossi --quiet",
         "clean": "",
         "minify-imgs": "imagemin dist/img/ dist/img",
-        "build-css": "mkdir -pv dist/css && node-sass --output-style compressed scss/main.scss dist/css/main.css && node-sass --output-style compressed scss/pdf.scss dist/css/pdf.css",
-        "build-ie-9-css": "mkdir -pv dist/css && node-sass --output-style compressed scss/main.scss dist/css/ie-9.css && blessc dist/css/ie-9.css -f",
-        "build-old-ie-css": "mkdir -pv dist/css && node-sass --output-style compressed scss/old-ie.scss dist/css/old-ie.css && blessc dist/css/old-ie.css -f",
-        "build-work-in-progress": "mkdir -pv dist/css && node-sass --output-style compressed scss/work-in-progress.scss dist/css/work-in-progress.css",
+        "build-css": "mkdir -pv dist/css && sass --style=compressed scss/main.scss dist/css/main.css && sass --style=compressed scss/pdf.scss dist/css/pdf.css",
+        "build-ie-9-css": "mkdir -pv dist/css && sass --style=compressed scss/main.scss dist/css/ie-9.css && blessc dist/css/ie-9.css -f",
+        "build-old-ie-css": "mkdir -pv dist/css && sass --style=compressed scss/old-ie.scss dist/css/old-ie.css && blessc dist/css/old-ie.css -f",
+        "build-work-in-progress": "mkdir -pv dist/css && sass --style=compressed scss/work-in-progress.scss dist/css/work-in-progress.css",
         "build-js": "mkdir -pv dist/js && uglifyjs $npm_package_config_js --compress --mangle -o dist/js/main.js",
         "build": "npm run build-css && npm run build-old-ie-css && npm run build-ie-9-css && npm run build-js",
         "lint": "exit",
@@ -32,7 +32,6 @@
     "dependencies": {
         "bless": "3.0.3",
         "jquery": "=3.7.1",
-        "node-sass": "^9.0.0",
         "qs": "^6.11.0",
         "replace": "latest",
         "semver-regex": "^3.1.4",
@@ -44,7 +43,8 @@
         "catw": "^0.0.1",
         "http-server": "latest",
         "imagemin-cli": "^7.0.0",
-        "onchange": "latest"
+        "onchange": "latest",
+        "sass": "^1.84.0"
     },
     "overrides": {
         "got": "latest",
