@@ -32,6 +32,7 @@
     "dependencies": {
         "bless": "3.0.3",
         "jquery": "=3.7.1",
+        "sass": "^1.84.0",
         "qs": "^6.11.0",
         "replace": "latest",
         "semver-regex": "^3.1.4",
@@ -43,8 +44,7 @@
         "catw": "^0.0.1",
         "http-server": "latest",
         "imagemin-cli": "^7.0.0",
-        "onchange": "latest",
-        "sass": "^1.84.0"
+        "onchange": "latest"
     },
     "overrides": {
         "got": "latest",
