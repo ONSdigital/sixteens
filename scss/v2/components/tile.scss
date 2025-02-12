@@ -230,4 +230,57 @@
             line-height: 1.5;
         }
     }
+
+    &--swoosh {
+        display: flex; 
+        background: rgba(0, 60, 87, 0.95);
+        position: relative;
+
+        @include breakpoint(sm) {
+            margin-inline: -16px;
+            float: none;
+            width: auto;
+        }
+    }
+    
+    &--swoosh::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #003C57;
+        clip-path: circle(clamp(150%, 166%, 180%) at -24% -47%);
+
+        @include breakpoint(md) {
+            clip-path: circle(838px at -11.5% -145%);
+        }
+
+        @include breakpoint(lg) {
+            clip-path: circle(838px at -33% -180%);
+        }
+    }
+
+    // for the dots SVG inside tile
+    &__dots {
+        position: absolute;
+        right: 0;
+        width: 17%;  
+        z-index: 10;
+
+        @include breakpoint(sm) {
+            height: 65%;
+            width: auto;
+            aspect-ratio: 1 / 2;
+        }
+
+        @include breakpoint(md) {
+            width: 13%;
+        }
+
+        @include breakpoint(lg) {
+            width: 17%;
+        }
+    }
 }
