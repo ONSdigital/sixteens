@@ -29,6 +29,11 @@
         }
     }
 
+    &__content-wrapper {
+        position: relative;
+        z-index: 1;
+    }
+
     &__highlighted-content {
         @include breakpoint(xs) {
             min-height: 340px;
