@@ -59,6 +59,27 @@
         margin-top: 10px;
     }
 
+    &__title--highlighted {
+        color: $white;
+        font-weight: 700;
+        margin-top: 9px;
+        margin-bottom: 9px;
+        line-height: 28px;
+        font-size: 20px;
+        
+        @include breakpoint(md) {
+            font-size: 26px;
+            margin-bottom: 9px;
+            line-height: 36.4px;
+        }
+
+        @include breakpoint(lg) {
+            font-size: 30px;
+            margin-bottom: 18px;
+            line-height: 42px;
+        }
+    }
+
     &__figure {
         font-size: 60px;
         font-weight: 600;
@@ -143,6 +164,23 @@
                 color: $night-blue;
                 box-shadow: none;
                 background-color: transparent;
+            }
+        }
+
+        &--icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5625rem;
+            margin-top: 9px;
+            line-height: 25.2px;
+            font-size: 18px;
+
+            @include breakpoint(md) {
+                line-height: 28.8px;
+            }
+
+            @include breakpoint(lg) {
+                margin-top: 18px;
             }
         }
     }
@@ -233,6 +271,11 @@
 
         @include breakpoint(sm) {
             line-height: 1.5;
+            font-size: 18px;
+        }
+
+        &--white {
+            color: $white;
         }
     }
 
@@ -263,7 +306,7 @@
         }
 
         @include breakpoint(lg) {
-            clip-path: circle(838px at -33% -180%);
+            clip-path: circle(838px at -34% -175%);
         }
     }
 
@@ -285,6 +328,7 @@
         }
 
         @include breakpoint(lg) {
+            top: 2px;
             width: 17%;
         }
     }
