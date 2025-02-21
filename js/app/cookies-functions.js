@@ -31,7 +31,7 @@ function cookie(name, value, options) {
 // Deprecated: Only used for maintaining legacy cookie values
 function setLegacyCookie() {
   let encodedCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D";
-  let cookiesDomain = getDomain(document.domain)
+  let cookiesDomain = extractDomainFromUrl()
   let oneYearInSeconds = 31622400;
   let cookiesPath = "/";
 
@@ -44,15 +44,15 @@ function setLegacyCookie() {
 function extractDomainFromUrl() {
   let url = window.location.hostname;
 
-  if (url.indexOf('localhost') >= 0 || url.indexOf('127.0.0.1') >= 0) {
-      return 'localhost';
+  if (url.indexOf("localhost") >= 0 || url.indexOf("127.0.0.1") >= 0) {
+    return "localhost";
   }
 
   // top level domains (TLD/SLD) in use
-  let tlds = new RegExp('(\\.co\\.uk|\\.onsdigital\\.uk|\\.gov\\.uk)');
+  let tlds = new RegExp("(\\.co\\.uk|\\.onsdigital\\.uk|\\.gov\\.uk)");
 
   let topLevelDomain = url.match(tlds)[0];
-  let secondLevelDomain = url.replace(topLevelDomain, '').split('.').pop();
+  let secondLevelDomain = url.replace(topLevelDomain, "").split(".").pop();
 
   return "." + secondLevelDomain + topLevelDomain;
 }
