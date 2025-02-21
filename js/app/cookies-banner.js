@@ -21,10 +21,10 @@ function determineWhetherToRenderBanner() {
 }
 
 function initCookiesBanner() {
-    $('.js-hide-cookies-banner').click(function (e) {
-        cookiesBanner.addClass("hidden");
-    });
-    cookiesBanner.on('submit', submitCookieForm);
+  $(".js-hide-cookies-banner").click(function (e) {
+    $cookiesBanner.addClass("hidden");
+  });
+  $cookiesBanner.on("submit", submitCookieForm);
 }
 
 function submitCookieForm(e) {
@@ -74,7 +74,10 @@ function extractDomainFromUrl(url) {
 }
 
 function hasCookiesPreferencesSet() {
-    return document.cookie.indexOf("cookies_preferences_set=true") > -1;
+  return (
+    document.cookie.indexOf("cookies_preferences_set=true") > -1 ||
+    document.cookie.indexOf("ons_cookie_message_displayed=true") > -1
+  );
 }
 
 function userIsOnCookiesPreferencesPage() {
