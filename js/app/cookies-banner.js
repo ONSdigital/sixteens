@@ -12,6 +12,7 @@ const cookiesPath = "/";
 
 document.addEventListener("DOMContentLoaded", determineWhetherToRenderBanner());
 
+// determineWhetherToRenderBanner() render cookie banner when cookies are not set or page is not /cookies
 function determineWhetherToRenderBanner() {
     const cookiesAreNotSet = !cookiesSet || userIsOnCookiesPreferencesPage()
     if (cookiesAreNotSet) {
@@ -20,6 +21,7 @@ function determineWhetherToRenderBanner() {
     }
 }
 
+// initCookiesBanner() initialise the cookie banner if cookies are not set
 function initCookiesBanner() {
   $(".js-hide-cookies-banner").click(function (e) {
     $cookiesBanner.addClass("hidden");
@@ -27,6 +29,7 @@ function initCookiesBanner() {
   $cookiesBanner.on("submit", submitCookieForm);
 }
 
+// submitCookieForm() sets the cookie values when accepted
 function submitCookieForm(e) {
     e.preventDefault();
     
@@ -73,6 +76,7 @@ function extractDomainFromUrl(url) {
     return `.${secondLevelDomain}${topLevelDomain}`;
 }
 
+// hasCookiesPreferencesSet() check if cookie preference is set
 function hasCookiesPreferencesSet() {
   return (
     document.cookie.indexOf("cookies_preferences_set=true") > -1 ||
@@ -80,6 +84,7 @@ function hasCookiesPreferencesSet() {
   );
 }
 
+// userIsOnCookiesPreferencesPage() check if user in in cookie page
 function userIsOnCookiesPreferencesPage() {
     const href = window.location.href.split("/");
 
