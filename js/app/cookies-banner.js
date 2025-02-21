@@ -29,6 +29,7 @@ function submitCookieForm(e) {
   cookiesAcceptBanner.addClass("btn--primary-disabled");
 
   approveAllCookieTypes();
+  setLegacyCookie(); // Deprecated: Only used for maintaining legacy cookie values
 
   $(".js-cookies-banner-inform").addClass("hidden");
   $(".js-cookies-banner-confirmation").removeClass("hidden");
