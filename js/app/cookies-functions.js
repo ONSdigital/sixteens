@@ -7,26 +7,11 @@ const DEFAULT_COOKIE_CONSENT = {
 };
 
 const COOKIE_CATEGORIES = {
-  RH_SESSION: "essential",
-  session: "essential",
   ons_cookie_policy: "essential",
   ons_cookie_message_displayed: "essential",
-  _ga: "usage",
-  _gid: "usage",
-  _gat: "usage",
-  _use_hitbox: "campaigns",
-  VISITOR_INFO1_LIVE: "campaigns",
-  _fbp: "campaigns",
-  COOKIE_SUPPORT: "essential",
-  GUEST_LANGUAGE_ID: "essential",
-  JSESSIONID: "essential",
-  ID: "essential",
-  COMPANY_ID: "essential",
-  USER_UUID: "essential",
-  LFR_SESSION_STATE_: "essential",
-  csfcfc: "essential",
 };
 
+// cookie() return value of a cookie if options and value of a ccokie are present
 function cookie(name, value, options) {
   if (typeof value !== "undefined") {
     if (value === false || value === null) {
@@ -42,6 +27,37 @@ function cookie(name, value, options) {
   }
 }
 
+// setLegacyCookie() set the cookie value for legacy cookie keys
+// Deprecated: Only used for maintaining legacy cookie values
+function setLegacyCookie() {
+  let encodedCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D";
+  let cookiesDomain = getDomain(document.domain)
+  let oneYearInSeconds = 31622400;
+  let cookiesPath = "/";
+
+  document.cookie = `cookies_preferences_set=${true};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath}`;
+  document.cookie = `cookies_policy=${encodedCookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath}`;
+}
+
+// extractDomainFromUrl() extract and return domain
+// Deprecated: Only used for maintaining legacy cookie values
+function extractDomainFromUrl() {
+  let url = window.location.hostname;
+
+  if (url.indexOf('localhost') >= 0 || url.indexOf('127.0.0.1') >= 0) {
+      return 'localhost';
+  }
+
+  // top level domains (TLD/SLD) in use
+  let tlds = new RegExp('(\\.co\\.uk|\\.onsdigital\\.uk|\\.gov\\.uk)');
+
+  let topLevelDomain = url.match(tlds)[0];
+  let secondLevelDomain = url.replace(topLevelDomain, '').split('.').pop();
+
+  return "." + secondLevelDomain + topLevelDomain;
+}
+
+// setDefaultConsentCookie() set default cookie values when a page is rendered
 function setDefaultConsentCookie() {
   const defaultCookieConsent = {
     essential: true,
@@ -56,6 +72,7 @@ function setDefaultConsentCookie() {
   setCookie("ons_cookie_policy", defaultConsentCookie, { days: 365 });
 }
 
+// approveAllCookieTypes() set cookie values when cookie is clicked
 function approveAllCookieTypes() {
   let approvedConsent = {
     essential: true,
@@ -72,6 +89,7 @@ function approveAllCookieTypes() {
   );
 }
 
+// getConsentCookie() check and return ons_cookie_policy cookie value if present
 function getConsentCookie() {
   const consentCookie = cookie("ons_cookie_policy");
   let consentCookieObj;
@@ -88,49 +106,13 @@ function getConsentCookie() {
   return consentCookieObj;
 }
 
-function setConsentCookie(options) {
-  const domain = getDomain(document.domain);
-
-  let cookieConsent = getConsentCookie();
-  if (!cookieConsent) {
-    cookieConsent = JSON.parse(
-      JSON.stringify(DEFAULT_COOKIE_CONSENT).replace(/'/g, '"')
-    );
-  }
-  for (let cookieType in options) {
-    cookieConsent[cookieType] = options[cookieType];
-    if (!options[cookieType]) {
-      for (let cookies in COOKIE_CATEGORIES) {
-        if (COOKIE_CATEGORIES[cookies] === cookieType) {
-          cookie(cookies, null);
-          if (cookie(cookies)) {
-            const cookieString =
-              cookies +
-              "=; expires=" +
-              new Date() +
-              "; domain=" +
-              domain +
-              "; path=/";
-            document.cookie = cookieString;
-          }
-        }
-      }
-    }
-  }
-  setCookie(
-    "ons_cookie_policy",
-    JSON.stringify(cookieConsent).replace(/"/g, "'"),
-    { days: 365 }
-  );
-}
-
+// checkConsentCookieCategory() check the category of a cookie 
 function checkConsentCookieCategory(cookieName, cookieCategory) {
   let currentConsentCookie = getConsentCookie();
   if (!currentConsentCookie && COOKIE_CATEGORIES[cookieName]) {
     return true;
   }
 
-  currentConsentCookie = getConsentCookie();
   try {
     return currentConsentCookie[cookieCategory];
   } catch (e) {
@@ -139,6 +121,7 @@ function checkConsentCookieCategory(cookieName, cookieCategory) {
   }
 }
 
+// checkConsentCookie() check if cookie is accepted or denied if not in known category
 function checkConsentCookie(cookieName, cookieValue) {
   // If we're setting the consent, session or RH_SESSION cookie OR deleting a cookie, allow by default
   if (
@@ -158,6 +141,7 @@ function checkConsentCookie(cookieName, cookieValue) {
   }
 }
 
+// setCookie() set the values for a given cookie
 function setCookie(name, value, options) {
   const domain = getDomain(document.domain);
   let setDomain = "";
@@ -171,7 +155,7 @@ function setCookie(name, value, options) {
       options = {};
     }
 
-    let cookieString = name + "=" + value + setDomain + "; path=/";
+    let cookieString = `${name}=${value}${setDomain}; path=/`
     if (options.days) {
       const date = new Date();
       date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
@@ -184,6 +168,7 @@ function setCookie(name, value, options) {
   }
 }
 
+// getCookie() return the value of a given cookie
 function getCookie(name) {
   const nameEQ = name + "=";
   const cookies = document.cookie.split(";");
@@ -199,6 +184,7 @@ function getCookie(name) {
   return null;
 }
 
+// getDomain() return the domain name from a given url
 function getDomain(domain) {
   let i = 0,
     domainName = domain,
