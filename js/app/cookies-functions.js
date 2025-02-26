@@ -54,7 +54,7 @@ function extractDomainFromUrl() {
   let topLevelDomain = url.match(tlds)[0];
   let secondLevelDomain = url.replace(topLevelDomain, "").split(".").pop();
 
-  return "." + secondLevelDomain + topLevelDomain;
+  return `.${secondLevelDomain}${topLevelDomain}`;
 }
 
 // setDefaultConsentCookie() set default cookie values when a page is rendered
@@ -147,7 +147,7 @@ function setCookie(name, value, options) {
   let setDomain = "";
 
   if (domain.indexOf("localhost") === -1) {
-    setDomain = "; domain=" + domain;
+    setDomain = `; domain=${domain}`;
   }
 
   if (checkConsentCookie(name, value)) {
@@ -159,10 +159,10 @@ function setCookie(name, value, options) {
     if (options.days) {
       const date = new Date();
       date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
-      cookieString = cookieString + "; expires=" + date.toGMTString();
+      cookieString = `${cookieString}; expires=${date.toGMTString()}`;
     }
     if (document.location.protocol === "https:") {
-      cookieString = cookieString + "; Secure";
+      cookieString = `${cookieString}; Secure`;
     }
     document.cookie = cookieString;
   }
@@ -192,9 +192,8 @@ function getDomain(domain) {
     s = "_gd" + new Date().getTime();
   while (i < p.length - 1 && document.cookie.indexOf(s + "=" + s) == -1) {
     domainName = p.slice(-1 - ++i).join(".");
-    document.cookie = s + "=" + s + ";domain=" + domainName + ";";
+    document.cookie = `${s}=${s}; domain=${domainName};`;
   }
-  document.cookie =
-    s + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=" + domainName + ";";
+  document.cookie = `${s}=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${domainName};`;
   return domainName;
 }

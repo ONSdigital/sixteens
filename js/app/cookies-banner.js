@@ -26,10 +26,10 @@ function initCookiesBanner() {
 // submitCookieForm() sets the cookie values when accepted
 function submitCookieForm(e) {
   e.preventDefault();
-  let cookiesAcceptBanner = $(".js-accept-cookies");
+  let $cookiesAcceptBanner = $(".js-accept-cookies");
 
-  cookiesAcceptBanner.prop("disabled");
-  cookiesAcceptBanner.addClass("btn--primary-disabled");
+  $cookiesAcceptBanner.prop("disabled");
+  $cookiesAcceptBanner.addClass("btn--primary-disabled");
 
   approveAllCookieTypes();
   setLegacyCookie(); // Deprecated: Only used for maintaining legacy cookie values
