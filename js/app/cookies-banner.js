@@ -1,18 +1,19 @@
 // cookies settings
-var cookiesSet = hasCookiesPreferencesSet();
-var cookiesBanner = $(".js-cookies-banner-form");
+const cookiesSet = hasCookiesPreferencesSet();
+const cookiesBanner = $(".js-cookies-banner-form");
 
-var oneYearInSeconds = 31622400;
-var url = window.location.hostname;
-var cookiesDomain = extractDomainFromUrl(url);
-var cookiesPreference = true;
-var encodedCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D";
-var cookiesPath = "/";
+const oneYearInSeconds = 31622400;
+const url = window.location.hostname;
+const cookiesDomain = extractDomainFromUrl(url);
+const cookiesPreference = true;
+const encodedCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D";
+const defaultCookiesPolicy = "%7B%22essential%22%3Atrue%2C";
+const cookiesPath = "/";
 
 document.addEventListener("DOMContentLoaded", determineWhetherToRenderBanner());
 
 function determineWhetherToRenderBanner() {
-    var cookiesAreNotSet = !cookiesSet || userIsOnCookiesPreferencesPage()
+    const cookiesAreNotSet = !cookiesSet || userIsOnCookiesPreferencesPage()
     if (cookiesAreNotSet) {
         cookiesBanner.removeClass("cookies-banner--hidden")
         initCookiesBanner();
@@ -25,19 +26,6 @@ function initCookiesBanner() {
     });
     cookiesBanner.on('submit', submitCookieForm);
 }
-
-let $cookieButton = null;
-
-const $acceptButton = $('.js-accept-cookies');
-const $rejectButton = $('.js-reject-cookies');
-
-$acceptButton.on('click', function() {
-    $cookieButton = $(this);
-});
-
-$rejectButton.on('click', function() {
-    $cookieButton = $(this);
-});
 
 function submitCookieForm(e) {
     e.preventDefault();
@@ -72,12 +60,12 @@ function extractDomainFromUrl(url) {
     }
 
     // top level domains (TLD/SLD) in use
-    var tlds = new RegExp('(.co.uk|.onsdigital.uk|.gov.uk)');
+    const tlds = new RegExp("(\\.co\\.uk|\\.onsdigital\\.uk|\\.gov\\.uk)");
 
-    var topLevelDomain = url.match(tlds)[0];
-    var secondLevelDomain = url.replace(topLevelDomain, '').split('.').pop();
+    const topLevelDomain = url.match(tlds)[0];
+    const secondLevelDomain = url.replace(topLevelDomain, '').split('.').pop();
 
-    return "." + secondLevelDomain + topLevelDomain;
+    return `.${secondLevelDomain}${topLevelDomain}`;
 }
 
 function hasCookiesPreferencesSet() {
@@ -85,9 +73,9 @@ function hasCookiesPreferencesSet() {
 }
 
 function userIsOnCookiesPreferencesPage() {
-    var href = window.location.href.split("/");
+    const href = window.location.href.split("/");
 
     // check that last element in href array is 'cookies' - in case we add further pages within the cookies path
-    var isCookiesPreferencesPage = href[href.length - 1] === "cookies";
+    const isCookiesPreferencesPage = href[href.length - 1] === "cookies";
     return isCookiesPreferencesPage;
 }
