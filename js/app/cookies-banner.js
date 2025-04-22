@@ -26,15 +26,41 @@ function initCookiesBanner() {
     cookiesBanner.on('submit', submitCookieForm);
 }
 
+let $cookieButton = null;
+
+const $acceptButton = $('.js-accept-cookies');
+const $rejectButton = $('.js-reject-cookies');
+
+$acceptButton.on('click', function() {
+    $cookieButton = $(this);
+});
+
+$rejectButton.on('click', function() {
+    $cookieButton = $(this);
+});
+
 function submitCookieForm(e) {
     e.preventDefault();
-    var cookiesAcceptBanner = $('.js-accept-cookies');
+    
+    const $acceptButton = $('.js-accept-cookies');
+    const $rejectButton = $('.js-reject-cookies');
+    const action = document.activeElement.getAttribute('data-action');
 
-    cookiesAcceptBanner.prop('disabled');
-    cookiesAcceptBanner.addClass("btn--primary-disabled");
+    if ($acceptButton || $rejectButton) {
+        $acceptButton.prop('disabled');
+        $acceptButton.addClass("btn--primary-disabled");
+        $rejectButton.prop('disabled');
+        $rejectButton.addClass("btn--primary-disabled");
+    }
 
-    document.cookie = "cookies_preferences_set=" + cookiesPreference + ";" + "max-age=" + oneYearInSeconds + ";" + "domain=" + cookiesDomain + ";" + "path=" + cookiesPath + ";";
-    document.cookie = "cookies_policy=" + encodedCookiesPolicy + ";" + "max-age=" + oneYearInSeconds + ";" + "domain=" + cookiesDomain + ";" + "path=" + cookiesPath + ";";
+    document.cookie = `cookies_preferences_set=${cookiesPreference};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath}`;
+    if (action === 'accept') {
+        document.cookie = `cookies_policy=${encodedCookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath}`;
+        $('.ons-js-accepted-text').removeClass('hidden');
+    } else if (action === 'reject') {
+        document.cookie = `cookies_policy=${defaultCookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath}`;
+        $('.ons-js-rejected-text').removeClass('hidden');
+    }
 
     $('.js-cookies-banner-inform').addClass('hidden');
     $('.js-cookies-banner-confirmation').removeClass('hidden');
