@@ -74,7 +74,9 @@
     }
 
     a {
-        text-decoration: none;
+        text-decoration: underline;
+        text-underline-position: under;
+        font-size: 18px;
     }
 
     p {
