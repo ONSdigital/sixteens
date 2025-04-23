@@ -7,7 +7,7 @@ const url = window.location.hostname;
 const cookiesDomain = extractDomainFromUrl(url);
 const cookiesPreference = true;
 const encodedCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D";
-const defaultCookiesPolicy = "%7B%22essential%22%3Atrue%2C";
+const defaultCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Afalse%7D";
 const cookiesPath = "/";
 
 document.addEventListener("DOMContentLoaded", determineWhetherToRenderBanner());
@@ -42,12 +42,17 @@ function submitCookieForm(e) {
     }
 
     document.cookie = `cookies_preferences_set=${cookiesPreference};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath}`;
-    if (action === 'accept') {
-        document.cookie = `cookies_policy=${encodedCookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath}`;
-        $('.ons-js-accepted-text').removeClass('hidden');
-    } else if (action === 'reject') {
-        document.cookie = `cookies_policy=${defaultCookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath}`;
-        $('.ons-js-rejected-text').removeClass('hidden');
+    switch(action) {
+        case 'accept':
+            document.cookie = `cookies_policy=${encodedCookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath}`;
+            $('.ons-js-accepted-text').removeClass('hidden');
+            break;
+        case 'reject':
+            document.cookie = `cookies_policy=${defaultCookiesPolicy};max-age=${oneYearInSeconds};domain=${cookiesDomain};path=${cookiesPath}`;
+            $('.ons-js-rejected-text').removeClass('hidden');
+            break;   
+        default:
+            return;                 
     }
 
     $('.js-cookies-banner-inform').addClass('hidden');
