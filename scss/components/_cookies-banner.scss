@@ -42,7 +42,7 @@
 
     &__button {
         display: inline-block;
-        margin-right: 8px;
+        padding-right: 1rem;
 
         @include breakpoint(md-max) {
             margin-top: 8px;
