@@ -1,6 +1,6 @@
 .cookies-banner {
     background-color: $mercury;
-    padding-bottom: 10px;
+    padding: 20px 0;
     box-sizing: border-box;
 
     @include breakpoint(md-max) {
