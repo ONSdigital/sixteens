@@ -1,6 +1,9 @@
 $(document).ready(function () {
+  const feedbackURLElement = document.querySelector("#feedback-api-url");
+  
+  if (feedbackURLElement) {
     const pageURL = window.location.href;
-    const feedbackURL = document.querySelector("#feedback-api-url").value;
+    const feedbackURL = feedbackURLElement.value;
 
     $("#feedback-form-url").val(pageURL);
 
@@ -89,33 +92,34 @@ $(document).ready(function () {
 
       fetchFeedbackAPI(feedbackURL, postJson);
     });
-  });
-
-  function fetchFeedbackAPI(url, data) {
-    const feedbackMessage =
-      '<span id="feedback-form-confirmation" class="font-size--18">Thank you. Your feedback will help us as we continue to improve the service.</span>';
-
-    const feedbackErrorMessage =
-      '<span id="feedback-form-error" class="font-size--18">Sorry. Your feedback has failed to send.</span>';
-
-    $.ajax({
-      type: "POST",
-      url: url,
-      data: data,
-      dataType: "json",
-      contentType: "application/json",
-      statusCode: {
-        201: function () {
-          $("#feedback-form-header").html(feedbackMessage);
-        },
-      },
-      beforeSend: function () {
-        let $formHeader = $("#feedback-form-header");
-        $("#feedback-form").addClass("js-hidden");
-        $formHeader.removeClass("js-hidden");
-      },
-      error: function () {
-        $("#feedback-form-header").html(feedbackErrorMessage);
-      },
-    });
   }
+});
+
+function fetchFeedbackAPI(url, data) {
+  const feedbackMessage =
+    '<span id="feedback-form-confirmation" class="font-size--18">Thank you. Your feedback will help us as we continue to improve the service.</span>';
+
+  const feedbackErrorMessage =
+    '<span id="feedback-form-error" class="font-size--18">Sorry. Your feedback has failed to send.</span>';
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    dataType: "json",
+    contentType: "application/json",
+    statusCode: {
+      201: function () {
+        $("#feedback-form-header").html(feedbackMessage);
+      },
+    },
+    beforeSend: function () {
+      let $formHeader = $("#feedback-form-header");
+      $("#feedback-form").addClass("js-hidden");
+      $formHeader.removeClass("js-hidden");
+    },
+    error: function () {
+      $("#feedback-form-header").html(feedbackErrorMessage);
+    },
+  });
+}
