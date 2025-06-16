@@ -32,9 +32,9 @@
     "dependencies": {
         "bless": "3.0.3",
         "jquery": "=3.7.1",
-        "sass": "^1.84.0",
         "qs": "^6.11.0",
         "replace": "latest",
+        "sass": "^1.84.0",
         "semver-regex": "^3.1.4",
         "shell-quote": "^1.7.3",
         "uglify-js": "latest"
@@ -51,6 +51,7 @@
         "http-cache-semantics": "latest",
         "minimist": "^1.2.6",
         "semver-regex": "^3.1.4",
+        "brace-expansion": "^1.1.12",
         "minimatch": "latest",
         "trim-newlines": "^3.0.1",
         "cross-spawn": "^7.0.5"
