@@ -7,7 +7,7 @@
         "js": "js/thirdparty/details.polyfill.js js/thirdparty/doubletaptogo.js js/thirdparty/resize-observer-polyfill.js js/app.js js/app/cookies-banner.js js/app/cookies-pref.js js/app/display.js  js/app/preview.js js/app/checkboxes.js js/app/viewport-size.js js/app/gtm.js js/app/nav.js js/app/show-and-hide.js js/app/show-more-list.js js/app/sticky-scroll.js js/app/date-picker.js js/app/mobile-filters.js js/app/print-page.js js/app/hover-state.js js/app/scroll.js js/app/loading-screen.js js/app/date-range-updater.js js/app/filter-options.js js/app/time-selector.js js/app/filter-select.js js/app/improve-this-page.js js/app/embed-code-copy.js js/app/tile.js js/app/scrollable-container.js js/app/auto-submit-form.js js/app/load-results.js"
     },
     "scripts": {
-        "audit": "auditjs ossi --quiet",
+        "audit": "auditjs ossi --quiet -u $OSSINDEX_USERNAME -p $OSSINDEX_TOKEN",
         "clean": "",
         "minify-imgs": "imagemin dist/img/ dist/img",
         "build-css": "mkdir -pv dist/css && sass --style=compressed scss/main.scss dist/css/main.css && sass --style=compressed scss/pdf.scss dist/css/pdf.css",
