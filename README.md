@@ -73,3 +73,7 @@ This will create or update the `work-in-progress.css` file in `dist`.
 
 [node]: <https://nodejs.org/en/>
 [npm]: <https://www.npmjs.com/>
+
+### Tooling
+
+For Javascript auditing we use `auditjs` which requires you to [setup an OSS Index account](https://github.com/ONSdigital/dp/blob/main/guides/MAC_SETUP.md#oss-index-account-and-configuration)
