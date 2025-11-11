@@ -41,7 +41,7 @@
 
     @if $old-ie == false {
       @include breakpoint(sm) {
-        padding: ($baseline * 3) 0;
+        padding: ($baseline * 2) 0 ($baseline * 3);
         overflow: hidden;
       }
     }
@@ -59,7 +59,7 @@
 
     @if $old-ie == false {
       @include breakpoint(sm) {
-        display: none;
+        padding: 0 $col 12px 0;
       }
     }
   }
