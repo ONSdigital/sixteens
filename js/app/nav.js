@@ -80,7 +80,7 @@ function cloneSecondaryNav() {
 
     if ($('body').hasClass('viewport-sm') && $('.js-nav-clone__list').find($navLink).length > 0) {
         // Remove from separate UL and add into primary
-        $navLink.each(function() {
+        $navLink.each(function () {
             $(this).parent().hide();
             $(this)
                 .removeClass('secondary-nav__link')
@@ -91,13 +91,13 @@ function cloneSecondaryNav() {
         });
     } else if (!$('body').hasClass('viewport-sm') && $('.secondary-nav__item').is(':hidden')) {
         // Remove from primary nav and add into separate secondary list
-        $navLink.each(function(i) {
+        $navLink.each(function (i) {
             var index = i + 1;
-           $(this)
-               .unwrap()
-               .removeClass('primary-nav__link col')
-               .addClass('secondary-nav__link')
-               .appendTo('.js-nav-clone__list li:nth-child(' + index + ')');
+            $(this)
+                .unwrap()
+                .removeClass('primary-nav__link col')
+                .addClass('secondary-nav__link')
+                .appendTo('.js-nav-clone__list li:nth-child(' + index + ')');
             $(this).parent().show();
         });
     }
@@ -126,7 +126,7 @@ function clonePrimaryItems() {
 }
 
 
-$(window).resize(function() {
+$(window).resize(function () {
     clonePrimaryItems();
     cloneSecondaryNav();
 });
@@ -141,6 +141,22 @@ $(document).ready(function () {
     clonePrimaryItems();
     cloneSecondaryNav();
 
+    $(document).on('keydown', (e) => {
+        if (e.key === 'Escape') {
+            $('.primary-nav__item:hover > ul').each(function () {
+                var $submenu = $(this);
+                $submenu.addClass('hide');
+                var $parentItem = $submenu.closest('.primary-nav__item');
+                // Restore submenu when mouse leaves the parent item
+                var handleMouseLeave = function () {
+                    $submenu.removeClass('hide');
+                    $parentItem.off('mouseleave', handleMouseLeave);
+                };
+                $parentItem.on('mouseleave', handleMouseLeave);
+            });
+        }
+    });
+
     $primaryNav.addClass('nav-main--hidden').attr('aria-expanded', false);
     //$searchBar.addClass('nav-search--hidden').attr('aria-expanded', false);
 
@@ -150,7 +166,7 @@ $(document).ready(function () {
             toggleSubnav($(this));
         }
     });
-    
+
     $expandableItem.doubleTapToGo();
 
     // stop parent element from taking over all click events
@@ -159,7 +175,7 @@ $(document).ready(function () {
     });
 
     // Menu navigation using keyboard
-    $navItem.on('keydown', function(e) {
+    $navItem.on('keydown', function (e) {
         var $this = $(this),
             $focusedItem = $('.js-expandable__child a:focus'), // only selects child item that is in focus
             keycode = e.keyCode,
@@ -176,8 +192,8 @@ $(document).ready(function () {
         if (keycode == esc) {
             $this.removeClass('primary-nav__item--focus');
             $this.closest('.js-nav').find('a:first').addClass('hide-children').focus();
-            $this.closest('.js-nav').find('a:first').focusout(function() {
-               $(this).removeClass('hide-children');
+            $this.closest('.js-nav').find('a:first').focusout(function () {
+                $(this).removeClass('hide-children');
             });
         }
         if (keycode == down) {
@@ -211,7 +227,7 @@ $(document).ready(function () {
     });
 
     // Remove focus and styling classes if mouse hovers over nav
-    $navItem.hover(function() {
+    $navItem.hover(function () {
         if ($navItem.find(':focus')) {
             $navItem.find(':focus').blur();
             $navItem.removeClass('primary-nav__item--focus');
@@ -222,7 +238,7 @@ $(document).ready(function () {
             $(this).find('.js-expandable__content').attr('aria-expanded', 'true');
         }
 
-    }, function() {
+    }, function () {
         if (!$('body').hasClass('viewport-sm')) {
             $(this).find('.primary-nav__link').attr('aria-expanded', 'false');
             $(this).find('.js-expandable__content').attr('aria-expanded', 'false');
@@ -236,7 +252,7 @@ $(document).ready(function () {
             $(this).find('.js-expandable__content').attr('aria-expanded', 'true');
         }
     });
-    $expandableItem.focusout(function ()  {
+    $expandableItem.focusout(function () {
         if (!$('body').hasClass('viewport-sm')) {
             $(this).find('.primary-nav__link').attr('aria-expanded', 'false');
             $(this).find('.js-expandable__content').attr('aria-expanded', 'false');
@@ -244,7 +260,7 @@ $(document).ready(function () {
     });
 
     // Close menu on click of the page
-    $('body').not('js-expandable .js-expandable__child').click(function() {
+    $('body').not('js-expandable .js-expandable__child').click(function () {
         $('.primary-nav__item--focus').removeClass('primary-nav__item--focus');
     });
 
