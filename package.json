@@ -21,7 +21,7 @@
         "watch-css": "onchange 'scss' -e 'scss/work-in-progress' -e 'scss/work-in-progress.scss' -- npm run build-css",
         "watch-work-in-progress": "onchange 'scss' 'scss/work-in-progress.scss' -- npm run build-work-in-progress",
         "watch-js": "catw -v $npm_package_config_js -o dist/js/main.js",
-        "server": "http-server -p ${PORT:-9000} --cors",
+        "server": "serve -l ${PORT:-9000} --cors",
         "dev": "npm run watch-css & npm run watch-js & npm run server"
     },
     "repository": {
@@ -42,13 +42,11 @@
     "devDependencies": {
         "auditjs": "^4.0.37",
         "catw": "^0.0.1",
-        "http-server": "latest",
+        "serve": "latest",
         "imagemin-cli": "^7.0.0",
         "onchange": "latest"
     },
     "overrides": {
-        "got": "latest",
-        "http-cache-semantics": "latest",
         "minimist": "^1.2.6",
         "semver-regex": "^3.1.4",
         "brace-expansion": "^1.1.15",
