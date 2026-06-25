@@ -32,11 +32,11 @@
     "dependencies": {
         "bless": "3.0.3",
         "jquery": "=3.7.1",
-        "qs": "^6.11.0",
+        "qs": "^6.15.3",
         "replace": "latest",
         "sass": "^1.84.0",
         "semver-regex": "^3.1.4",
-        "shell-quote": "^1.7.3",
+        "shell-quote": "^1.9.0",
         "uglify-js": "latest"
     },
     "devDependencies": {
@@ -51,8 +51,8 @@
         "http-cache-semantics": "latest",
         "minimist": "^1.2.6",
         "semver-regex": "^3.1.4",
-        "brace-expansion": "^1.1.12",
-        "minimatch": "latest",
+        "brace-expansion": "^1.1.15",
+        "minimatch": "^9.0.9",
         "trim-newlines": "^3.0.1",
         "cross-spawn": "^7.0.5"
     }
