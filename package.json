@@ -49,9 +49,10 @@
     "overrides": {
         "minimist": "^1.2.6",
         "semver-regex": "^3.1.4",
-        "brace-expansion": "^1.1.15",
+        "brace-expansion": "^1.1.18",
         "minimatch": "^9.0.9",
         "trim-newlines": "^3.0.1",
-        "cross-spawn": "^7.0.5"
+        "cross-spawn": "^7.0.5",
+        "immutable": "^5.1.9"
     }
 }
