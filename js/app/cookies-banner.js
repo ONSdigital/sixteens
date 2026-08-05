@@ -58,6 +58,16 @@ function submitCookieForm(e) {
     case "accept":
       setCookiePolicy(acceptAllCookiesPolicy);
       $cookiesAcceptText.removeClass("hidden");
+      // loadGTM is defined in the GTM snippet in the head of the page, so we can 
+      // call it here to load GTM after the user has accepted cookies
+      // 
+      // If the consuming application does not have this function then GTM 
+      // will not be loaded.
+      if (typeof loadGTM !== "undefined") {
+        loadGTM();
+      } else { 
+        console.warn("loadGTM function is not defined. GTM will not be loaded.");
+      }
       break;
     case "reject":
       setCookiePolicy(defaultCookiesPolicy);

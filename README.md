@@ -51,6 +51,12 @@ This app uses jQuery, the calling app will need to have the following snippet in
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 ```
 
+## GTM
+
+When using Sixteens - you will need to have a `loadGTM` function present in the dom due to it's interactions with the cookie banner.
+
+See `./js/app/cookies-banner.js` for more information.
+
 ## Updating Sixteens
 
 * Either run `npm run dev` or `run.sh` in the root of the project. This boots up an npm watch command that'll re-build your JS, CSS on change and host it at localhost:9000/dist/folder/file.
