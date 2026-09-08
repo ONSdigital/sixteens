@@ -1,7 +1,7 @@
 #!/bin/bash -eux
 
 pushd sixteens
-  npm install --unsafe-perm
+  npm install
   SHORT_REF=`git rev-parse --short HEAD`
 popd
 

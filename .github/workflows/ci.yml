@@ -20,7 +20,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - name: Install dependencies
-        run: npm install --unsafe-perm
+        run: npm install
       - name: Run npm audit
         env:
           OSSINDEX_USERNAME: ${{ secrets.OSSINDEX_USERNAME }}
@@ -37,6 +37,6 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - name: Install dependencies
-        run: npm install --unsafe-perm
+        run: npm install
       - name: Run build test
         run: npm run build

@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
 pushd sixteens
-  npm install --unsafe-perm
+  npm install
   npm run audit
 popd
