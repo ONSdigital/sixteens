@@ -32,7 +32,7 @@
     "dependencies": {
         "bless": "3.0.3",
         "jquery": "=3.7.1",
-        "qs": "^6.15.3",
+        "qs": "^6.16.0",
         "replace": "latest",
         "sass": "^1.84.0",
         "semver-regex": "^3.1.4",
