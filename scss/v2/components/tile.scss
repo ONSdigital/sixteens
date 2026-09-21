@@ -298,6 +298,33 @@
         background: rgba(0, 60, 87, 0.95);
         position: relative;
 
+        .tile__content-wrapper {
+            display: grid;
+            grid-template-rows: auto minmax(0, 1fr) auto;
+            height: 100%;
+        }
+
+        .tile__heading {
+            margin-right: -32px;
+            min-width: 0;
+        }
+
+        .tile__title--highlighted {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+        }
+
+        .tile__description {
+            overflow: hidden;
+        }
+
+        .tile__cta {
+            align-self: end;
+        }
+
         @include breakpoint(sm) {
             margin-inline: -16px;
             width: auto;
