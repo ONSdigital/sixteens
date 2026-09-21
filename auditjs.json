@@ -1,3 +1,8 @@
 {
-    "ignore": []
+    "ignore": [
+        {
+            "id": "CVE-2026-93749",
+            "reason": "A vulnerability of source-map-js which is a sub dependency of Sass, only used during build time and does not affect runtime."
+        }
+    ]
 }
