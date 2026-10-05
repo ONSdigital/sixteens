@@ -158,6 +158,10 @@ strong,
 
   img {
     max-width: ($col * 38);
+
+    @include breakpoint(sm) {
+      max-width: 100%;
+    }
   }
 
   li {
