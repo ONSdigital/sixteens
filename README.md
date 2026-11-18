@@ -79,3 +79,11 @@ This will create or update the `work-in-progress.css` file in `dist`.
 
 [node]: <https://nodejs.org/en/>
 [npm]: <https://www.npmjs.com/>
+
+## Tooling
+
+### Auditing
+
+We use sonatype guide for auditing. You will need a personal access token setup to be able to run `make audit`.
+
+This should be set to `SONATYPE_GUIDE_TOKEN`.

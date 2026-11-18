@@ -23,8 +23,7 @@ jobs:
         run: npm install
       - name: Run npm audit
         env:
-          OSSINDEX_USERNAME: ${{ secrets.OSSINDEX_USERNAME }}
-          OSSINDEX_TOKEN: ${{ secrets.OSSINDEX_TOKEN }}
+          SONATYPE_GUIDE_TOKEN: ${{ secrets.SONATYPE_GUIDE_TOKEN }}
         run: npm run audit
 
   build-node:
